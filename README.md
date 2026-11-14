@@ -26,3 +26,4 @@ Skate Lodge grows out of [MySkate](https://github.com/iiSurf/MySkate), a practic
 - Due: Sunday, December 13, 2026.
 
 Built with Claude Code for TCSS 490, Artifact 5: The Moonshot.
+# Skate-Lodge
