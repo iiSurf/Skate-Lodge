@@ -2,7 +2,7 @@
 
 The record of what we have decided to build, so that neither the owner nor the agent forgets it. This is planning only: nothing is built yet. Update this file when a decision changes, and note the change in `LOG.md`.
 
-The platform is called **Skate Lodge** (chosen 2026-11-14). The folder on the owner's computer is still named "MySkate-Moonshot". That is only a local name: the repository is Skate Lodge.
+The platform is called **Skate Lodge** (chosen 2026-11-14). The repository is github.com/iiSurf/Skate-Lodge, and the folder on the owner's computer is `Skate-Lodge`.
 
 How to read it:
 

@@ -81,3 +81,7 @@ The owner needs a GitHub link to turn in for the weekly checkpoint, and reminded
 The Artifact 5 card in the Portfolio (`../Portfolio/cards.js`) now says Skate Lodge, links to this repository, and describes where the plan stands. Its status stays "idea" because nothing is built. It is committed in the Portfolio but not pushed.
 
 Pushing from the agent did not work: the push waits forever at the Mac's keychain, and the SSH key on this computer is not accepted by GitHub. The owner has to run the two pushes (this repository and the Portfolio) from their own terminal.
+
+### On GitHub (same day)
+
+The owner pushed this repository to github.com/iiSurf/Skate-Lodge and renamed the folder on their computer from MySkate-Moonshot to Skate-Lodge. The Portfolio's Artifact 5 card is committed there but was still not pushed when checked, so the live Portfolio showed the old card.
