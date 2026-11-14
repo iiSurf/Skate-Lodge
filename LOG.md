@@ -75,3 +75,9 @@ The owner needs a GitHub link to turn in for the weekly checkpoint, and reminded
 - The owner: film three to five jump clips (side-on, 60 frames a second, some propped and some followed), and ask one coach what they would want to see about a student between lessons.
 - Answer the open questions in `ROADMAP.md`, starting with the name.
 - Then: turn the folder into a repository, write `CLAUDE.md`, break the plan into pieces, and run the one-day Jump Lab test on the real clips.
+
+### The Portfolio card and the push (same day)
+
+The Artifact 5 card in the Portfolio (`../Portfolio/cards.js`) now says Skate Lodge, links to this repository, and describes where the plan stands. Its status stays "idea" because nothing is built. It is committed in the Portfolio but not pushed.
+
+Pushing from the agent did not work: the push waits forever at the Mac's keychain, and the SSH key on this computer is not accepted by GitHub. The owner has to run the two pushes (this repository and the Portfolio) from their own terminal.
