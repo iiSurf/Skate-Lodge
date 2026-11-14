@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MySkate moonshot: sneak peek</title>
+<style>
+  /* A sneak peek for inspiration only. Nothing here is built. Every name and number is made up.
+     Colors are MySkate's clean rink tokens, with extra color coming from the collectibles. */
+  :root {
+    --navy: #0e2347; --navy-2: #2c4466; --mute: #51677f; --floor: #f5f8fb; --card: #ffffff;
+    --line: #c9d8e4; --line-soft: #dbe7f0; --blue: #2a7fc1; --blue-deep: #1d659f; --blue-soft: #e1effa;
+    --gold-fill: #f4c04e; --gold-text: #8a5a00; --gold-soft: #fbf0d6; --coral: #c8402f; --red: #d9382c;
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --font: "Atkinson Hyperlegible Next", -apple-system, system-ui, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9eff5; color: var(--navy); font: 17px/1.4 var(--font); }
+  header.top { max-width: 1680px; margin: 0 auto; padding: 28px 16px 8px; }
+  header.top h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+  header.top p { margin: 0; color: var(--navy-2); max-width: 60ch; }
+  main { max-width: 1680px; margin: 0 auto; padding: 16px; display: grid; gap: 24px;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; }
+  .phone { width: 100%; max-width: 390px; margin: 0 auto; background: var(--floor); border: 2px solid var(--line);
+           border-radius: 30px; overflow: hidden; box-shadow: 0 14px 34px rgba(14, 35, 71, 0.16); }
+  .caption { max-width: 390px; margin: 10px auto 0; color: var(--navy-2); font-size: 15px; }
+  .band { background: var(--navy); color: #fff; padding: 18px 16px 16px; }
+  .band-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .band h2 { margin: 0; font-size: 24px; line-height: 1.1; }
+  .band .sub { margin: 4px 0 0; color: #c8d6e6; font-size: 15px; }
+  .bell { position: relative; width: 44px; height: 44px; flex: none; border: 2px solid #3d5680; border-radius: 14px;
+          background: #17305c; display: grid; place-items: center; }
+  .bell svg { width: 22px; height: 22px; }
+  .bell .dot { position: absolute; top: -7px; right: -7px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px;
+               background: var(--gold-fill); color: #3a2600; font-size: 13px; font-weight: 700; display: grid; place-items: center;
+               border: 2px solid var(--navy); }
+  .body { padding: 16px; display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+  .card { background: var(--card); border: 2px solid var(--line-soft); border-radius: 20px; padding: 14px; }
+  .label { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+  .btn { font: 700 16px var(--font); color: #fff; background: var(--navy); border: 0; border-radius: 14px; padding: 12px 16px;
+         box-shadow: 4px 4px 0 var(--red); cursor: pointer; transition: transform 0.18s var(--spring), box-shadow 0.18s; }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--red); }
+  .btn.quiet { background: #fff; color: var(--navy); border: 2px solid var(--line); box-shadow: none; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Passport */
+  .toast { display: flex; gap: 10px; align-items: center; background: var(--gold-soft); border: 2px solid var(--gold-fill);
+           border-radius: 16px; padding: 10px 12px; font-size: 15px; animation: drop 0.5s var(--spring) 1.1s both; }
+  .toast b { display: block; }
+  .toast .ic { width: 34px; height: 34px; border-radius: 10px; background: var(--gold-fill); display: grid; place-items: center; flex: none; }
+  .stage { perspective: 900px; touch-action: pan-y; }
+  .page { --rx: 0deg; --ry: 0deg; --sh: 0; transform: rotateX(var(--rx)) rotateY(var(--ry)); transition: transform 0.14s ease-out;
+          transform-style: preserve-3d; }
+  .page-inner { position: relative; background: #fffdf8; border: 2px solid #e6dcc6; border-radius: 16px; padding: 14px 14px 16px;
+                box-shadow: 0 10px 22px rgba(14, 35, 71, 0.18); }
+  .page-inner.thunk { animation: thunk 0.7s ease-out; }
+  .page-head { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #e6dcc6;
+               padding-bottom: 10px; margin-bottom: 12px; }
+  .page-head .t { font-weight: 700; letter-spacing: 0.14em; font-size: 14px; }
+  .page-head .n { color: var(--mute); font-size: 14px; }
+  .seal { width: 58px; height: 58px; border-radius: 50%; display: grid; place-items: center; text-align: center; flex: none;
+          font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; line-height: 1.15; color: #4a3200;
+          background: linear-gradient(110deg, #c9962b, #f4c04e, #fff6d0, #f4c04e, #c9962b); background-size: 300% 100%;
+          background-position: calc(50% + var(--sh) * 45%) 0; box-shadow: 0 0 0 3px #fffdf8, 0 0 0 5px #d9a93a; margin: -4px 2px 0 0; }
+  .slots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .slot { position: relative; aspect-ratio: 1; display: grid; place-items: center; }
+  .slot.empty { border: 2px dashed var(--line); border-radius: 50%; color: var(--mute); font-size: 13px; text-align: center; padding: 8px; line-height: 1.2; }
+  .stamp { width: 100%; height: 100%; transform: rotate(var(--r, 0deg)); opacity: 0.92; }
+  .stamp svg { width: 100%; height: 100%; display: block; overflow: visible; }
+  .slot.new .stamp { animation: stampIn 0.7s cubic-bezier(0.2, 0.9, 0.3, 1) 0.5s both; }
+  .slot.new::after { content: ""; position: absolute; inset: 6%; border-radius: 50%; border: 3px solid var(--coral); opacity: 0;
+                     animation: ink 0.7s ease-out 0.9s both; pointer-events: none; }
+  .hint { color: var(--mute); font-size: 14px; margin: 0; }
+
+  /* Buddies */
+  .thaw { display: grid; grid-template-columns: 104px 1fr; gap: 12px; align-items: center; }
+  .cube { width: 104px; animation: wobble 3.2s ease-in-out infinite; transform-origin: 50% 90%; }
+  .bar { height: 14px; border-radius: 7px; background: var(--line-soft); overflow: hidden; }
+  .bar i { display: block; height: 100%; border-radius: 7px; background: var(--blue); }
+  .album { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .tile { background: var(--card); border: 2px solid var(--line-soft); border-radius: 16px; padding: 8px 6px 8px; text-align: center; }
+  .tile svg { width: 100%; display: block; }
+  .tile .nm { font-size: 14px; font-weight: 700; line-height: 1.15; margin-top: 2px; }
+  .tile .rar { font-size: 11px; letter-spacing: 2px; color: var(--gold-text); }
+  .tile.mystery { background: #eef3f8; border-style: dashed; border-color: var(--line); }
+  .tile.mystery .nm { color: var(--mute); font-weight: 400; }
+  .tile.sparkly { border-color: transparent; background: linear-gradient(#fff, #fff) padding-box,
+                  linear-gradient(110deg, #c9962b, #f4c04e, #fff6d0, #8f7be0, #2a7fc1, #f4c04e) border-box; background-size: auto, 300% 100%;
+                  animation: shimmer 4s linear infinite; }
+
+  /* Level road */
+  .xp { margin-top: 12px; }
+  .xp .bar { background: #24406e; } .xp .bar i { background: var(--gold-fill); }
+  .xp small { display: flex; justify-content: space-between; color: #c8d6e6; font-size: 14px; margin-top: 4px; }
+  .road { list-style: none; margin: 0; padding: 0; position: relative; }
+  .road::before { content: ""; position: absolute; left: 21px; top: 22px; bottom: 22px; width: 6px; border-radius: 3px;
+                  background: linear-gradient(var(--blue) 0 23%, var(--line) 23% 100%); }
+  .road li { position: relative; display: grid; grid-template-columns: 48px 1fr 60px; gap: 12px; align-items: center; padding: 8px 0; }
+  .road .lv { width: 48px; height: 48px; border-radius: 14px; display: grid; place-items: center; font-weight: 700; font-size: 19px;
+              background: #fff; border: 2px solid var(--line); color: var(--navy-2); position: relative; }
+  .road .done .lv { background: var(--blue); border-color: var(--blue); color: #fff; }
+  .road .here .lv { background: var(--navy); border-color: var(--navy); color: #fff; box-shadow: 4px 4px 0 var(--red); }
+  .road .what b { display: block; line-height: 1.2; }
+  .road .what span { color: var(--mute); font-size: 14px; }
+  .road .here .what span { color: var(--gold-text); font-weight: 700; }
+  .road .art { width: 60px; height: 48px; display: grid; place-items: center; }
+  .road .art svg { width: 100%; max-height: 48px; }
+  .swatch { width: 40px; height: 40px; border-radius: 12px; border: 2px solid var(--line); }
+  .title-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--gold-soft);
+               border: 2px solid var(--gold-fill); color: var(--gold-text); border-radius: 8px; padding: 3px 5px; line-height: 1.1; text-align: center; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .chip { border: 2px solid var(--line); border-radius: 999px; padding: 6px 12px; font-size: 15px; background: #fff; }
+  .chip.x2 { border-color: var(--gold-fill); background: var(--gold-soft); }
+
+  /* Jump Lab */
+  .video { border-radius: 16px; overflow: hidden; background: #0b1830; position: relative; }
+  .video svg { display: block; width: 100%; }
+  .scrub { position: relative; height: 34px; margin-top: 2px; }
+  .scrub .track { position: absolute; left: 0; right: 0; top: 14px; height: 8px; border-radius: 4px; background: var(--line-soft); }
+  .scrub .air { position: absolute; left: 34%; width: 30%; top: 14px; height: 8px; border-radius: 4px; background: var(--gold-fill); }
+  .scrub .knob { position: absolute; left: 49%; top: 6px; width: 24px; height: 24px; margin-left: -12px; border-radius: 50%;
+                 background: var(--navy); border: 3px solid #fff; box-shadow: 0 2px 6px rgba(14, 35, 71, 0.3); }
+  .scrub-labels { position: relative; height: 20px; font-size: 14px; color: var(--mute); }
+  .scrub-labels span { position: absolute; top: 0; transform: translateX(-50%); }
+  .scrub-labels span:first-child { left: 34%; } .scrub-labels span:last-child { left: 64%; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat { background: var(--card); border: 2px solid var(--line-soft); border-radius: 16px; padding: 10px 12px; }
+  .stat .k { font-size: 14px; color: var(--mute); }
+  .stat .v { font-size: 28px; font-weight: 700; line-height: 1.1; }
+  .stat .v small { font-size: 16px; font-weight: 400; color: var(--navy-2); }
+  .coachnote { background: var(--blue-soft); border-color: #bcd9f0; }
+  .coachnote ul { margin: 0; padding-left: 20px; }
+
+  @keyframes stampIn { 0% { transform: scale(2.4) rotate(calc(var(--r) - 14deg)); opacity: 0; } 55% { transform: scale(0.9) rotate(var(--r)); opacity: 0.92; }
+                       75% { transform: scale(1.06) rotate(var(--r)); } 100% { transform: scale(1) rotate(var(--r)); opacity: 0.92; } }
+  @keyframes ink { 0% { transform: scale(0.8); opacity: 0.6; } 100% { transform: scale(1.5); opacity: 0; } }
+  @keyframes thunk { 0%, 100% { transform: translateY(0); } 20% { transform: translateY(4px); } 50% { transform: translateY(-1px); } }
+  @keyframes drop { from { transform: translateY(-14px); opacity: 0; } to { transform: none; opacity: 1; } }
+  @keyframes wobble { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+  @keyframes shimmer { to { background-position: 0 0, 300% 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>MySkate moonshot: a sneak peek</h1>
+  <p>For inspiration only. Nothing here is built, and every name and number is made up. Drag across the passport (or tilt your phone) to move it, and press Stamp it again to watch a stamp land.</p>
+</header>
+
+<main>
+  <!-- 1. Rink passport -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>Rink passport</h2><p class="sub">4 rinks visited</p></div>
+          <div class="bell" aria-label="Notifications, 2 new"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg><span class="dot">2</span></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="toast" id="toast">
+          <span class="ic"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#3a2600" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8"/><path d="M8.5 12.5l2.5 2.5 4.5-5"/></svg></span>
+          <span><b>New stamp!</b>North Star Ice is in your passport.</span>
+        </div>
+        <div class="stage" id="stage">
+          <div class="page" id="page">
+            <div class="page-inner" id="pageInner">
+              <div class="page-head">
+                <div><div class="t">RINK PASSPORT</div><div class="n">Sam &middot; page 1</div></div>
+                <div class="seal">HOME<br>RINK</div>
+              </div>
+              <div class="slots" id="slots"></div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <button class="btn" id="again">Stamp it again</button>
+          <button class="btn quiet" id="tilt">Tilt with my phone</button>
+        </div>
+        <p class="hint">The gold seal shines as the page moves.</p>
+      </div>
+    </div>
+    <p class="caption">A stamp lands with a press. It does not just appear.</p>
+  </section>
+
+  <!-- 2. Blade buddies -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>Blade buddies</h2><p class="sub">5 of 24 found</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="card">
+          <p class="label">Thawing now</p>
+          <div class="thaw">
+            <div class="cube" id="cube"></div>
+            <div>
+              <b>Someone is in there.</b>
+              <div class="bar" style="margin:8px 0 6px"><i style="width:63%"></i></div>
+              <span style="color:var(--mute);font-size:15px">38 of 60 minutes on the ice. Skate 22 more to meet it.</span>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="label">Your album</p>
+          <div class="album" id="album"></div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Soft guards as collectibles. Ice time thaws the next one. Never for sale.</p>
+  </section>
+
+  <!-- 3. Level road -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>What's ahead</h2><p class="sub">Level 7 &middot; Sam</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+        <div class="xp"><div class="bar"><i style="width:68%"></i></div><small><span>340 XP</span><span>160 to Level 8</span></small></div>
+      </div>
+      <div class="body">
+        <div class="card">
+          <ul class="road" id="road"></ul>
+        </div>
+        <div>
+          <p class="label">Ways to earn XP</p>
+          <div class="chips">
+            <span class="chip">Ice time</span><span class="chip">Off-ice stretch</span><span class="chip x2">Coach's task &times;2</span>
+            <span class="chip">A new rink</span><span class="chip">Jump Lab clip</span><span class="chip">Club quest</span><span class="chip">A rest day</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Every level unlocks something, and you can see it coming.</p>
+  </section>
+
+  <!-- 4. Jump Lab -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>Jump Lab</h2><p class="sub">Waltz jump &middot; attempt 14</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="video">
+          <svg viewBox="0 0 340 230" role="img" aria-label="A skater in the air with a skeleton drawn over them">
+            <rect width="340" height="230" fill="#0b1830"/>
+            <rect y="0" width="340" height="112" fill="#10233f"/>
+            <rect y="104" width="340" height="10" fill="#2c4466"/>
+            <rect y="112" width="340" height="3" fill="#d9382c"/>
+            <rect y="115" width="340" height="115" fill="#1e3a61"/>
+            <rect y="188" width="340" height="42" fill="#274a73"/>
+            <!-- the path of the jump -->
+            <path d="M70 188 Q170 132 270 188" fill="none" stroke="#f4c04e" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+            <g fill="#f4c04e"><circle cx="70" cy="188" r="6"/><circle cx="270" cy="188" r="6"/></g>
+            <g font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#f4c04e">
+              <text x="70" y="210" text-anchor="middle">Takeoff</text><text x="270" y="210" text-anchor="middle">Landing</text>
+            </g>
+            <!-- height -->
+            <g stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"><path d="M246 188V160M240 160h12M240 188h12"/></g>
+            <text x="256" y="178" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#fff">18 cm</text>
+            <!-- skeleton -->
+            <g stroke="#7fd0ff" stroke-width="4" stroke-linecap="round" fill="none">
+              <path d="M170 56V66M154 72H186M154 72L138 86L150 100M186 72L204 84L198 98M154 72L162 114M186 72L178 114M162 114H178"/>
+              <path d="M162 114L150 138L140 158L128 160M178 114L192 132L212 142L224 138"/>
+            </g>
+            <circle cx="170" cy="46" r="10" fill="none" stroke="#7fd0ff" stroke-width="4"/>
+            <g fill="#fff"><circle cx="154" cy="72" r="4"/><circle cx="186" cy="72" r="4"/><circle cx="138" cy="86" r="4"/><circle cx="204" cy="84" r="4"/><circle cx="150" cy="100" r="4"/><circle cx="198" cy="98" r="4"/><circle cx="162" cy="114" r="4"/><circle cx="178" cy="114" r="4"/><circle cx="150" cy="138" r="4"/><circle cx="192" cy="132" r="4"/><circle cx="140" cy="158" r="4"/><circle cx="212" cy="142" r="4"/></g>
+            <!-- axis -->
+            <path d="M170 24V172" stroke="#ffffff" stroke-width="2" stroke-dasharray="6 6" opacity="0.55"/>
+            <g font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700">
+              <rect x="10" y="10" width="58" height="24" rx="12" fill="#f4c04e"/><text x="39" y="26.5" text-anchor="middle" fill="#3a2600">60 fps</text>
+              <rect x="74" y="10" width="72" height="24" rx="12" fill="#17305c" stroke="#3d5680" stroke-width="2"/><text x="110" y="26.5" text-anchor="middle" fill="#fff">Propped</text>
+            </g>
+          </svg>
+        </div>
+        <div>
+          <div class="scrub"><div class="track"></div><div class="air"></div><div class="knob"></div></div>
+          <div class="scrub-labels"><span>Up</span><span>Down</span></div>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="k">Air time</div><div class="v">0.38 <small>s</small></div></div>
+          <div class="stat"><div class="k">Height</div><div class="v">18 <small>cm</small></div></div>
+          <div class="stat"><div class="k">Rotation</div><div class="v">&frac12; <small>turn</small></div></div>
+          <div class="stat"><div class="k">Landing held</div><div class="v">2.1 <small>s</small></div></div>
+        </div>
+        <div class="card coachnote">
+          <p class="label" style="color:var(--blue-deep)">To show your coach</p>
+          <ul><li>Your arms opened before you landed.</li><li>Your free leg was low on the way out.</li></ul>
+        </div>
+        <p class="hint">Saved to Waltz jump. The video stays on your phone.</p>
+      </div>
+    </div>
+    <p class="caption">The headline: real numbers from your own clip.</p>
+  </section>
+</main>
+
+<script>
+  const NAVY = "#0e2347";
+
+  // ---------- Stamps ----------
+  const ICONS = {
+    mountain: (c) => `<path d="M38 74L54 46L62 58L68 50L82 74Z" fill="none" stroke="${c}" stroke-width="3.5" stroke-linejoin="round"/>`,
+    pine: (c) => `<path d="M60 40L72 56H66L76 70H44L54 56H48Z" fill="${c}"/><rect x="57" y="70" width="6" height="8" fill="${c}"/>`,
+    wave: (c) => `<g fill="none" stroke="${c}" stroke-width="3.5" stroke-linecap="round"><path d="M40 56q5-8 10 0t10 0t10 0t10 0"/><path d="M40 68q5-8 10 0t10 0t10 0t10 0"/></g>`,
+    star: (c) => `<polygon points="60,44 63.8,54.7 75.2,55.1 66.2,62 69.4,72.9 60,66.5 50.6,72.9 53.8,62 44.8,55.1 56.2,54.7" fill="${c}"/>`,
+  };
+  function stampSvg(s, i) {
+    const c = s.color, t = `font-family="-apple-system, system-ui, sans-serif" font-weight="700" fill="${c}"`;
+    let frame, text;
+    if (s.shape === "ticket") {
+      frame = `<rect x="6" y="14" width="108" height="92" rx="12" fill="none" stroke="${c}" stroke-width="4"/><rect x="14" y="22" width="92" height="76" rx="6" fill="none" stroke="${c}" stroke-width="2"/>`;
+      text = `<text x="60" y="38" text-anchor="middle" font-size="9.5" letter-spacing="1" ${t}>${s.name}</text><text x="60" y="92" text-anchor="middle" font-size="9" letter-spacing="1" ${t}>${s.date}</text>`;
+    } else {
+      if (s.shape === "bead") frame = `<circle cx="60" cy="60" r="55" fill="none" stroke="${c}" stroke-width="6" stroke-linecap="round" stroke-dasharray="0.1 11.42"/>`;
+      else if (s.shape === "hex") frame = `<polygon points="60,2 110,31 110,89 60,118 10,89 10,31" fill="none" stroke="${c}" stroke-width="4" stroke-linejoin="round"/>`;
+      else frame = `<circle cx="60" cy="60" r="55" fill="none" stroke="${c}" stroke-width="4"/>`;
+      frame += `<circle cx="60" cy="60" r="33" fill="none" stroke="${c}" stroke-width="2"/>`;
+      text = `<defs><path id="t${i}" d="M20 60A40 40 0 0 1 100 60"/><path id="b${i}" d="M12 60A48 48 0 0 0 108 60"/></defs>
+        <text font-size="9.5" letter-spacing="1" ${t}><textPath href="#t${i}" startOffset="50%" text-anchor="middle">${s.name}</textPath></text>
+        <text font-size="8.5" letter-spacing="1" ${t}><textPath href="#b${i}" startOffset="50%" text-anchor="middle">${s.date}</textPath></text>`;
+    }
+    return `<svg viewBox="0 0 120 120" aria-label="Stamp: ${s.name}">${frame}${text}${ICONS[s.icon](c)}</svg>`;
+  }
+  const STAMPS = [
+    { name: "HIGHLAND ICE ARENA", date: "3 OCT 2026", shape: "circle", color: "#1d659f", icon: "mountain", r: -7 },
+    { name: "HARBOR RINK", date: "24 OCT 2026", shape: "ticket", color: "#6b54c9", icon: "wave", r: 5 },
+    { name: "PINECREST ICE", date: "7 NOV 2026", shape: "hex", color: "#1f8a5b", icon: "pine", r: -3 },
+    { name: "NORTH STAR ICE", date: "14 NOV 2026", shape: "bead", color: "#c8402f", icon: "star", r: 8, isNew: true },
+  ];
+  const slots = document.getElementById("slots");
+  slots.innerHTML = STAMPS.map((s, i) => `<div class="slot${s.isNew ? " new" : ""}"><div class="stamp" style="--r:${s.r}deg">${stampSvg(s, i)}</div></div>`).join("")
+    + `<div class="slot empty">A rink 12 miles away</div><div class="slot empty">5 rinks: a gold stamp</div>`;
+
+  // ---------- Blade buddies (soft guards) ----------
+  function buddyParts(b) {
+    const m = b.mystery, body = b.body, dark = b.dark, p = [];
+    p.push(`<rect x="30" y="44" width="84" height="26" rx="13" fill="${dark}"/>`);
+    if (b.kind === "bunny") p.push(`<circle cx="107" cy="52" r="8" fill="${m ? body : "#fff"}"/>`);
+    if (b.kind === "bear") p.push(`<circle cx="108" cy="56" r="6" fill="${dark}"/>`);
+    if (b.kind === "fox") p.push(`<path d="M102 72q20-4 14-28q-14 6-16 24z" fill="${body}"/>` + (m ? "" : `<path d="M116 44q2 8-1 14q-5-2-6-8q3-4 7-6z" fill="#fff"/>`));
+    if (b.kind === "cat") p.push(`<path d="M104 74q16-6 10-26" fill="none" stroke="${body}" stroke-width="7" stroke-linecap="round"/>`);
+    if (b.kind === "penguin") p.push(`<polygon points="104,80 118,76 108,66" fill="${dark}"/>`);
+    p.push(`<rect x="18" y="52" width="92" height="30" rx="15" fill="${body}"/>`);
+    if (!m) p.push(`<rect x="72" y="52" width="9" height="30" fill="${dark}" opacity="0.6"/><rect x="44" y="72" width="52" height="5" rx="2.5" fill="#fff" opacity="0.45"/>`);
+    if (b.kind === "berry" && !m) p.push(`<g fill="#ffe9a8"><ellipse cx="58" cy="62" rx="1.8" ry="2.6"/><ellipse cx="66" cy="70" rx="1.8" ry="2.6"/><ellipse cx="90" cy="61" rx="1.8" ry="2.6"/><ellipse cx="98" cy="70" rx="1.8" ry="2.6"/></g>`);
+    // ears and tops, behind the head
+    if (b.kind === "bunny") p.push(`<ellipse cx="22" cy="22" rx="6.5" ry="17" fill="${body}"/><ellipse cx="42" cy="22" rx="6.5" ry="17" fill="${body}"/>` + (m ? "" : `<ellipse cx="22" cy="23" rx="3" ry="11" fill="#ffc2cf"/><ellipse cx="42" cy="23" rx="3" ry="11" fill="#ffc2cf"/>`));
+    if (b.kind === "bear") p.push(`<circle cx="15" cy="37" r="8.5" fill="${body}"/><circle cx="49" cy="37" r="8.5" fill="${body}"/>` + (m ? "" : `<circle cx="15" cy="37" r="4" fill="${dark}"/><circle cx="49" cy="37" r="4" fill="${dark}"/>`));
+    if (b.kind === "fox" || b.kind === "cat") p.push(`<polygon points="11,44 14,16 30,34" fill="${body}"/><polygon points="53,44 50,16 34,34" fill="${body}"/>` + (m ? "" : `<polygon points="15,36 16,24 24,33" fill="${dark}"/><polygon points="49,36 48,24 40,33" fill="${dark}"/>`));
+    if (b.kind === "berry") p.push(`<g fill="${m ? body : "#3fa66a"}"><ellipse cx="21" cy="35" rx="5" ry="10" transform="rotate(-40 21 35)"/><ellipse cx="32" cy="31" rx="5" ry="10"/><ellipse cx="43" cy="35" rx="5" ry="10" transform="rotate(40 43 35)"/></g>`);
+    if (b.kind === "lemon") p.push(`<ellipse cx="40" cy="31" rx="5" ry="11" transform="rotate(48 40 31)" fill="${m ? body : "#3fa66a"}"/>`);
+    p.push(`<circle cx="32" cy="54" r="22" fill="${body}"/>`);
+    if (m) { p.push(`<text x="68" y="76" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="20" font-weight="700" fill="#51677f">?</text>`); return p.join(""); }
+    if (b.kind === "penguin") p.push(`<ellipse cx="32" cy="58" rx="15" ry="14" fill="#fff"/>`);
+    if (b.kind === "fox") p.push(`<ellipse cx="32" cy="63" rx="12" ry="9" fill="#fff"/>`);
+    p.push(`<circle cx="18" cy="61" r="4" fill="#ff8fa3" opacity="0.6"/><circle cx="46" cy="61" r="4" fill="#ff8fa3" opacity="0.6"/>`);
+    p.push(`<circle cx="24" cy="53" r="3" fill="${NAVY}"/><circle cx="40" cy="53" r="3" fill="${NAVY}"/><circle cx="25" cy="52" r="1" fill="#fff"/><circle cx="41" cy="52" r="1" fill="#fff"/>`);
+    if (b.kind === "penguin") p.push(`<polygon points="28,59 36,59 32,65" fill="#f4a23c"/>`);
+    else p.push(`<path d="M29 60q3 3.5 6 0" fill="none" stroke="${NAVY}" stroke-width="2" stroke-linecap="round"/>`);
+    if (b.kind === "cat") p.push(`<g stroke="${NAVY}" stroke-width="1.6" stroke-linecap="round"><path d="M12 56h-7M12 60l-7 2M52 56h7M52 60l7 2"/></g>`);
+    return p.join("");
+  }
+  const buddySvg = (b) => `<svg viewBox="0 0 120 92" aria-hidden="true">${buddyParts(b)}</svg>`;
+  const GREY = { body: "#dbe7f0", dark: "#c9d8e4", mystery: true };
+  const BUDDIES = [
+    { kind: "bunny", name: "Snowball", body: "#ffd9e2", dark: "#f3b3c4", rar: 1 },
+    { kind: "bear", name: "Biscuit", body: "#e3b98a", dark: "#c8955f", rar: 1 },
+    { kind: "berry", name: "Jam", body: "#ff6f7d", dark: "#e04c5e", rar: 2 },
+    { kind: "penguin", name: "Zam", body: "#3d5a8c", dark: "#2a4370", rar: 2 },
+    { kind: "fox", name: "Ember", body: "#ff9d4d", dark: "#e67a2a", rar: 3, sparkly: true },
+    { kind: "cat", ...GREY }, { kind: "lemon", ...GREY }, { kind: "bunny", ...GREY }, { kind: "bear", ...GREY },
+  ];
+  document.getElementById("album").innerHTML = BUDDIES.map((b) => b.mystery
+    ? `<div class="tile mystery">${buddySvg(b)}<div class="nm">Not yet</div><div class="rar">&nbsp;</div></div>`
+    : `<div class="tile${b.sparkly ? " sparkly" : ""}">${buddySvg(b)}<div class="nm">${b.name}</div><div class="rar" aria-label="Rarity ${b.rar} of 3">${"●".repeat(b.rar)}${"○".repeat(3 - b.rar)}</div></div>`).join("");
+  document.getElementById("cube").innerHTML = `<svg viewBox="0 0 120 124" aria-label="A buddy frozen in an ice cube">
+    <defs><linearGradient id="ice" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf6fd"/><stop offset="1" stop-color="#b4d9f1"/></linearGradient></defs>
+    <rect x="12" y="12" width="96" height="96" rx="20" fill="url(#ice)" stroke="#8fc3e6" stroke-width="3"/>
+    <g transform="translate(22 30) scale(0.64)">${buddyParts({ kind: "cat", body: "#8fc3e6", dark: "#79b3da", mystery: true }).replace(/<text.*?<\/text>/, "")}</g>
+    <path d="M28 36q3-11 15-13" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" opacity="0.9"/>
+    <path d="M94 84q-1 9-10 11" fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="36" cy="117" r="4.5" fill="#b4d9f1"/><circle cx="50" cy="120" r="3" fill="#b4d9f1"/></svg>`;
+
+  // ---------- Level road ----------
+  const mini = (b) => `<svg viewBox="0 0 120 92" aria-hidden="true">${buddyParts(b)}</svg>`;
+  const ROAD = [
+    { lv: 6, cls: "done", what: "Mint for your card", sub: "Earned", art: `<div class="swatch" style="background:#9be3c4"></div>` },
+    { lv: 7, cls: "here", what: "Biscuit the bear", sub: "You are here", art: mini(BUDDIES[1]) },
+    { lv: 8, what: "A new buddy thaws", sub: "160 XP to go", art: mini({ kind: "lemon", body: "#ffe066", dark: "#f2c230" }) },
+    { lv: 9, what: "Gold edge for your stamps", sub: "660 XP to go", art: `<svg viewBox="0 0 120 120">${stampSvg({ name: "YOUR RINK", date: "LEVEL 9", shape: "bead", color: "#b47a12", icon: "star" }, 99).replace(/^<svg[^>]*>|<\/svg>$/g, "")}</svg>` },
+    { lv: 10, what: "A sparkly buddy", sub: "1,260 XP to go", art: mini({ kind: "cat", body: "#c9b8ff", dark: "#a892f0" }) },
+    { lv: 11, what: "A title for your card", sub: "1,960 XP to go", art: `<div class="title-tag">Clean<br>edges</div>` },
+  ];
+  document.getElementById("road").innerHTML = ROAD.map((r) => `<li class="${r.cls || ""}"><div class="lv">${r.lv}</div><div class="what"><b>${r.what}</b><span>${r.sub}</span></div><div class="art">${r.art}</div></li>`).join("");
+
+  // ---------- Passport: tilt, shine, and stamping again ----------
+  const page = document.getElementById("page"), stage = document.getElementById("stage"), inner = document.getElementById("pageInner");
+  const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function lean(x, y) { // x and y from -1 to 1
+    if (still) return;
+    page.style.setProperty("--ry", (x * 10).toFixed(2) + "deg");
+    page.style.setProperty("--rx", (-y * 7).toFixed(2) + "deg");
+    page.style.setProperty("--sh", x.toFixed(3));
+  }
+  stage.addEventListener("pointermove", (e) => { const b = stage.getBoundingClientRect(); lean(((e.clientX - b.left) / b.width) * 2 - 1, ((e.clientY - b.top) / b.height) * 2 - 1); });
+  stage.addEventListener("pointerleave", () => lean(0, 0));
+  const clamp = (v) => Math.max(-1, Math.min(1, v));
+  const onTilt = (e) => { if (e.gamma == null) return; lean(clamp(e.gamma / 25), clamp((e.beta - 45) / 25)); };
+  document.getElementById("tilt").addEventListener("click", async (ev) => {
+    try {
+      if (typeof DeviceOrientationEvent !== "undefined" && typeof DeviceOrientationEvent.requestPermission === "function") {
+        if ((await DeviceOrientationEvent.requestPermission()) !== "granted") { ev.target.textContent = "Drag the page instead"; return; }
+      }
+      window.addEventListener("deviceorientation", onTilt);
+      ev.target.textContent = "Tilting is on";
+    } catch { ev.target.textContent = "Drag the page instead"; }
+  });
+  document.getElementById("again").addEventListener("click", () => {
+    const slot = slots.querySelector(".slot.new"), toast = document.getElementById("toast");
+    for (const [el, cls] of [[slot, "new"], [inner, "thunk"]]) el.classList.remove(cls);
+    toast.style.animation = "none";
+    void slot.offsetWidth;
+    slot.classList.add("new"); toast.style.animation = "";
+    setTimeout(() => inner.classList.add("thunk"), 850);
+  });
+  setTimeout(() => inner.classList.add("thunk"), 850);
+</script>
+</body>
+</html>

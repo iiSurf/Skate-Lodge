@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en" data-hair="bun" data-outfit="top">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skate Lodge: sneak peek 2</title>
+<style>
+  /* Sneak peek 2, for inspiration only. Nothing here is built. Every name and number is made up.
+     The village and the pond are cozy; the rink screen is plain on purpose. */
+  :root {
+    --navy: #0e2347; --navy-2: #2c4466; --mute: #51677f; --floor: #f5f8fb; --card: #ffffff;
+    --line: #c9d8e4; --line-soft: #dbe7f0; --blue: #2a7fc1; --blue-deep: #1d659f; --blue-soft: #e1effa;
+    --gold-fill: #f4c04e; --gold-text: #8a5a00; --gold-soft: #fbf0d6; --red: #d9382c; --warm: #ffd77a;
+    --skin: #e8b98f; --hair: #6b4129; --top: #e5536b; --legs: #22386a;
+    --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --font: "Atkinson Hyperlegible Next", -apple-system, system-ui, "Segoe UI", sans-serif;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #e9eff5; color: var(--navy); font: 17px/1.4 var(--font); }
+  header.top { max-width: 2100px; margin: 0 auto; padding: 28px 16px 8px; }
+  header.top h1 { margin: 0 0 6px; font-size: 28px; line-height: 1.15; }
+  header.top p { margin: 0; color: var(--navy-2); max-width: 62ch; }
+  main { max-width: 2100px; margin: 0 auto; padding: 16px; display: grid; gap: 24px;
+         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); align-items: start; }
+  .phone { width: 100%; max-width: 390px; margin: 0 auto; background: var(--floor); border: 2px solid var(--line);
+           border-radius: 30px; overflow: hidden; box-shadow: 0 14px 34px rgba(14, 35, 71, 0.16); }
+  .caption { max-width: 390px; margin: 10px auto 0; color: var(--navy-2); font-size: 15px; }
+  .band { background: var(--navy); color: #fff; padding: 18px 16px 16px; }
+  .band-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .band h2, .scene-head h2 { margin: 0; font-size: 24px; line-height: 1.1; }
+  .band .sub, .scene-head .sub { margin: 4px 0 0; color: #c8d6e6; font-size: 15px; }
+  .bell { position: relative; width: 44px; height: 44px; flex: none; border: 2px solid #3d5680; border-radius: 14px;
+          background: #17305c; display: grid; place-items: center; }
+  .bell svg { width: 22px; height: 22px; }
+  .bell .dot { position: absolute; top: -7px; right: -7px; min-width: 22px; height: 22px; padding: 0 5px; border-radius: 11px;
+               background: var(--gold-fill); color: #3a2600; font-size: 13px; font-weight: 700; display: grid; place-items: center; border: 2px solid var(--navy); }
+  .body { padding: 16px; display: grid; gap: 14px; grid-template-columns: minmax(0, 1fr); }
+  .card { background: var(--card); border: 2px solid var(--line-soft); border-radius: 20px; padding: 14px; }
+  .label { margin: 0 0 8px; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mute); }
+  .btn { font: 700 16px var(--font); color: #fff; background: var(--navy); border: 0; border-radius: 14px; padding: 12px 16px;
+         box-shadow: 4px 4px 0 var(--red); cursor: pointer; transition: transform 0.18s var(--spring), box-shadow 0.18s; }
+  .btn:active { transform: translate(3px, 3px); box-shadow: 1px 1px 0 var(--red); }
+  .hint { color: var(--mute); font-size: 14px; margin: 0; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+
+  /* Scenes */
+  .scene { position: relative; overflow: hidden; }
+  .scene > svg.bg { display: block; width: 100%; }
+  .scene-head { position: absolute; left: 16px; right: 16px; top: 16px; color: #fff; display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; }
+  .scene-head.dark { color: var(--navy); } .scene-head.dark .sub { color: var(--navy-2); }
+  .scene-head.dark .bell { background: #fff; border-color: var(--line); }
+  .place { position: absolute; transform: translateX(-50%); white-space: nowrap; font: 700 13px var(--font); color: var(--navy);
+           background: #fff; border: 2px solid var(--navy); border-radius: 999px; padding: 4px 10px; box-shadow: 2px 2px 0 var(--red); }
+  .rooms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+  .room { position: relative; background: #fff; border: 2px solid var(--line-soft); border-radius: 16px; padding: 10px 6px; text-align: center; font-size: 14px; font-weight: 700; line-height: 1.2; }
+  .room svg { width: 30px; height: 30px; display: block; margin: 0 auto 6px; }
+  .room .new { position: absolute; top: -8px; right: -6px; background: var(--gold-fill); color: #3a2600; border-radius: 10px; font-size: 12px; padding: 1px 7px; border: 2px solid #fff; }
+  .tonight { display: grid; grid-template-columns: 1fr auto; gap: 12px; align-items: center; }
+  .tonight b { display: block; font-size: 19px; line-height: 1.2; }
+  .tonight span { color: var(--mute); font-size: 15px; }
+
+  /* The pond as a sticker page */
+  #pond { touch-action: pan-y; }
+  .stk { position: absolute; touch-action: none; cursor: grab; user-select: none; -webkit-user-select: none; transition: transform 0.18s var(--spring), filter 0.18s; }
+  .stk svg { display: block; width: 100%; pointer-events: none; }
+  .stk.lift { cursor: grabbing; transform: scale(1.15) rotate(-3deg); filter: drop-shadow(0 8px 6px rgba(14, 35, 71, 0.25)); z-index: 999 !important; }
+  .stk.pop { animation: pop 0.45s var(--spring); }
+  .stk.float { animation: bob 3.4s ease-in-out infinite; }
+  .tray { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 4px; }
+  .tray button { flex: none; width: 62px; height: 66px; border-radius: 14px; border: 2px solid var(--line); background: #fff; padding: 4px; cursor: pointer; position: relative; }
+  .tray button svg { width: 100%; height: 100%; display: block; }
+  .tray button:active { transform: scale(0.94); }
+  .tray button.locked { background: #eef3f8; border-style: dashed; cursor: default; }
+  .tray button.locked svg { opacity: 0.35; }
+  .tray button.locked span { position: absolute; left: 3px; right: 3px; bottom: 3px; font: 700 11px var(--font); background: var(--navy); color: #fff; border-radius: 7px; padding: 1px 0; }
+
+  /* My skater */
+  .preview { display: grid; place-items: center; background: linear-gradient(#dff1fb, #f4f9fd); border: 2px solid var(--line-soft); border-radius: 20px; padding: 10px; }
+  .preview svg { width: 150px; }
+  .opts { display: grid; gap: 12px; }
+  .opt .label { margin-bottom: 6px; }
+  .sw { display: flex; gap: 8px; flex-wrap: wrap; }
+  .sw button { width: 36px; height: 36px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px var(--line); cursor: pointer; padding: 0; }
+  .sw button[aria-pressed="true"] { box-shadow: 0 0 0 3px var(--navy); }
+  .seg { display: flex; gap: 8px; flex-wrap: wrap; }
+  .seg button { font: 700 15px var(--font); color: var(--navy); background: #fff; border: 2px solid var(--line); border-radius: 999px; padding: 7px 13px; cursor: pointer; }
+  .seg button[aria-pressed="true"] { background: var(--navy); border-color: var(--navy); color: #fff; }
+  :root[data-hair="bun"] .k-long, :root[data-hair="bun"] .k-hat,
+  :root[data-hair="long"] .k-bun, :root[data-hair="long"] .k-hat,
+  :root[data-hair="hat"] .k-bun, :root[data-hair="hat"] .k-long { display: none; }
+  :root[data-outfit="top"] .k-dress { display: none; }
+
+  /* Jump Lab */
+  .video { border-radius: 16px; overflow: hidden; background: #0b1830; }
+  .video svg { display: block; width: 100%; }
+  .video.bones .char { display: none; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .stat { background: var(--card); border: 2px solid var(--line-soft); border-radius: 16px; padding: 10px 12px; }
+  .stat .k { font-size: 14px; color: var(--mute); }
+  .stat .v { font-size: 28px; font-weight: 700; line-height: 1.1; }
+  .stat .v small { font-size: 16px; font-weight: 400; color: var(--navy-2); }
+
+  /* Rink mode: plain on purpose */
+  .clock { text-align: center; }
+  .clock .t { font-size: 64px; font-weight: 700; line-height: 1; letter-spacing: 0.02em; font-variant-numeric: tabular-nums; }
+  .clock .k { color: var(--mute); font-size: 15px; margin-top: 4px; }
+  .skill b { display: block; font-size: 24px; line-height: 1.15; }
+  .count { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 12px; }
+  .count div { border-radius: 16px; padding: 12px; text-align: center; font-weight: 700; border: 2px solid var(--line); background: #fff; }
+  .count div b { display: block; font-size: 34px; line-height: 1; }
+  .count .yes { background: var(--blue-soft); border-color: #bcd9f0; }
+  .stars { font-size: 30px; letter-spacing: 4px; color: var(--gold-fill); margin-top: 10px; -webkit-text-stroke: 1.5px #b47a12; }
+  .stars i { font-style: normal; color: #fff; }
+  .away { display: flex; gap: 10px; align-items: center; color: var(--mute); font-size: 15px; }
+  .away svg { width: 26px; height: 26px; flex: none; }
+
+  @keyframes pop { from { transform: scale(0.2); } to { transform: scale(1); } }
+  @keyframes bob { 0%, 100% { translate: 0 0; } 50% { translate: 0 -6px; } }
+  @keyframes twinkle { 0%, 100% { opacity: 1; } 50% { opacity: 0.35; } }
+  @keyframes puff { from { transform: translateY(0); opacity: 0.55; } to { transform: translateY(-16px); opacity: 0; } }
+  .bulb { animation: twinkle 2.4s ease-in-out infinite; } .bulb:nth-child(2n) { animation-delay: 1.2s; }
+  .smoke circle { animation: puff 4s ease-out infinite; } .smoke circle:nth-child(2) { animation-delay: 1.3s; } .smoke circle:nth-child(3) { animation-delay: 2.6s; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <h1>Skate Lodge: sneak peek 2</h1>
+  <p>For inspiration only. Nothing here is built, and every name and number is made up. Drag anything on the pond, tap the tray to add more, and change the skater: it changes everywhere at once.</p>
+</header>
+
+<main>
+  <!-- 1. The village -->
+  <section>
+    <div class="phone">
+      <div class="scene">
+        <svg class="bg" id="village" viewBox="0 0 358 340" role="img" aria-label="A snowy village at dusk with a lodge, two cabins, and a frozen pond"></svg>
+        <div class="scene-head">
+          <div><h2>Good evening, Sam</h2><p class="sub">Level 7 &middot; Skate Lodge</p></div>
+          <div class="bell" aria-label="Notifications, 2 new"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg><span class="dot">2</span></div>
+        </div>
+        <span class="place" style="left:18%;top:75%">Passport desk</span>
+        <span class="place" style="left:50%;top:75%">The lodge</span>
+        <span class="place" style="left:81%;top:75%">Coach's office</span>
+        <span class="place" style="left:72%;top:91%">My pond</span>
+      </div>
+      <div class="body">
+        <div class="card tonight">
+          <div><p class="label">Your next move</p><b>Ice at 6:15 tonight</b><span>Highland Ice Arena &middot; 60 minutes</span></div>
+          <button class="btn">Plan it</button>
+        </div>
+        <div>
+          <p class="label">Inside the lodge</p>
+          <div class="rooms">
+            <div class="room"><svg viewBox="0 0 24 24" fill="none" stroke="#1d659f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2.5"/><path d="M12 8v6M7 10l5 1 5-2M12 14l-4 6M12 14l5 4"/></svg>Jump Lab</div>
+            <div class="room"><svg viewBox="0 0 24 24" fill="none" stroke="#8a5a00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10v5a5 5 0 0 1-10 0zM7 6H4a3 3 0 0 0 3 4M17 6h3a3 3 0 0 1-3 4M12 14v4M8 20h8"/></svg>Trophy room</div>
+            <div class="room"><span class="new">3</span><svg viewBox="0 0 24 24" fill="none" stroke="#6b54c9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v10H10l-4 4v-4H4z"/></svg>Lounge</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="caption">Home is a village. Each tool is a place you walk to.</p>
+  </section>
+
+  <!-- 2. My pond -->
+  <section>
+    <div class="phone">
+      <div class="scene" id="pond">
+        <svg class="bg" id="pondbg" viewBox="0 0 358 330" role="img" aria-label="A frozen pond under snowy mountains"></svg>
+        <div class="scene-head dark">
+          <div><h2>Sam's pond</h2><p class="sub">3 buddies &middot; 2 visitors today</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#0e2347" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+      </div>
+      <div class="body">
+        <div>
+          <p class="label">Your stickers</p>
+          <div class="tray" id="tray"></div>
+        </div>
+        <p class="hint">Put things anywhere, even in the sky. Friends see your pond the way you left it.</p>
+      </div>
+    </div>
+    <p class="caption">Decorating is a sticker page: drag, drop, done.</p>
+  </section>
+
+  <!-- 3. My skater -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>My skater</h2><p class="sub">Changes show everywhere</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="preview"><svg id="me" viewBox="0 -12 80 132" aria-label="Your skater"></svg></div>
+        <div class="card opts" id="opts"></div>
+      </div>
+    </div>
+    <p class="caption">Our own character. Leggings and a top to start; a dress if you like.</p>
+  </section>
+
+  <!-- 4. Jump Lab with the skater -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>Jump Lab</h2><p class="sub">Waltz jump &middot; attempt 14</p></div>
+          <div class="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 17h12l-1.5-2.5V10a4.5 4.5 0 0 0-9 0v4.5z"/><path d="M10 20.5h4"/></svg></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="seg" id="view">
+          <button aria-pressed="true" data-v="char">With my skater</button>
+          <button aria-pressed="false" data-v="bones">Skeleton only</button>
+        </div>
+        <div class="video" id="video">
+          <svg viewBox="0 0 340 230" role="img" aria-label="Your skater in the air with a skeleton drawn over them">
+            <rect width="340" height="230" fill="#0b1830"/><rect width="340" height="112" fill="#10233f"/>
+            <rect y="104" width="340" height="10" fill="#2c4466"/><rect y="112" width="340" height="3" fill="#d9382c"/>
+            <rect y="115" width="340" height="115" fill="#1e3a61"/><rect y="188" width="340" height="42" fill="#274a73"/>
+            <path d="M70 188Q170 132 270 188" fill="none" stroke="#f4c04e" stroke-width="3" stroke-dasharray="2 9" stroke-linecap="round"/>
+            <g fill="#f4c04e"><circle cx="70" cy="188" r="6"/><circle cx="270" cy="188" r="6"/></g>
+            <g font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700" fill="#f4c04e"><text x="70" y="210" text-anchor="middle">Takeoff</text><text x="270" y="210" text-anchor="middle">Landing</text></g>
+            <g stroke="#fff" stroke-width="2.5" stroke-linecap="round"><path d="M256 188V162M250 162h12M250 188h12"/></g>
+            <text x="266" y="180" font-family="-apple-system, system-ui, sans-serif" font-size="13" font-weight="700" fill="#fff">18 cm</text>
+            <!-- the skater, drawn along the same joints -->
+            <g class="char" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <path d="M162 114L150 138L140 158M178 114L192 132L212 142" stroke="var(--legs)" stroke-width="14"/>
+              <path d="M140 158L127 160M212 142L225 138" stroke="#fff" stroke-width="12"/>
+              <path d="M154 74H186L180 114H160Z" fill="var(--top)" stroke="var(--top)" stroke-width="10"/>
+              <path class="k-dress" d="M158 112H182L190 128H150Z" fill="var(--top)" stroke="var(--top)" stroke-width="6"/>
+              <path d="M154 72L138 86L150 100M186 72L204 84L198 98" stroke="var(--top)" stroke-width="11"/>
+              <g stroke="none"><circle cx="150" cy="101" r="6" fill="var(--skin)"/><circle cx="198" cy="99" r="6" fill="var(--skin)"/>
+                <circle class="k-bun" cx="170" cy="24" r="7" fill="var(--hair)"/><circle cx="170" cy="44" r="18" fill="var(--hair)"/>
+                <path class="k-long" d="M153 44v18q0 6 6 6V44zM187 44v18q0 6-6 6V44z" fill="var(--hair)"/>
+                <ellipse cx="170" cy="48" rx="14" ry="12.5" fill="var(--skin)"/>
+                <g class="k-hat"><path d="M152 41a18 18 0 0 1 36 0z" fill="var(--top)"/><rect x="150" y="38" width="40" height="7" rx="3.5" fill="#fff"/><circle cx="170" cy="22" r="5.5" fill="#fff"/></g></g>
+            </g>
+            <!-- the skeleton -->
+            <g stroke="#7fd0ff" stroke-width="3.5" stroke-linecap="round" fill="none">
+              <path d="M170 58V66M154 72H186M154 72L138 86L150 100M186 72L204 84L198 98M154 72L162 114M186 72L178 114M162 114H178"/>
+              <path d="M162 114L150 138L140 158L128 160M178 114L192 132L212 142L224 138"/>
+              <circle cx="170" cy="48" r="10"/>
+            </g>
+            <g fill="#fff"><circle cx="154" cy="72" r="4"/><circle cx="186" cy="72" r="4"/><circle cx="138" cy="86" r="4"/><circle cx="204" cy="84" r="4"/><circle cx="150" cy="100" r="4"/><circle cx="198" cy="98" r="4"/><circle cx="162" cy="114" r="4"/><circle cx="178" cy="114" r="4"/><circle cx="150" cy="138" r="4"/><circle cx="192" cy="132" r="4"/><circle cx="140" cy="158" r="4"/><circle cx="212" cy="142" r="4"/></g>
+            <g font-family="-apple-system, system-ui, sans-serif" font-size="12" font-weight="700">
+              <rect x="10" y="10" width="58" height="24" rx="12" fill="#f4c04e"/><text x="39" y="26.5" text-anchor="middle" fill="#3a2600">60 fps</text>
+            </g>
+          </svg>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="k">Air time</div><div class="v">0.38 <small>s</small></div></div>
+          <div class="stat"><div class="k">Height</div><div class="v">18 <small>cm</small></div></div>
+        </div>
+        <p class="hint">Your skater stands in for you, so the video itself never has to be shown or shared.</p>
+      </div>
+    </div>
+    <p class="caption">One tap goes back to the plain skeleton.</p>
+  </section>
+
+  <!-- 5. Rink mode -->
+  <section>
+    <div class="phone">
+      <div class="band">
+        <div class="band-row">
+          <div><h2>On the ice</h2><p class="sub">Highland Ice Arena &middot; rink mode</p></div>
+        </div>
+      </div>
+      <div class="body">
+        <div class="card clock"><div class="t">24:10</div><div class="k">Time on the ice &middot; 35:50 left</div></div>
+        <div class="card skill">
+          <p class="label">Now</p><b>Waltz jump</b>
+          <div class="count"><div class="yes"><b>6</b>Landed</div><div><b>2</b>Missed</div></div>
+          <div class="stars" aria-label="4 of 5 stars">&#9733;&#9733;&#9733;&#9733;<i>&#9733;</i></div>
+        </div>
+        <div class="card"><p class="label">Next</p><b style="font-size:19px">Backward crossovers</b></div>
+        <div class="away"><svg viewBox="0 0 24 24" fill="none" stroke="#51677f" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V11l8-7 8 7v9zM10 20v-6h4v6"/></svg><span>The village is waiting. It comes back when you save.</span></div>
+      </div>
+    </div>
+    <p class="caption">At the rink the village steps back: big type, plain cards.</p>
+  </section>
+</main>
+
+<script>
+  const NAVY = "#0e2347";
+
+  // ---------- The skater (colors come from CSS variables, so one change shows everywhere) ----------
+  const SKATER = `
+    <ellipse cx="40" cy="114" rx="22" ry="4" fill="${NAVY}" opacity="0.12"/>
+    <rect x="27" y="68" width="11" height="34" rx="5" fill="var(--legs)"/><rect x="42" y="68" width="11" height="34" rx="5" fill="var(--legs)"/>
+    <rect x="24" y="96" width="15" height="12" rx="4" fill="#fff" stroke="#c9d8e4" stroke-width="1.5"/><rect x="41" y="96" width="15" height="12" rx="4" fill="#fff" stroke="#c9d8e4" stroke-width="1.5"/>
+    <path d="M22 111h19M39 111h19" stroke="#8a9bb0" stroke-width="2.5" stroke-linecap="round"/>
+    <path class="k-dress" d="M25 66h30l7 18H18z" fill="var(--top)" stroke="var(--top)" stroke-width="4" stroke-linejoin="round"/>
+    <rect x="24" y="42" width="32" height="32" rx="11" fill="var(--top)"/>
+    <path d="M27 50L17 68M53 50L63 68" stroke="var(--top)" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="16" cy="70" r="4.5" fill="var(--skin)"/><circle cx="64" cy="70" r="4.5" fill="var(--skin)"/>
+    <circle class="k-bun" cx="40" cy="4" r="7.5" fill="var(--hair)"/><circle cx="40" cy="25" r="20" fill="var(--hair)"/>
+    <path class="k-long" d="M20 26v24q0 6 7 6V26zM60 26v24q0 6-7 6V26z" fill="var(--hair)"/>
+    <ellipse cx="40" cy="30" rx="15.5" ry="14" fill="var(--skin)"/>
+    <g class="k-hat"><path d="M20 22a20 20 0 0 1 40 0z" fill="var(--top)"/><rect x="18" y="18" width="44" height="8" rx="4" fill="#fff"/><circle cx="40" cy="0" r="6.5" fill="#fff"/></g>
+    <circle cx="34" cy="31" r="2.3" fill="${NAVY}"/><circle cx="46" cy="31" r="2.3" fill="${NAVY}"/>
+    <circle cx="29" cy="36" r="3.2" fill="#ff8fa3" opacity="0.55"/><circle cx="51" cy="36" r="3.2" fill="#ff8fa3" opacity="0.55"/>
+    <path d="M36 37q4 4 8 0" fill="none" stroke="${NAVY}" stroke-width="2" stroke-linecap="round"/>`;
+  document.getElementById("me").innerHTML = SKATER;
+
+  // ---------- Blade buddies (the same drawings as sneak peek 1) ----------
+  function buddyParts(b) {
+    const body = b.body, dark = b.dark, p = [];
+    p.push(`<ellipse cx="62" cy="86" rx="48" ry="4" fill="${NAVY}" opacity="0.12"/><rect x="30" y="44" width="84" height="26" rx="13" fill="${dark}"/>`);
+    if (b.kind === "bunny") p.push(`<circle cx="107" cy="52" r="8" fill="#fff"/>`);
+    if (b.kind === "bear") p.push(`<circle cx="108" cy="56" r="6" fill="${dark}"/>`);
+    if (b.kind === "fox") p.push(`<path d="M102 72q20-4 14-28q-14 6-16 24z" fill="${body}"/><path d="M116 44q2 8-1 14q-5-2-6-8q3-4 7-6z" fill="#fff"/>`);
+    p.push(`<rect x="18" y="52" width="92" height="30" rx="15" fill="${body}"/><rect x="72" y="52" width="9" height="30" fill="${dark}" opacity="0.6"/><rect x="44" y="72" width="52" height="5" rx="2.5" fill="#fff" opacity="0.45"/>`);
+    if (b.kind === "bunny") p.push(`<ellipse cx="22" cy="22" rx="6.5" ry="17" fill="${body}"/><ellipse cx="42" cy="22" rx="6.5" ry="17" fill="${body}"/><ellipse cx="22" cy="23" rx="3" ry="11" fill="#ffc2cf"/><ellipse cx="42" cy="23" rx="3" ry="11" fill="#ffc2cf"/>`);
+    if (b.kind === "bear") p.push(`<circle cx="15" cy="37" r="8.5" fill="${body}"/><circle cx="49" cy="37" r="8.5" fill="${body}"/><circle cx="15" cy="37" r="4" fill="${dark}"/><circle cx="49" cy="37" r="4" fill="${dark}"/>`);
+    if (b.kind === "fox") p.push(`<polygon points="11,44 14,16 30,34" fill="${body}"/><polygon points="53,44 50,16 34,34" fill="${body}"/><polygon points="15,36 16,24 24,33" fill="${dark}"/><polygon points="49,36 48,24 40,33" fill="${dark}"/>`);
+    p.push(`<circle cx="32" cy="54" r="22" fill="${body}"/>`);
+    if (b.kind === "fox") p.push(`<ellipse cx="32" cy="63" rx="12" ry="9" fill="#fff"/>`);
+    p.push(`<circle cx="18" cy="61" r="4" fill="#ff8fa3" opacity="0.6"/><circle cx="46" cy="61" r="4" fill="#ff8fa3" opacity="0.6"/><circle cx="24" cy="53" r="3" fill="${NAVY}"/><circle cx="40" cy="53" r="3" fill="${NAVY}"/><circle cx="25" cy="52" r="1" fill="#fff"/><circle cx="41" cy="52" r="1" fill="#fff"/><path d="M29 60q3 3.5 6 0" fill="none" stroke="${NAVY}" stroke-width="2" stroke-linecap="round"/>`);
+    return p.join("");
+  }
+  const buddy = (b) => `<svg viewBox="0 0 120 92">${buddyParts(b)}</svg>`;
+
+  // ---------- Scenery pieces ----------
+  const tree = (x, y, s, dark) => { const g = dark ? ["#2b5d6b", "#234f5c", "#1c414c"] : ["#3a9068", "#2f7d5b", "#276b4e"];
+    return `<g transform="translate(${x} ${y}) scale(${s})"><rect x="-3" y="48" width="6" height="12" fill="#7a4a2e"/><polygon points="0,0 16,24 -16,24" fill="${g[0]}"/><polygon points="0,14 20,40 -20,40" fill="${g[1]}"/><polygon points="0,28 24,52 -24,52" fill="${g[2]}"/><polygon points="0,0 7,11 3,9 0,13 -3,9 -7,11" fill="#fff"/><path d="M-13 37q6 5 13 0q7 5 13 0" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/></g>`; };
+  const caps = (pts) => pts.map(([x, y, w]) => `<polygon points="${x},${y} ${x + w},${y + w * 1.5} ${x + w * 0.4},${y + w * 1.15} ${x},${y + w * 1.7} ${x - w * 0.4},${y + w * 1.15} ${x - w},${y + w * 1.5}" fill="#f1f6fc"/>`).join("");
+  const treeline = (y, fill) => { let d = `M0 ${y + 20}`; for (let x = 0; x <= 360; x += 12) d += `L${x} ${y + 6}L${x + 6} ${y - 8 - 7 * Math.abs(Math.sin(x * 0.37))}L${x + 12} ${y + 6}`; return `<path d="${d}V${y + 26}H0Z" fill="${fill}"/>`; };
+  const cabin = (x, y, flip) => `<g transform="translate(${x} ${y})"><rect x="8" y="30" width="62" height="42" fill="#a8693f"/><path d="M8 44h62M8 58h62" stroke="#96592f" stroke-width="2"/>
+    <polygon points="0,34 39,4 78,34" fill="#5a3520"/><path d="M4 31L39 4L74 31" fill="none" stroke="#fff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="${flip ? 46 : 16}" y="40" width="18" height="16" rx="2" fill="#ffd77a" opacity="0.3" transform="translate(-3 -3) scale(1.0)"/><rect x="${flip ? 46 : 16}" y="40" width="16" height="14" rx="2" fill="#ffd77a" stroke="#5a3520" stroke-width="2"/>
+    <rect x="${flip ? 18 : 44}" y="44" width="15" height="28" rx="2" fill="#5a3520"/><circle cx="${flip ? 29 : 55}" cy="59" r="1.6" fill="#ffd77a"/></g>`;
+  const lights = (d, pts) => `<path d="${d}" fill="none" stroke="#1c2b4d" stroke-width="1.6"/>` + pts.map(([x, y], i) => `<circle class="bulb" cx="${x}" cy="${y}" r="3" fill="${i % 2 ? "#ff9d7a" : "#ffd77a"}"/>`).join("");
+
+  // ---------- The village ----------
+  document.getElementById("village").innerHTML = `
+    <defs><linearGradient id="dusk" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#15264f"/><stop offset="0.5" stop-color="#4b4283"/><stop offset="0.82" stop-color="#e8937f"/><stop offset="1" stop-color="#f6c79a"/></linearGradient>
+      <linearGradient id="pondv" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#bdeaf0"/><stop offset="1" stop-color="#8fd3df"/></linearGradient></defs>
+    <rect width="358" height="240" fill="url(#dusk)"/>
+    <g fill="#fff">${[[30, 86], [70, 60], [118, 78], [215, 62], [250, 92], [330, 104], [345, 66], [150, 52]].map(([x, y], i) => `<circle class="bulb" cx="${x}" cy="${y}" r="${i % 3 ? 1.4 : 2}"/>`).join("")}</g>
+    <circle cx="296" cy="74" r="17" fill="#fff2c9"/><circle cx="296" cy="74" r="26" fill="#fff2c9" opacity="0.18"/>
+    <polygon points="0,205 50,128 100,176 160,96 232,180 286,132 358,196 358,240 0,240" fill="#2c3f70"/>
+    ${caps([[160, 96, 13], [50, 128, 10], [286, 132, 10]])}
+    ${treeline(208, "#1c2f52")}
+    <path d="M0 226Q180 208 358 226V340H0Z" fill="#eef4fb"/>
+    <path d="M170 250Q160 292 112 340H196Q186 292 190 250Z" fill="#dbe6f2"/>
+    ${tree(100, 176, 0.8, true)}${tree(262, 180, 0.75, true)}
+    <rect x="210" y="122" width="15" height="34" fill="#5a3520"/><rect x="207" y="118" width="21" height="7" rx="3.5" fill="#fff"/>
+    <g class="smoke" fill="#fff"><circle cx="218" cy="108" r="6" opacity="0.5"/><circle cx="224" cy="98" r="8" opacity="0.4"/><circle cx="214" cy="100" r="5" opacity="0.4"/></g>
+    <rect x="118" y="172" width="122" height="78" fill="#8a5433"/><path d="M118 196h122M118 222h122" stroke="#7a4829" stroke-width="2"/>
+    <polygon points="102,180 179,112 256,180" fill="#5a3520"/>
+    <path d="M107 176L179 112L251 176" fill="none" stroke="#fff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="179" cy="150" r="17" fill="#ffd77a" opacity="0.22"/><circle cx="179" cy="150" r="10" fill="#ffd77a" stroke="#5a3520" stroke-width="2.5"/><path d="M179 140v20M169 150h20" stroke="#5a3520" stroke-width="2"/>
+    ${[130, 204].map((x) => `<rect x="${x - 5}" y="187" width="34" height="32" rx="6" fill="#ffd77a" opacity="0.22"/><rect x="${x}" y="192" width="24" height="22" rx="2" fill="#ffd77a" stroke="#5a3520" stroke-width="2.5"/><path d="M${x + 12} 192v22M${x} 203h24" stroke="#5a3520" stroke-width="2"/>`).join("")}
+    <path d="M167 250V218a12 12 0 0 1 24 0V250Z" fill="#5a3520"/><circle cx="186" cy="234" r="2" fill="#ffd77a"/>
+    <rect x="143" y="174" width="72" height="15" rx="5" fill="#fff2c9" stroke="#5a3520" stroke-width="2"/><text x="179" y="185.2" text-anchor="middle" font-family="-apple-system, system-ui, sans-serif" font-size="8.5" font-weight="700" letter-spacing="1" fill="#5a3520">SKATE LODGE</text>
+    ${cabin(16, 178, false)}${cabin(264, 178, true)}
+    ${lights("M92 208Q106 226 119 204", [[98, 214], [106, 217], [113, 212]])}${lights("M239 204Q252 226 266 208", [[245, 212], [252, 217], [260, 214]])}
+    ${tree(14, 232, 0.9)}${tree(342, 236, 0.9)}${tree(132, 262, 0.55)}
+    <ellipse cx="256" cy="304" rx="94" ry="28" fill="#fff"/><ellipse cx="256" cy="304" rx="87" ry="23" fill="url(#pondv)"/><ellipse cx="236" cy="297" rx="34" ry="6" fill="#fff" opacity="0.45"/>
+    <g transform="translate(266 288) scale(0.3)">${buddyParts({ kind: "bunny", body: "#ffd9e2", dark: "#f3b3c4" })}</g>
+    <g transform="translate(204 268) scale(0.36)">${SKATER}</g>`;
+
+  // ---------- The pond ----------
+  document.getElementById("pondbg").innerHTML = `
+    <defs><linearGradient id="day" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b7dcf5"/><stop offset="1" stop-color="#fdeee2"/></linearGradient>
+      <linearGradient id="pondp" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c9f0f3"/><stop offset="1" stop-color="#8fd6e0"/></linearGradient></defs>
+    <rect width="358" height="210" fill="url(#day)"/>
+    <polygon points="0,160 60,84 110,132 170,58 240,138 290,92 358,150 358,200 0,200" fill="#8ea9cc"/>
+    <polygon points="110,132 170,58 240,138 200,150 150,150" fill="#7d9bc2"/>
+    ${caps([[170, 58, 15], [60, 84, 11], [290, 92, 11]])}
+    ${treeline(178, "#2f6b5e")}
+    <path d="M0 196Q180 184 358 196V330H0Z" fill="#f4f9fd"/>
+    <ellipse cx="179" cy="262" rx="158" ry="54" fill="#fff"/><ellipse cx="179" cy="262" rx="150" ry="48" fill="url(#pondp)"/>
+    <ellipse cx="140" cy="246" rx="62" ry="10" fill="#fff" opacity="0.45"/>`;
+
+  const ART = {
+    tree: `<svg viewBox="-26 -4 52 68">${tree(0, 0, 1)}</svg>`,
+    lantern: `<svg viewBox="0 0 40 70"><ellipse cx="20" cy="66" rx="10" ry="3" fill="${NAVY}" opacity="0.12"/><rect x="18" y="24" width="4" height="42" fill="#2c4466"/><circle cx="20" cy="15" r="15" fill="#ffd77a" opacity="0.28"/><rect x="11" y="6" width="18" height="19" rx="4" fill="#ffd77a" stroke="${NAVY}" stroke-width="2.5"/><path d="M9 6h22" stroke="${NAVY}" stroke-width="3" stroke-linecap="round"/></svg>`,
+    bench: `<svg viewBox="0 0 60 44"><ellipse cx="30" cy="40" rx="24" ry="3" fill="${NAVY}" opacity="0.12"/><path d="M12 12v26M48 12v26M16 26v12M44 26v12" stroke="#7a4a2e" stroke-width="3.5" stroke-linecap="round"/><rect x="8" y="10" width="44" height="7" rx="3.5" fill="#a8693f"/><rect x="8" y="22" width="44" height="7" rx="3.5" fill="#a8693f"/><rect x="10" y="6" width="40" height="6" rx="3" fill="#fff"/></svg>`,
+    snowman: `<svg viewBox="0 0 50 70"><ellipse cx="25" cy="66" rx="16" ry="3.5" fill="${NAVY}" opacity="0.12"/><circle cx="25" cy="50" r="15" fill="#fff" stroke="#c9d8e4" stroke-width="2"/><circle cx="25" cy="27" r="11" fill="#fff" stroke="#c9d8e4" stroke-width="2"/><rect x="15" y="35" width="20" height="5" rx="2.5" fill="#d9382c"/><rect x="30" y="37" width="5" height="12" rx="2.5" fill="#d9382c"/><rect x="16" y="8" width="18" height="10" rx="2" fill="${NAVY}"/><rect x="12" y="16" width="26" height="4" rx="2" fill="${NAVY}"/><circle cx="21" cy="25" r="1.7" fill="${NAVY}"/><circle cx="29" cy="25" r="1.7" fill="${NAVY}"/><polygon points="25,28 34,30 25,32" fill="#f4a23c"/></svg>`,
+    cabin: `<svg viewBox="0 0 78 76">${cabin(0, 0, false)}</svg>`,
+    star: `<svg viewBox="0 0 40 40"><polygon points="20,3 24.7,14.6 37.1,15.4 27.6,23.4 30.6,35.5 20,28.8 9.4,35.5 12.4,23.4 2.9,15.4 15.3,14.6" fill="#f4c04e" stroke="#b47a12" stroke-width="2" stroke-linejoin="round"/></svg>`,
+    balloon: `<svg viewBox="0 0 40 60"><path d="M20 38q-4 10 2 20" fill="none" stroke="#51677f" stroke-width="1.8"/><ellipse cx="20" cy="20" rx="15" ry="18" fill="#8f7be0"/><ellipse cx="14" cy="13" rx="4" ry="6" fill="#fff" opacity="0.5"/><polygon points="17,37 23,37 20,41" fill="#8f7be0"/></svg>`,
+    arch: `<svg viewBox="0 0 70 60"><path d="M8 58V30a27 27 0 0 1 54 0V58" fill="none" stroke="#a8693f" stroke-width="7" stroke-linecap="round"/><path d="M12 22q23-26 46 0" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round"/></svg>`,
+    me: `<svg viewBox="0 -12 80 132">${SKATER}</svg>`,
+    bunny: buddy({ kind: "bunny", body: "#ffd9e2", dark: "#f3b3c4" }),
+    bear: buddy({ kind: "bear", body: "#e3b98a", dark: "#c8955f" }),
+    fox: buddy({ kind: "fox", body: "#ff9d4d", dark: "#e67a2a" }),
+  };
+  const WIDTH = { tree: 15, lantern: 9, bench: 15, snowman: 12, cabin: 22, star: 9, balloon: 10, arch: 18, me: 15, bunny: 19, bear: 19, fox: 19 };
+  const pond = document.getElementById("pond");
+  function place(type, x, y, cls = "") {
+    const el = document.createElement("div");
+    el.className = "stk " + cls; el.style.cssText = `left:${x}%;top:${y}%;width:${WIDTH[type]}%`;
+    el.innerHTML = ART[type]; pond.appendChild(el); layer(el); return el;
+  }
+  const layer = (el) => { el.style.zIndex = Math.round(el.offsetTop + el.offsetHeight); };
+  [["cabin", 4, 49], ["tree", 27, 46], ["tree", 80, 50], ["tree", 88, 58], ["lantern", 66, 52], ["bench", 46, 56], ["snowman", 12, 78],
+   ["star", 70, 22, "float"], ["balloon", 16, 24, "float"], ["bunny", 22, 68], ["fox", 62, 80], ["bear", 70, 64], ["me", 43, 62]].forEach((s) => place(...s));
+
+  pond.addEventListener("pointerdown", (e) => {
+    const s = e.target.closest(".stk"); if (!s) return;
+    e.preventDefault(); s.setPointerCapture(e.pointerId);
+    const r = pond.getBoundingClientRect(), b = s.getBoundingClientRect(), ox = e.clientX - b.left, oy = e.clientY - b.top;
+    s.classList.remove("float", "pop"); s.classList.add("lift");
+    const move = (ev) => {
+      const x = Math.max(-4, Math.min(100 - (b.width / r.width) * 100 + 4, ((ev.clientX - ox - r.left) / r.width) * 100));
+      const y = Math.max(14, Math.min(100 - (b.height / r.height) * 100, ((ev.clientY - oy - r.top) / r.height) * 100));
+      s.style.left = x + "%"; s.style.top = y + "%";
+    };
+    const up = () => { s.classList.remove("lift"); s.removeEventListener("pointermove", move); layer(s); if (s.offsetTop + s.offsetHeight < pond.offsetHeight * 0.5) s.classList.add("float"); };
+    s.addEventListener("pointermove", move);
+    s.addEventListener("pointerup", up, { once: true }); s.addEventListener("pointercancel", up, { once: true });
+  });
+  document.getElementById("tray").innerHTML = ["tree", "lantern", "snowman", "star", "balloon", "bench"].map((t) => `<button data-t="${t}" aria-label="Add a ${t}">${ART[t]}</button>`).join("")
+    + `<button class="locked" aria-label="Arch, unlocks at level 9">${ART.arch}<span>Level 9</span></button>`;
+  document.getElementById("tray").addEventListener("click", (e) => {
+    const b = e.target.closest("button[data-t]"); if (!b) return;
+    place(b.dataset.t, 30 + Math.random() * 30, 40 + Math.random() * 25, "pop");
+  });
+
+  // ---------- Changing the skater ----------
+  const root = document.documentElement;
+  const OPTS = [
+    { name: "Skin", v: "--skin", list: ["#f6d3b8", "#e8b98f", "#c98d62", "#9a6240", "#6b4129"] },
+    { name: "Hair color", v: "--hair", list: ["#2b1d14", "#6b4129", "#c98a3c", "#e9c76a", "#b3402f", "#8f7be0"] },
+    { name: "Top", v: "--top", list: ["#e5536b", "#2a7fc1", "#3fa66a", "#8f7be0", "#f4a23c", "#0e2347"] },
+    { name: "Leggings", v: "--legs", list: ["#22386a", "#1b1b22", "#6b54c9", "#b23a55"] },
+  ];
+  const seg = (name, attr, list) => `<div class="opt"><p class="label">${name}</p><div class="seg" data-attr="${attr}">${list.map(([k, t]) => `<button data-k="${k}" aria-pressed="${root.dataset[attr] === k}">${t}</button>`).join("")}</div></div>`;
+  document.getElementById("opts").innerHTML = OPTS.map((o) => `<div class="opt"><p class="label">${o.name}</p><div class="sw" data-v="${o.v}">${o.list.map((c) => `<button style="background:${c}" data-c="${c}" aria-label="${o.name} ${c}" aria-pressed="${getComputedStyle(root).getPropertyValue(o.v).trim() === c}"></button>`).join("")}</div></div>`).join("")
+    + seg("Hair", "hair", [["bun", "Bun"], ["long", "Long"], ["hat", "Beanie"]]) + seg("Outfit", "outfit", [["top", "Leggings and top"], ["dress", "Dress"]]);
+  const press = (group, btn) => group.querySelectorAll("button").forEach((b) => b.setAttribute("aria-pressed", b === btn));
+  document.getElementById("opts").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    const g = b.parentElement;
+    if (g.dataset.v) root.style.setProperty(g.dataset.v, b.dataset.c); else root.dataset[g.dataset.attr] = b.dataset.k;
+    press(g, b);
+  });
+  document.getElementById("view").addEventListener("click", (e) => {
+    const b = e.target.closest("button"); if (!b) return;
+    document.getElementById("video").classList.toggle("bones", b.dataset.v === "bones"); press(b.parentElement, b);
+  });
+</script>
+</body>
+</html>
