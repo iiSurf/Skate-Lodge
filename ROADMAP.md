@@ -166,6 +166,22 @@ It serves three audiences: the skater, the coach, and the club.
 - A foil shine on stamps and rare buddies that slides as the phone tilts.
 - iPhones ask permission for motion, and only after a tap. So the passport has a "tilt me" tap, and falls back to dragging with a finger.
 
+### Rink schedules
+
+The owner raised this on 2026-11-15 and thinks it is vital for skaters, but asked how realistic it is first, so it is not decided yet. What the owner wants: skaters see the schedules of several rinks on one page, choose rinks in their area, and can still add their own. Today many skaters add each rink's Google Calendar to their phone, which works but is not efficient. (This was also the owner's first idea for Artifact 5, before Skate Lodge.)
+
+- MySkate already has most of the skater's side (`../MySkate/js/ice.js`, with tests): one week of sessions from all your rinks, filters by type and rink, My picks, a warning when picks overlap, and a reader for calendar files that handles repeats and cancelled dates.
+- What stopped MySkate going further was having no server. Skate Lodge has one, so a rink's public calendar address can be read automatically, every few hours, with the same reader.
+- One shared list of rinks (name, city, place on the map, a link to its schedule page, its calendar address if it has one, and the day its schedule was last confirmed). The rink passport needs this same list for its stamps, so build it once for both.
+- A skater picks rinks from the shared list, and can still add a rink of their own that only they see. They can offer it to the shared list; a coach or club admin confirms it first.
+- Not every rink publishes a calendar. For those, a coach or club admin keeps the schedule up to date by hand, and the page shows who confirmed it and when.
+- Always show where a schedule came from and when it was last checked, with a link to the rink's own page. A wrong time sends a skater to a closed rink.
+- Tell the skater when a session they picked moves or is cancelled (through the notifications bell). This is the main thing a phone calendar cannot do well.
+- Give each skater a private calendar address for their picks, so their phone calendar can still follow along, with only the sessions they chose.
+- "Rinks near me" needs a starting list. OpenStreetMap has ice rinks marked and could seed names and places (MySkate found its free servers unreliable, so copy the list once; do not depend on it live).
+- Reach: point the app at a rink's schedule page, PDF, or a photo of the printed schedule, and the AI drafts the sessions for a person to check and confirm. Never saved without a person confirming.
+- Only read what a rink publishes openly. No reading behind a login, and no copying a booking system's pages against its rules.
+
 ### Clubs and safety
 
 - Channels only, no private messages. U.S. Center for SafeSport rules ask for messages between an adult and a child athlete to be open, with another adult included.
@@ -210,6 +226,8 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 
 - Skate Lodge has not been checked against Google Play or trademarks. skatelodge.app and skatelodge.com looked free on 2026-11-14, which is not proof.
 - Does a club have one shared pond that everyone's practice builds up?
+- Rink schedules: is it in? If so, how does each of the owner's own rinks publish its schedule (a public calendar, a booking system, a PDF, a web page)? That decides how much is automatic.
+- Rink schedules would be a fifth big part in the same 40 to 60 hours. What gets smaller to make room?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?

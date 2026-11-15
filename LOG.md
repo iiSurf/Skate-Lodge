@@ -85,3 +85,22 @@ Pushing from the agent did not work: the push waits forever at the Mac's keychai
 ### On GitHub (same day)
 
 The owner pushed this repository to github.com/iiSurf/Skate-Lodge and renamed the folder on their computer from MySkate-Moonshot to Skate-Lodge. The Portfolio's Artifact 5 card is committed there but was still not pushed when checked, so the live Portfolio showed the old card.
+
+## 2026-11-15 (Sunday): the Portfolio lobby, and a question about rink schedules
+
+### The Portfolio
+
+Not in this repository, but part of Artifact 5: the Artifact 5 shop in the Portfolio (`../Portfolio`) got a room of its own, the lobby of Skate Lodge (a stone fireplace, a front desk with a passport and room keys, a window onto a frozen pond with blade buddies on the ice). The owner asked for the innkeeper to look like the pair skater Daniel O'Shea. It is live, and the details are in the Portfolio's own `LOG.md`.
+
+### Rink schedules
+
+The owner asked how realistic it would be to add rink schedules: several rinks on one page, rinks chosen by area, and the option to add your own. The owner thinks this is vital and that following each rink's Google Calendar is not efficient.
+
+The agent's answer: realistic, more than most of the plan, because MySkate already has the week view, the filters, and the calendar reader with tests, and the one thing that stopped it (no server to read a rink's calendar address) is gone in Skate Lodge. The shared list of rinks is also needed for the passport. The hard part is rinks that do not publish a calendar: those need a person to keep them up to date, or the AI to draft them from a page or a photo for a person to confirm. It would be a fifth big part in the same hours, so something else has to get smaller.
+
+Recorded in `ROADMAP.md` under Suggested (Rink schedules), with two open questions. Not decided yet.
+
+### Not verified
+
+- That OpenStreetMap's list of ice rinks is good enough near the owner to seed "rinks near me".
+- How any particular rink publishes its schedule. None was looked at.
