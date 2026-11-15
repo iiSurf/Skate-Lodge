@@ -6,12 +6,13 @@ A platform for figure skaters, their coaches, and their clubs.
 
 ## The idea
 
-Skate Lodge grows out of [MySkate](https://github.com/iiSurf/MySkate), a practice tracker for figure skaters. The plan is one product with four parts:
+Skate Lodge grows out of [MySkate](https://github.com/iiSurf/MySkate), a practice tracker for figure skaters. The plan is one product with five parts:
 
 - **The platform.** Accounts, sync across devices, and clubs with a coach view: a coach assigns homework and sees how their skaters are doing.
 - **Jump Lab.** Film a jump on your phone and get measurements from the video: air time, height, rotations, and the landing, saved to that skill's history.
 - **The game.** Rink time turned into a game you play off the ice: collectibles earned from sessions, a passport of stamps from the rinks you visit, levels that each unlock something, and a pond of your own to decorate.
 - **The AI coach.** Carried over from [MySkate Coach](https://github.com/iiSurf/MySkate-Coach), to explain the numbers.
+- **Rink schedules.** Several rinks' schedules on one page, with an alert when a session you picked moves or is cancelled. When a schedule has to be updated by hand, one skater's update, once confirmed, updates it for everyone.
 
 ## What is here
 

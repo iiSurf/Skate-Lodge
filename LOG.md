@@ -104,3 +104,20 @@ Recorded in `ROADMAP.md` under Suggested (Rink schedules), with two open questio
 
 - That OpenStreetMap's list of ice rinks is good enough near the owner to seed "rinks near me".
 - How any particular rink publishes its schedule. None was looked at.
+
+### Rink schedules are in (same day)
+
+The owner's answers:
+
+- The alert when a picked session moves or is cancelled is "huge": a skater should know before a planned visit that their ice time got bumped.
+- Updating by hand should be shared: one skater updates a rink's schedule and it is updated for everyone, a shared space in that way only, so everyone else has less work. It must be protected against malicious, inappropriate, and junk updates.
+- The skater who helps gets a thank-you: bonus experience points to use on a day they choose.
+- On the agent's warning that this is a fifth big part in the same hours: the owner disagreed. Working together it can be built quickly, and the project calls for going big, so the size of an idea should not hold it back. This is now a working agreement in `CLAUDE.md`, and the agent should stop raising it.
+
+What changed:
+
+- `ROADMAP.md`: Rink schedules moved to Decided (six items), and "Go big" joined the foundations. Under Suggested, the agent's design for keeping shared updates safe: updates are made of choices with nothing to upload and almost nothing to type; only skaters with that rink's passport stamp can update it; an update is a proposal until someone else agrees; plain code checks it; there is a history with a way back, a "This is wrong" button, and limits; and the server enforces all of it. Alerts only go out for confirmed changes, and the thank-you is only given once an update is confirmed. Three open questions were added.
+- `CLAUDE.md`: the go-big agreement, and the rule that shared schedules are choices, confirmed by someone else, and checked by the server.
+- `README.md`: rink schedules as the fifth part.
+
+Still not looked at: how any real rink publishes its schedule.

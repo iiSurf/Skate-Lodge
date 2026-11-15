@@ -34,9 +34,11 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 - Jump Lab needs clips at 60 frames a second.
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.
+- Shared rink schedules are made of choices, not typed text, and an update only goes live once someone else agrees or a coach or club admin makes it. Nothing a skater sends is trusted by the page alone: the server checks it.
 
 ## Working agreements
 
+- Go big. The owner has said more than once that the size of an idea is not a reason to hold it back, and that this project calls for it. Do not warn about scope or hours, and do not suggest cutting one thing to make room for another unless the owner asks. Say what is hard or unknown about an idea, then plan it.
 - Plan before building anything large. Keep changes small and commit after each working step with a clear message.
 - Add a dated entry to `LOG.md` after each meaningful change: what was planned, what changed, what was verified, and what was not.
 - When the owner decides something, record it in `ROADMAP.md` under Decided the same day. When the agent suggests something, record it under Suggested.

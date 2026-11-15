@@ -28,6 +28,7 @@ MySkate grown into a platform for figure skaters, their coaches, and their clubs
 2. **Jump Lab:** film a jump and get measurements from the video. This is the headline.
 3. **The game:** rink time turned into a game, played off the ice.
 4. **The AI coach:** carried over from Artifact 3 if we go that way.
+5. **Rink schedules:** several rinks' schedules on one page, kept up to date by the rinks' own calendars and by skaters, with an alert when your ice time moves.
 
 It serves three audiences: the skater, the coach, and the club.
 
@@ -40,6 +41,7 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Build on what exists: MySkate (Artifact 2, `../MySkate`) and MySkate Coach (Artifact 3, `../MySkate-Coach`).
 - [ ] A website, not an App Store app. It must work well on an iPhone.
 - [ ] A big platform with many tools. The owner accepts the risk of thin tools and believes there is time and skill to avoid it.
+- [ ] Go big. The size of an idea is not a reason to hold it back: this project calls for it, and building goes fast with the agent (the owner, 2026-11-15). Plan the hard parts of an idea; do not shrink it.
 - [ ] A database with a schema: Supabase (hosted Postgres).
 - [ ] Coaches and clubs the owner knows will be asked to try it.
 
@@ -90,6 +92,15 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Skaters earn a stamp for each rink they visit, to encourage trying new rinks, local or while travelling.
 - [ ] Stamps must look desirable at first glance.
 - [ ] To start, being at the rink (by location) is what counts as a visit.
+
+### Rink schedules
+
+- [ ] Skaters see the schedules of several rinks on one page. The owner thinks this is vital, and that following each rink's Google Calendar on a phone is not efficient.
+- [ ] A skater chooses rinks in their area, and can still add their own.
+- [ ] An alert when a session the skater picked moves or is cancelled, so they know before a planned visit that their ice time got bumped. The owner called this huge.
+- [ ] Shared updating. When a rink's schedule has to be updated by a person, one skater updates it and it is updated for everyone. It is a shared space in that way only. The point is less work for everyone else.
+- [ ] Protect the shared schedules against anything malicious, inappropriate, or junk.
+- [ ] The skater who helps everyone gets a thank-you: bonus experience points that they can use on a day they choose.
 
 ### Clubs
 
@@ -168,19 +179,41 @@ It serves three audiences: the skater, the coach, and the club.
 
 ### Rink schedules
 
-The owner raised this on 2026-11-15 and thinks it is vital for skaters, but asked how realistic it is first, so it is not decided yet. What the owner wants: skaters see the schedules of several rinks on one page, choose rinks in their area, and can still add their own. Today many skaters add each rink's Google Calendar to their phone, which works but is not efficient. (This was also the owner's first idea for Artifact 5, before Skate Lodge.)
+Where the schedules come from:
 
 - MySkate already has most of the skater's side (`../MySkate/js/ice.js`, with tests): one week of sessions from all your rinks, filters by type and rink, My picks, a warning when picks overlap, and a reader for calendar files that handles repeats and cancelled dates.
 - What stopped MySkate going further was having no server. Skate Lodge has one, so a rink's public calendar address can be read automatically, every few hours, with the same reader.
 - One shared list of rinks (name, city, place on the map, a link to its schedule page, its calendar address if it has one, and the day its schedule was last confirmed). The rink passport needs this same list for its stamps, so build it once for both.
-- A skater picks rinks from the shared list, and can still add a rink of their own that only they see. They can offer it to the shared list; a coach or club admin confirms it first.
-- Not every rink publishes a calendar. For those, a coach or club admin keeps the schedule up to date by hand, and the page shows who confirmed it and when.
-- Always show where a schedule came from and when it was last checked, with a link to the rink's own page. A wrong time sends a skater to a closed rink.
-- Tell the skater when a session they picked moves or is cancelled (through the notifications bell). This is the main thing a phone calendar cannot do well.
-- Give each skater a private calendar address for their picks, so their phone calendar can still follow along, with only the sessions they chose.
 - "Rinks near me" needs a starting list. OpenStreetMap has ice rinks marked and could seed names and places (MySkate found its free servers unreliable, so copy the list once; do not depend on it live).
-- Reach: point the app at a rink's schedule page, PDF, or a photo of the printed schedule, and the AI drafts the sessions for a person to check and confirm. Never saved without a person confirming.
+- A rink of your own that only you see stays possible, as in MySkate. Offering it to the shared list is a shared update like any other (see below).
+- Always show where a schedule came from and when it was last checked, with a link to the rink's own page. A wrong time sends a skater to a closed rink.
+- Give each skater a private calendar address for their picks, so their phone calendar can still follow along, with only the sessions they chose.
+- Reach: point the app at a rink's schedule page, PDF, or a photo of the printed schedule, and the AI drafts the sessions for a person to check. The draft then goes through the same checks as any shared update. The photo is read and thrown away; nobody else ever sees it.
 - Only read what a rink publishes openly. No reading behind a login, and no copying a booking system's pages against its rules.
+
+Keeping shared updates safe (the owner asked for protection against malicious, inappropriate, and junk updates):
+
+- Nothing to upload and almost nothing to type. A shared update is made of choices: the kind of session from a fixed list, the day, the start and end time, and a price as a number. No free text, no links, no pictures. Inappropriate words have nowhere to go. A note, if wanted, comes from a short fixed list ("Holiday hours", "Cancelled this week", "Moved").
+- The one place for typing is the name and city of a new rink. A new rink waits for a coach or club admin to approve it, and is matched against the map list first.
+- Only skaters who have that rink's passport stamp can update it. The stamp means they were really there, which strangers and troublemakers were not.
+- An update is a proposal first. It goes live when someone else agrees: one other skater with that rink's stamp, or a coach or club admin. The skaters who picked that session are the ones asked "Is this right?".
+- Coaches and club admins can update directly, because the club has vouched for them.
+- Plain code checks every update before anyone sees it: real times, an end after the start, a sensible length, no copy of a session that is already there, and no date far in the future. Removing a large part of a rink's schedule at once always needs a coach or club admin.
+- A limit on how many updates one skater can make in a day.
+- Every change is kept in a history (who, what, when), and anyone trusted can put the last good version back with one tap.
+- A "This is wrong" button on every session. Enough reports hide the change and put the old one back until someone trusted looks.
+- Trust is earned and lost: updates that others confirm make a skater's next ones go through faster, and updates that get undone take the right to update away.
+- Where a rink's own calendar is read automatically, the calendar wins. A skater can only report that the page differs.
+- The server enforces all of this, in the database's own rules. The page in the browser is never trusted.
+
+Alerts and the thank-you:
+
+- An alert only goes out for a change that is confirmed or comes from the rink's own calendar. An unconfirmed proposal never cancels anyone's plans; at most the session shows "may have changed".
+- The alert says where the change came from ("from the rink's calendar", "confirmed by a coach", "confirmed by 2 skaters").
+- The thank-you is given when the update is confirmed, not when it is sent, so sending junk earns nothing. No thank-you for changing something back and forth.
+- The thank-you is a token the skater keeps and spends on a day they choose: that day's practice earns extra experience points.
+- A limit on how many tokens one skater can earn in a week.
+- Tell the helper how many skaters their update reached ("38 skaters saw your update"), and give a badge for keeping a rink up to date. Knowing it helped is a reward too.
 
 ### Clubs and safety
 
@@ -226,8 +259,9 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 
 - Skate Lodge has not been checked against Google Play or trademarks. skatelodge.app and skatelodge.com looked free on 2026-11-14, which is not proof.
 - Does a club have one shared pond that everyone's practice builds up?
-- Rink schedules: is it in? If so, how does each of the owner's own rinks publish its schedule (a public calendar, a booking system, a PDF, a web page)? That decides how much is automatic.
-- Rink schedules would be a fifth big part in the same 40 to 60 hours. What gets smaller to make room?
+- Rink schedules: how does each of the owner's own rinks publish its schedule (a public calendar, a booking system, a PDF, a web page)? That decides how much is automatic.
+- Shared updates: who may make one (the suggestion is skaters with that rink's stamp), how many people must agree before it goes live, and is the helper's username shown to everyone?
+- The thank-you token: how much extra experience is it worth, and how many can one skater earn in a week?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
