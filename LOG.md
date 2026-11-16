@@ -168,3 +168,10 @@ The owner asked what else would be fun to build and would make people want to co
 ### All fifteen ideas are in (same day)
 
 The owner liked every one of the fifteen ideas and asked to add them all. They moved to Decided in `ROADMAP.md` under "Fun and coming back", each with the safety detail it was suggested with, and the order of work now places every one of them. `README.md` mentions them, and `CLAUDE.md` gained the rule they share: what skaters send each other is choices, stickers, or pictures of things, never typed messages and never pictures or video of a child.
+
+### Jump cards in, the puzzle out (same day)
+
+The owner took out the "Name that jump" puzzle and asked for something else in its place: a menu of cards, one for each jump, each showing the jump's name and a character caught at that jump's defining moment. Tapping a card shows an animation of how the jump is done, tips and tricks, and the mistakes skaters commonly make while learning it.
+
+- `ROADMAP.md`: jump cards are under Decided (Fun and coming back), the puzzle is under Set aside with the owner's reason, and the agent's ideas for how the cards work are under Suggested (Jump cards). The main ones: a coach approves the tips before skaters see them, every card says it is not coaching, and the animation can come from a clean jump recorded in Jump Lab, keeping only the skeleton.
+- The order of work and `README.md` name the cards where they named the puzzle.

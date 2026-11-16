@@ -14,7 +14,7 @@ Skate Lodge grows out of [MySkate](https://github.com/iiSurf/MySkate), a practic
 - **The AI coach.** Carried over from [MySkate Coach](https://github.com/iiSurf/MySkate-Coach), to explain the numbers.
 - **Rink schedules.** Several rinks' schedules on one page, with an alert when a session you picked moves or is cancelled. When a schedule has to be updated by hand, one skater's update, once confirmed, updates it for everyone.
 
-Around those sit the things that make it fun to come back to: a scoreboard that reveals your numbers when you save a session, a daily "Name that jump" puzzle, a dress studio for your skater, seeing which clubmates are on the same ice, and more. The full list is in the roadmap.
+Around those sit the things that make it fun to come back to: a scoreboard that reveals your numbers when you save a session, jump cards that show how each jump is done, a dress studio for your skater, seeing which clubmates are on the same ice, and more. The full list is in the roadmap.
 
 ## What is here
 

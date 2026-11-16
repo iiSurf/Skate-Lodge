@@ -30,7 +30,7 @@ MySkate grown into a platform for figure skaters, their coaches, and their clubs
 4. **The AI coach:** carried over from Artifact 3 if we go that way.
 5. **Rink schedules:** several rinks' schedules on one page, kept up to date by the rinks' own calendars and by skaters, with an alert when your ice time moves.
 
-Around these sit the things that make it fun to come back to: a scoreboard when you save a session, a daily puzzle, a dress studio, friends on the same ice, and more (see Fun and coming back under Decided).
+Around these sit the things that make it fun to come back to: a scoreboard when you save a session, jump cards that show how each jump is done, a dress studio, friends on the same ice, and more (see Fun and coming back under Decided).
 
 It serves three audiences: the skater, the coach, and the club.
 
@@ -112,7 +112,7 @@ It serves three audiences: the skater, the coach, and the club.
 
 ### Fun and coming back
 
-The owner said yes to all fifteen of these on 2026-11-15. They were the agent's ideas, and each one keeps the safety detail it was suggested with.
+The owner said yes to all fifteen of the agent's ideas on 2026-11-15, then took one out (the "Name that jump" puzzle, see Set aside) and put jump cards, the owner's own idea, in its place. Each idea keeps the safety detail it was suggested with.
 
 After you skate:
 
@@ -129,7 +129,7 @@ With other skaters, safely:
 
 At home, off the ice:
 
-- [ ] Name that jump. One puzzle a day: a slow skeleton clip of a jump, and three tries to say which jump it is from the takeoff. It teaches what a judge looks for, gives a reason to open the app on a day without ice, and reuses Jump Lab's drawing.
+- [ ] Jump cards (the owner's idea). A menu of cards, one for each jump. A card shows the jump's name and a character caught at the moment that makes that jump what it is. Tap a card to see an animation of how the jump is done, tips and tricks for doing it, and the mistakes skaters commonly make while learning it.
 - [ ] The off-ice studio. The phone's camera checks an exercise at home with the same body tracking as Jump Lab: how long a spiral position is held, balance on one foot, air turns on the floor. Holds and balance only; nothing about body size or weight.
 - [ ] The dress studio. Design the dress or outfit your skater wears: the cut, the colors, where the sparkle goes. Levels unlock new pieces. Dresses are a big part of the sport, and a club could have its own jacket.
 - [ ] Watch your program. MySkate's planner already lays a program out on a rink. Here your skater skates that path from above, in time with the music, with each element popping up as it comes.
@@ -144,7 +144,7 @@ The front door:
 
 - [ ] Anyone can look at rink schedules without an account. Signing in is for picking sessions and getting alerts. The schedule page is then the thing people share, and how a new skater finds Skate Lodge.
 
-Build these three first (the agent's pick): session reports, who is on the ice, and Name that jump.
+Build these three first (the agent's pick): session reports, who is on the ice, and the jump cards.
 
 ### Clubs
 
@@ -200,6 +200,20 @@ Build these three first (the agent's pick): session reports, who is on the ice, 
 - The skater taps themselves in the first frame, so the app does not follow the wrong person.
 - A short filming guide (side-on, close enough).
 - Spins as well as jumps: revolutions, speed, and how far the spin travels.
+
+### Jump cards
+
+The cards themselves are decided. These are the agent's ideas for how they work:
+
+- The moment on the front of each card is the one that tells that jump apart: the toe pick going in for a toe loop, the forward takeoff of a waltz jump or an Axel, the back outside edge of a loop.
+- Each card is tied to the same jump in the practice tracker. From a practice plan, tap the jump to open its card. From the card, add the jump to tonight's plan.
+- Tips and common mistakes are written like everything else that is shared: drafted (by the owner, a coach, or the AI), then approved by a coach before skaters see them. A card shows "checked by a coach" once it has been.
+- Every card says it is a picture to learn from, not coaching, and to follow your own coach. A jump taught wrong can hurt someone.
+- The animation is our own skater moving through saved poses. A good source for the poses: a clean jump recorded in Jump Lab by a skater who agrees to it. Only the skeleton is kept, never the video.
+- Slow the animation down, step through it, and turn the skater round to see it from the front, the side, and above.
+- In Jump Lab, put your own attempt beside the card's animation, so the difference can be seen.
+- When you land the jump for the first time, its card turns gold and becomes your milestone card for it.
+- The same kind of card for spins, turns, and the Learn to Skate skills, after the jumps.
 
 ### The game
 
@@ -292,7 +306,7 @@ Alerts and the thank-you:
 
 1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)
 2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top, open to anyone without an account; session reports and the kiss and cry when a session is saved; and Jump Lab's sure tier, with your best as a ghost.
-3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and Name that jump.
+3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and the jump cards.
 4. Nov 30 to Dec 6: the page reader; the AI explanation in Jump Lab and your patterns; the pond with buddy visits and the dress studio; the off-ice studio; the swap shelf; watch your program; quests and the Fresh Ice token; a trial with one real coach; and polish for the demo.
 5. Dec 7 to 13: show it, fix what the trial found, write the reflection.
 
@@ -372,6 +386,7 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 ## Set aside
 
+- "Name that jump", a daily puzzle of guessing a jump from a slow skeleton clip: the owner does not think it is needed, and would rather have jump cards that teach each jump (2026-11-15).
 - A video game you play while skating: nobody should use a phone on the ice.
 - An App Store app: there is no Apple developer account, and a website is enough.
 - Checking a ticket purchase through a rink's sales system: out of reach for now. Location first.
