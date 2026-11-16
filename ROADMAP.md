@@ -250,6 +250,42 @@ Alerts and the thank-you:
 - Written in plain language, with a short terms page beside it.
 - It says what is collected and what never is, who can see what, how children's accounts work, how chat is moderated, and how to export and delete your data.
 
+### More ideas for fun and for coming back (the agent's, 2026-11-15)
+
+The owner asked what else could be built that would be fun and would make people want to come back. None of these is decided.
+
+After you skate:
+
+- Session reports. When a session is saved, one tap for how busy it was (quiet, busy, packed) and one for the ice (fresh, fine, rough). The schedule page then shows "usually quiet" beside a session, which no rink's own site can tell you. Choices only, so nothing to moderate, and worth a little experience.
+- The kiss and cry. Saving a session ends with a scoreboard that reveals the numbers one at a time (minutes, jumps landed, a personal best), the way scores come up after a program. A longer sheet at the end of each week and each season.
+- Your patterns. The app finds things in your own log and tells you: "You land more waltz jumps in morning sessions", "Your best practices come after a rest day". A new one every week or two.
+
+With other skaters, safely:
+
+- Who is on the ice. On a session you picked, see which clubmates picked it too. Skating the same session (both checked in by location) earns both a bonus. Clubmates only, and only skaters whose parent or coach allows it.
+- Buddy visits. Send one of your buddies to a friend's pond. It is there when they open the app, and it comes home the next day with a sticker from them. No typing anywhere.
+- The swap shelf. A club's board for outgrown dresses and skates: a kind, a size, and a picture of the item, approved by a club admin before it shows. Families need this every season.
+- Cue cards. After a lesson the coach taps a few cues from a list or adds their own ("more knee bend on the landing"). The skater sees their coach's three cues before the next practice. A parent can see them too.
+
+At home, off the ice:
+
+- Name that jump. One puzzle a day: a slow skeleton clip of a jump, and three tries to say which jump it is from the takeoff. It teaches what a judge looks for, gives a reason to open the app on a day without ice, and reuses Jump Lab's drawing.
+- The off-ice studio. The phone's camera checks an exercise at home with the same body tracking as Jump Lab: how long a spiral position is held, balance on one foot, air turns on the floor. Holds and balance only; nothing about body size or weight.
+- The dress studio. Design the dress or outfit your skater wears: the cut, the colors, where the sparkle goes. Levels unlock new pieces. Dresses are a big part of the sport, and a club could have its own jacket.
+- Watch your program. MySkate's planner already lays a program out on a rink. Here your skater skates that path from above, in time with the music, with each element popping up as it comes.
+
+In Jump Lab:
+
+- Your best as a ghost. Play today's jump with the skeleton of your best one drawn faintly on top, so progress can be seen, not only read.
+- Send the skeleton, not the video. A skater shares the skeleton replay with their coach, who draws on it and sends it back. No video of a child leaves the phone.
+- Milestone cards. A keepsake card for a first: your first clean salchow, with the date and its numbers. Rare ones for the big firsts.
+
+The front door:
+
+- Anyone can look at rink schedules without an account. Signing in is for picking sessions and getting alerts. The schedule page is then the thing people share, and how a new skater finds Skate Lodge.
+
+The agent's top three: session reports, who is on the ice, and Name that jump.
+
 ### Order of work
 
 1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)

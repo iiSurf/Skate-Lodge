@@ -160,3 +160,7 @@ The owner said yes to the page reader, choosing it over asking the rinks first. 
 
 - The owner agreed that a rink's drafts go live on their own once they have been approved many times with no corrections. The agent's number for "many" (ten in a row, reset by one correction) is listed under Suggested.
 - The owner does not think rinks need to be told when the reader only reads their open page, and would ask a rink only for a direct way to get its calendar. The rule "the rink is told" was taken out. What stays: if a rink asks to be left out, the reader stops for it, and a site's terms of use are read before the reader is pointed at it.
+
+### More ideas (same day)
+
+The owner asked what else would be fun to build and would make people want to come back. The agent suggested fifteen ideas, now in `ROADMAP.md` under Suggested ("More ideas for fun and for coming back"), in five groups: after you skate, with other skaters, at home, in Jump Lab, and the front door. The agent's top three: session reports (one tap for how busy and how good the ice was), who is on the ice, and a daily "Name that jump" puzzle. Nothing is decided.
