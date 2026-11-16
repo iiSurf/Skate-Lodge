@@ -155,3 +155,8 @@ Not verified: the Everett page did not finish loading in the agent's browser. Wh
 ### The page reader is in (same day)
 
 The owner said yes to the page reader, choosing it over asking the rinks first. It moved to Decided in `ROADMAP.md` with its rules (only the page a visitor sees, never a booking system's data service, never a key, a few visits a day, a link back to the rink, and the rink is told and can ask to be left out). The same rule is now in `CLAUDE.md`, with a reminder to read a site's terms of use before the reader is pointed at it. That reading has not been done for any rink yet.
+
+### Two more answers on the page reader (same day)
+
+- The owner agreed that a rink's drafts go live on their own once they have been approved many times with no corrections. The agent's number for "many" (ten in a row, reset by one correction) is listed under Suggested.
+- The owner does not think rinks need to be told when the reader only reads their open page, and would ask a rink only for a direct way to get its calendar. The rule "the rink is told" was taken out. What stays: if a rink asks to be left out, the reader stops for it, and a site's terms of use are read before the reader is pointed at it.

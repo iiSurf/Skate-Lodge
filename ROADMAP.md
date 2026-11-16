@@ -103,7 +103,9 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] The skater who helps everyone gets a thank-you: bonus experience points that they can use on a day they choose.
 - [ ] A shared update is a proposal first, and it goes live only when someone else approves it. The owner: this is "exactly how a pull request works" on a software team. (In the app itself use plain words, such as "suggest a change" and "confirm".)
 - [ ] A page reader, for rinks whose schedule is an open page with no calendar address (the owner said yes on 2026-11-15, choosing this over asking the rinks first). A job that runs a few times a day opens the page the way a visitor's browser does and reads the words on it. The AI turns those words into a draft of the sessions, and plain code checks the draft. Then the draft goes in as a proposal like anyone else's and is approved the same way: the reader is one more helper, not a way round the rules.
-- [ ] The page reader's rules: it only opens the page a visitor sees. It never asks a booking system's data service directly and never uses a key. It goes slowly (a few visits a day), every schedule links back to the rink's page, and the rink is told and can ask to be left out.
+- [ ] The page reader's rules: it only opens the page a visitor sees. It never asks a booking system's data service directly and never uses a key. It goes slowly (a few visits a day), and every schedule links back to the rink's page. If a rink asks to be left out, the reader stops for that rink.
+- [ ] Rinks do not need to be told when the reader only reads their open page, the same page any visitor reads (the owner, 2026-11-15). Ask a rink only when we want a direct way to get its calendar, such as a calendar address.
+- [ ] Once a rink's page-reader drafts have been approved many times with no corrections, they go live on their own, without waiting for approval (the owner agreed, 2026-11-15).
 - [ ] The thank-you is a Fresh Ice token. The owner left the details to the agent (2026-11-15), and these are them: a skater earns one token when an update of theirs is approved, at most two a week, and can hold three. They spend a token on a day they choose, and that day's practice earns double experience points. The helper is also told how many skaters their update reached, and there is a Rink Keeper badge at 1, 10, and 50 approved updates.
 
 ### Clubs
@@ -194,7 +196,8 @@ Where the schedules come from:
 - Give each skater a private calendar address for their picks, so their phone calendar can still follow along, with only the sessions they chose.
 - Reach: point the app at a rink's schedule page, PDF, or a photo of the printed schedule, and the AI drafts the sessions for a person to check. The draft then goes through the same checks as any shared update. The photo is read and thrown away; nobody else ever sees it.
 - Only read what a rink publishes openly. No reading behind a login, and no copying a booking system's pages against its rules.
-- Once a rink's page-reader drafts have been approved many times with no corrections, they can go live on their own. (The page reader itself is decided; see Decided.)
+- How many is "many times": ten approved drafts in a row for that rink. One correction, or one "This is wrong" report that turns out to be right, puts the rink back on approval until it has ten in a row again.
+- A draft that goes live on its own is still marked as read from the rink's page, so a skater can tell it from one a person confirmed.
 
 Keeping shared updates safe (the owner asked for protection against malicious, inappropriate, and junk updates):
 
@@ -261,7 +264,7 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 
 - Skate Lodge has not been checked against Google Play or trademarks. skatelodge.app and skatelodge.com looked free on 2026-11-14, which is not proof.
 - Does a club have one shared pond that everyone's practice builds up?
-- Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Who tells each rink, and when? The owner knows coaches and clubs who could.
+- Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
