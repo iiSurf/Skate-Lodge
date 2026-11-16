@@ -129,7 +129,7 @@ With other skaters, safely:
 
 At home, off the ice:
 
-- [ ] Jump cards (the owner's idea). A menu of cards, one for each jump. A card shows the jump's name and a character caught at the moment that makes that jump what it is. Tap a card to see an animation of how the jump is done, tips and tricks for doing it, and the mistakes skaters commonly make while learning it.
+- [ ] Jump cards (the owner's idea). They have their own section below.
 - [ ] The off-ice studio. The phone's camera checks an exercise at home with the same body tracking as Jump Lab: how long a spiral position is held, balance on one foot, air turns on the floor. Holds and balance only; nothing about body size or weight.
 - [ ] The dress studio. Design the dress or outfit your skater wears: the cut, the colors, where the sparkle goes. Levels unlock new pieces. Dresses are a big part of the sport, and a club could have its own jacket.
 - [ ] Watch your program. MySkate's planner already lays a program out on a rink. Here your skater skates that path from above, in time with the music, with each element popping up as it comes.
@@ -145,6 +145,21 @@ The front door:
 - [ ] Anyone can look at rink schedules without an account. Signing in is for picking sessions and getting alerts. The schedule page is then the thing people share, and how a new skater finds Skate Lodge.
 
 Build these three first (the agent's pick): session reports, who is on the ice, and the jump cards.
+
+### Jump cards
+
+The owner's idea, with the agent's list of how the cards work, which the owner approved on 2026-11-15.
+
+- [ ] A menu of cards, one for each jump. A card shows the jump's name and a character caught at the moment that makes that jump what it is. Tap a card to see an animation of how the jump is done, tips and tricks for doing it, and the mistakes skaters commonly make while learning it.
+- [ ] The moment on the front of each card is the one that tells that jump apart: the toe pick going in for a toe loop, the forward takeoff of a waltz jump or an Axel, the back outside edge of a loop.
+- [ ] Each card is tied to the same jump in the practice tracker. From a practice plan, tap the jump to open its card. From the card, add the jump to tonight's plan.
+- [ ] Tips and common mistakes are written like everything else that is shared: drafted (by the owner, a coach, or the AI), then approved by a coach before skaters see them. A card shows "checked by a coach" once it has been.
+- [ ] Every card says it is a picture to learn from, not coaching, and to follow your own coach. A jump taught wrong can hurt someone.
+- [ ] The animation is our skater drawn with the skeleton and its joints, the same drawing used in Jump Lab and elsewhere (the owner, 2026-11-15). The poses can come from a clean jump recorded in Jump Lab by a skater who agrees to it. Only the skeleton is kept, never the video.
+- [ ] Slow the animation down, step through it, and turn the skater round to see it from the front, the side, and above.
+- [ ] In Jump Lab, put your own attempt beside the card's animation, so the difference can be seen.
+- [ ] When you land the jump for the first time, its card turns gold and becomes your milestone card for it.
+- [ ] The same kind of card for spins, turns, and the Learn to Skate skills, after the jumps.
 
 ### Clubs
 
@@ -200,20 +215,6 @@ Build these three first (the agent's pick): session reports, who is on the ice, 
 - The skater taps themselves in the first frame, so the app does not follow the wrong person.
 - A short filming guide (side-on, close enough).
 - Spins as well as jumps: revolutions, speed, and how far the spin travels.
-
-### Jump cards
-
-The cards themselves are decided. These are the agent's ideas for how they work:
-
-- The moment on the front of each card is the one that tells that jump apart: the toe pick going in for a toe loop, the forward takeoff of a waltz jump or an Axel, the back outside edge of a loop.
-- Each card is tied to the same jump in the practice tracker. From a practice plan, tap the jump to open its card. From the card, add the jump to tonight's plan.
-- Tips and common mistakes are written like everything else that is shared: drafted (by the owner, a coach, or the AI), then approved by a coach before skaters see them. A card shows "checked by a coach" once it has been.
-- Every card says it is a picture to learn from, not coaching, and to follow your own coach. A jump taught wrong can hurt someone.
-- The animation is our own skater moving through saved poses. A good source for the poses: a clean jump recorded in Jump Lab by a skater who agrees to it. Only the skeleton is kept, never the video.
-- Slow the animation down, step through it, and turn the skater round to see it from the front, the side, and above.
-- In Jump Lab, put your own attempt beside the card's animation, so the difference can be seen.
-- When you land the jump for the first time, its card turns gold and becomes your milestone card for it.
-- The same kind of card for spins, turns, and the Learn to Skate skills, after the jumps.
 
 ### The game
 

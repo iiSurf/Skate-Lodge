@@ -175,3 +175,7 @@ The owner took out the "Name that jump" puzzle and asked for something else in i
 
 - `ROADMAP.md`: jump cards are under Decided (Fun and coming back), the puzzle is under Set aside with the owner's reason, and the agent's ideas for how the cards work are under Suggested (Jump cards). The main ones: a coach approves the tips before skaters see them, every card says it is not coaching, and the animation can come from a clean jump recorded in Jump Lab, keeping only the skeleton.
 - The order of work and `README.md` name the cards where they named the puzzle.
+
+### How the jump cards work (same day)
+
+The owner approved the agent's list of how the cards work, and added one thing: the animation should be the skater with the skeleton and its joints, the same drawing used elsewhere. The whole list moved to Decided in `ROADMAP.md` under Jump cards: the defining moment on the front, the tie to the practice tracker, a coach approving the tips, the "not coaching" note, the skeleton animation with poses that can come from Jump Lab, slowing it down and turning it round, your attempt beside the card, the card turning gold when you land the jump, and cards for spins, turns, and Learn to Skate skills after the jumps.
