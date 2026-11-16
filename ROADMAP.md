@@ -30,6 +30,8 @@ MySkate grown into a platform for figure skaters, their coaches, and their clubs
 4. **The AI coach:** carried over from Artifact 3 if we go that way.
 5. **Rink schedules:** several rinks' schedules on one page, kept up to date by the rinks' own calendars and by skaters, with an alert when your ice time moves.
 
+Around these sit the things that make it fun to come back to: a scoreboard when you save a session, a daily puzzle, a dress studio, friends on the same ice, and more (see Fun and coming back under Decided).
+
 It serves three audiences: the skater, the coach, and the club.
 
 ## Decided
@@ -107,6 +109,42 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Rinks do not need to be told when the reader only reads their open page, the same page any visitor reads (the owner, 2026-11-15). Ask a rink only when we want a direct way to get its calendar, such as a calendar address.
 - [ ] Once a rink's page-reader drafts have been approved many times with no corrections, they go live on their own, without waiting for approval (the owner agreed, 2026-11-15).
 - [ ] The thank-you is a Fresh Ice token. The owner left the details to the agent (2026-11-15), and these are them: a skater earns one token when an update of theirs is approved, at most two a week, and can hold three. They spend a token on a day they choose, and that day's practice earns double experience points. The helper is also told how many skaters their update reached, and there is a Rink Keeper badge at 1, 10, and 50 approved updates.
+
+### Fun and coming back
+
+The owner said yes to all fifteen of these on 2026-11-15. They were the agent's ideas, and each one keeps the safety detail it was suggested with.
+
+After you skate:
+
+- [ ] Session reports. When a session is saved, one tap for how busy it was (quiet, busy, packed) and one for the ice (fresh, fine, rough). The schedule page then shows "usually quiet" beside a session, which no rink's own site can tell you. Choices only, so nothing to moderate, and worth a little experience.
+- [ ] The kiss and cry. Saving a session ends with a scoreboard that reveals the numbers one at a time (minutes, jumps landed, a personal best), the way scores come up after a program. A longer sheet at the end of each week and each season.
+- [ ] Your patterns. The app finds things in your own log and tells you: "You land more waltz jumps in morning sessions", "Your best practices come after a rest day". A new one every week or two.
+
+With other skaters, safely:
+
+- [ ] Who is on the ice. On a session you picked, see which clubmates picked it too. Skating the same session (both checked in by location) earns both a bonus. Clubmates only, and only skaters whose parent or coach allows it.
+- [ ] Buddy visits. Send one of your buddies to a friend's pond. It is there when they open the app, and it comes home the next day with a sticker from them. No typing anywhere.
+- [ ] The swap shelf. A club's board for outgrown dresses and skates: a kind, a size, and a picture of the item, approved by a club admin before it shows. Families need this every season.
+- [ ] Cue cards. After a lesson the coach taps a few cues from a list or adds their own ("more knee bend on the landing"). The skater sees their coach's three cues before the next practice. A parent can see them too.
+
+At home, off the ice:
+
+- [ ] Name that jump. One puzzle a day: a slow skeleton clip of a jump, and three tries to say which jump it is from the takeoff. It teaches what a judge looks for, gives a reason to open the app on a day without ice, and reuses Jump Lab's drawing.
+- [ ] The off-ice studio. The phone's camera checks an exercise at home with the same body tracking as Jump Lab: how long a spiral position is held, balance on one foot, air turns on the floor. Holds and balance only; nothing about body size or weight.
+- [ ] The dress studio. Design the dress or outfit your skater wears: the cut, the colors, where the sparkle goes. Levels unlock new pieces. Dresses are a big part of the sport, and a club could have its own jacket.
+- [ ] Watch your program. MySkate's planner already lays a program out on a rink. Here your skater skates that path from above, in time with the music, with each element popping up as it comes.
+
+In Jump Lab:
+
+- [ ] Your best as a ghost. Play today's jump with the skeleton of your best one drawn faintly on top, so progress can be seen, not only read.
+- [ ] Send the skeleton, not the video. A skater shares the skeleton replay with their coach, who draws on it and sends it back. No video of a child leaves the phone.
+- [ ] Milestone cards. A keepsake card for a first: your first clean salchow, with the date and its numbers. Rare ones for the big firsts.
+
+The front door:
+
+- [ ] Anyone can look at rink schedules without an account. Signing in is for picking sessions and getting alerts. The schedule page is then the thing people share, and how a new skater finds Skate Lodge.
+
+Build these three first (the agent's pick): session reports, who is on the ice, and Name that jump.
 
 ### Clubs
 
@@ -250,48 +288,12 @@ Alerts and the thank-you:
 - Written in plain language, with a short terms page beside it.
 - It says what is collected and what never is, who can see what, how children's accounts work, how chat is moderated, and how to export and delete your data.
 
-### More ideas for fun and for coming back (the agent's, 2026-11-15)
-
-The owner asked what else could be built that would be fun and would make people want to come back. None of these is decided.
-
-After you skate:
-
-- Session reports. When a session is saved, one tap for how busy it was (quiet, busy, packed) and one for the ice (fresh, fine, rough). The schedule page then shows "usually quiet" beside a session, which no rink's own site can tell you. Choices only, so nothing to moderate, and worth a little experience.
-- The kiss and cry. Saving a session ends with a scoreboard that reveals the numbers one at a time (minutes, jumps landed, a personal best), the way scores come up after a program. A longer sheet at the end of each week and each season.
-- Your patterns. The app finds things in your own log and tells you: "You land more waltz jumps in morning sessions", "Your best practices come after a rest day". A new one every week or two.
-
-With other skaters, safely:
-
-- Who is on the ice. On a session you picked, see which clubmates picked it too. Skating the same session (both checked in by location) earns both a bonus. Clubmates only, and only skaters whose parent or coach allows it.
-- Buddy visits. Send one of your buddies to a friend's pond. It is there when they open the app, and it comes home the next day with a sticker from them. No typing anywhere.
-- The swap shelf. A club's board for outgrown dresses and skates: a kind, a size, and a picture of the item, approved by a club admin before it shows. Families need this every season.
-- Cue cards. After a lesson the coach taps a few cues from a list or adds their own ("more knee bend on the landing"). The skater sees their coach's three cues before the next practice. A parent can see them too.
-
-At home, off the ice:
-
-- Name that jump. One puzzle a day: a slow skeleton clip of a jump, and three tries to say which jump it is from the takeoff. It teaches what a judge looks for, gives a reason to open the app on a day without ice, and reuses Jump Lab's drawing.
-- The off-ice studio. The phone's camera checks an exercise at home with the same body tracking as Jump Lab: how long a spiral position is held, balance on one foot, air turns on the floor. Holds and balance only; nothing about body size or weight.
-- The dress studio. Design the dress or outfit your skater wears: the cut, the colors, where the sparkle goes. Levels unlock new pieces. Dresses are a big part of the sport, and a club could have its own jacket.
-- Watch your program. MySkate's planner already lays a program out on a rink. Here your skater skates that path from above, in time with the music, with each element popping up as it comes.
-
-In Jump Lab:
-
-- Your best as a ghost. Play today's jump with the skeleton of your best one drawn faintly on top, so progress can be seen, not only read.
-- Send the skeleton, not the video. A skater shares the skeleton replay with their coach, who draws on it and sends it back. No video of a child leaves the phone.
-- Milestone cards. A keepsake card for a first: your first clean salchow, with the date and its numbers. Rare ones for the big firsts.
-
-The front door:
-
-- Anyone can look at rink schedules without an account. Signing in is for picking sessions and getting alerts. The schedule page is then the thing people share, and how a new skater finds Skate Lodge.
-
-The agent's top three: session reports, who is on the ice, and Name that jump.
-
 ### Order of work
 
 1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)
-2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top; and Jump Lab's sure tier.
-3. Nov 23 to 29: clubs and the coach view; shared updates with approval, and the alert when a picked session moves; then Jump Lab's likely tier.
-4. Nov 30 to Dec 6: the page reader, the AI explanation in Jump Lab, quests and the Fresh Ice token, a trial with one real coach, and polish for the demo.
+2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top, open to anyone without an account; session reports and the kiss and cry when a session is saved; and Jump Lab's sure tier, with your best as a ghost.
+3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and Name that jump.
+4. Nov 30 to Dec 6: the page reader; the AI explanation in Jump Lab and your patterns; the pond with buddy visits and the dress studio; the off-ice studio; the swap shelf; watch your program; quests and the Fresh Ice token; a trial with one real coach; and polish for the demo.
 5. Dec 7 to 13: show it, fix what the trial found, write the reflection.
 
 Design the XP and hatch rules early, because they touch every tool. The art can come later.

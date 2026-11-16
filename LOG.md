@@ -164,3 +164,7 @@ The owner said yes to the page reader, choosing it over asking the rinks first. 
 ### More ideas (same day)
 
 The owner asked what else would be fun to build and would make people want to come back. The agent suggested fifteen ideas, now in `ROADMAP.md` under Suggested ("More ideas for fun and for coming back"), in five groups: after you skate, with other skaters, at home, in Jump Lab, and the front door. The agent's top three: session reports (one tap for how busy and how good the ice was), who is on the ice, and a daily "Name that jump" puzzle. Nothing is decided.
+
+### All fifteen ideas are in (same day)
+
+The owner liked every one of the fifteen ideas and asked to add them all. They moved to Decided in `ROADMAP.md` under "Fun and coming back", each with the safety detail it was suggested with, and the order of work now places every one of them. `README.md` mentions them, and `CLAUDE.md` gained the rule they share: what skaters send each other is choices, stickers, or pictures of things, never typed messages and never pictures or video of a child.
