@@ -252,10 +252,10 @@ Alerts and the thank-you:
 
 ### Order of work
 
-1. This weekend (Nov 14 to 15): the plan, the new repository, and a one-day test of Jump Lab on real clips.
-2. Nov 16 to 22: accounts, sync, and Jump Lab's sure tier.
-3. Nov 23 to 29: clubs and the coach view, then Jump Lab's likely tier.
-4. Nov 30 to Dec 6: the AI explanation, quests, a trial with one real coach, and polish for the demo.
+1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)
+2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top; and Jump Lab's sure tier.
+3. Nov 23 to 29: clubs and the coach view; shared updates with approval, and the alert when a picked session moves; then Jump Lab's likely tier.
+4. Nov 30 to Dec 6: the page reader, the AI explanation in Jump Lab, quests and the Fresh Ice token, a trial with one real coach, and polish for the demo.
 5. Dec 7 to 13: show it, fix what the trial found, write the reflection.
 
 Design the XP and hatch rules early, because they touch every tool. The art can come later.
@@ -343,3 +343,4 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 - Three to five clips of their own jumps: side-on, at 60 frames a second, some with the phone propped and some with someone following.
 - One coach's answer to: what would you want to see about a student between lessons?
+- If the chance comes up: ask one rink that uses DaySmart (the Kraken rink or Sno-King) whether it has a calendar address it would share.

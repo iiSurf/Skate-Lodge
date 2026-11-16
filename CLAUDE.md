@@ -1,6 +1,6 @@
 # Skate Lodge
 
-A platform for figure skaters, their coaches, and their clubs. It grows out of MySkate (a practice tracker) and adds accounts, clubs, Jump Lab (measurements from a video of a jump), and a game played off the ice. The owner (GitHub: iiSurf) is a figure skater at Learn to Skate USA Pre-Free Skate and its first user.
+A platform for figure skaters, their coaches, and their clubs. It grows out of MySkate (a practice tracker) and adds accounts, clubs, Jump Lab (measurements from a video of a jump), a game played off the ice, and rink schedules (several rinks on one page, with an alert when your ice time moves). The owner (GitHub: iiSurf) is a figure skater at Learn to Skate USA Pre-Free Skate and its first user.
 
 This is Artifact 5 ("The Moonshot") for TCSS 490. Solo. Final show and tell is Monday 2026-12-07. Due Sunday 2026-12-13, 11:59pm. The Canvas submission is the Portfolio link, not this repo. The Portfolio card is the Artifact 5 entry in `cards.js` in github.com/iiSurf/Portfolio.
 
