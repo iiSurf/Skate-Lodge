@@ -121,3 +121,23 @@ What changed:
 - `README.md`: rink schedules as the fifth part.
 
 Still not looked at: how any real rink publishes its schedule.
+
+### The rink survey (same day)
+
+The owner approved the way shared updates work ("exactly how a pull request works"), left the thank-you token to the agent, and listed nine rink sites to look at, noting that one site often carries several schedules (public skating, freestyle, collegiate).
+
+What the agent did:
+
+- Read each site's home page and schedule pages, and worked out where each schedule lives. The table and what it means are in `ROADMAP.md` under Rink survey.
+- Downloaded the three open Google Calendars (Kent's two and Bremerton's) and ran MySkate's own calendar reader on them. It found nothing at first, because it only looks at the first 300 events and these calendars go back to 2011 and 2016. With past events removed, it read 176, 52, and 286 coming sessions. So the reader works on real rink data after one change.
+- Set the token: a Fresh Ice token, earned when an update is approved (two a week at most, three held at most), spent on a day the skater chooses for double experience points, with a Rink Keeper badge.
+
+What was decided: the proposal-and-approval model, and the token. Both are in `ROADMAP.md` under Decided.
+
+Not done, on purpose:
+
+- No request was made to any booking system. The agent started one to DaySmart's data for the Kraken rink, to see whether it answers without signing in; the permission check stopped it as unauthorized access, and the agent did not try another way.
+- One rink's page shows a key and secret for its booking system in its source. They were not used and are not written down anywhere in this repository.
+- Pierce County's site refused the agent's automatic request, so Sprinker's calendar subscription was seen in a browser but not downloaded.
+
+Not verified: each site was read once, today. Kent may have more calendars than the two found. What the all-day entries in Kent's calendars mean is unknown.

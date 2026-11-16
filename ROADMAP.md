@@ -101,6 +101,8 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Shared updating. When a rink's schedule has to be updated by a person, one skater updates it and it is updated for everyone. It is a shared space in that way only. The point is less work for everyone else.
 - [ ] Protect the shared schedules against anything malicious, inappropriate, or junk.
 - [ ] The skater who helps everyone gets a thank-you: bonus experience points that they can use on a day they choose.
+- [ ] A shared update is a proposal first, and it goes live only when someone else approves it. The owner: this is "exactly how a pull request works" on a software team. (In the app itself use plain words, such as "suggest a change" and "confirm".)
+- [ ] The thank-you is a Fresh Ice token. The owner left the details to the agent (2026-11-15), and these are them: a skater earns one token when an update of theirs is approved, at most two a week, and can hold three. They spend a token on a day they choose, and that day's practice earns double experience points. The helper is also told how many skaters their update reached, and there is a Rink Keeper badge at 1, 10, and 50 approved updates.
 
 ### Clubs
 
@@ -196,7 +198,7 @@ Keeping shared updates safe (the owner asked for protection against malicious, i
 - Nothing to upload and almost nothing to type. A shared update is made of choices: the kind of session from a fixed list, the day, the start and end time, and a price as a number. No free text, no links, no pictures. Inappropriate words have nowhere to go. A note, if wanted, comes from a short fixed list ("Holiday hours", "Cancelled this week", "Moved").
 - The one place for typing is the name and city of a new rink. A new rink waits for a coach or club admin to approve it, and is matched against the map list first.
 - Only skaters who have that rink's passport stamp can update it. The stamp means they were really there, which strangers and troublemakers were not.
-- An update is a proposal first. It goes live when someone else agrees: one other skater with that rink's stamp, or a coach or club admin. The skaters who picked that session are the ones asked "Is this right?".
+- Who can approve a proposal: one other skater with that rink's stamp, or a coach or club admin. The skaters who picked that session are the ones asked "Is this right?".
 - Coaches and club admins can update directly, because the club has vouched for them.
 - Plain code checks every update before anyone sees it: real times, an end after the start, a sensible length, no copy of a session that is already there, and no date far in the future. Removing a large part of a rink's schedule at once always needs a coach or club admin.
 - A limit on how many updates one skater can make in a day.
@@ -210,10 +212,7 @@ Alerts and the thank-you:
 
 - An alert only goes out for a change that is confirmed or comes from the rink's own calendar. An unconfirmed proposal never cancels anyone's plans; at most the session shows "may have changed".
 - The alert says where the change came from ("from the rink's calendar", "confirmed by a coach", "confirmed by 2 skaters").
-- The thank-you is given when the update is confirmed, not when it is sent, so sending junk earns nothing. No thank-you for changing something back and forth.
-- The thank-you is a token the skater keeps and spends on a day they choose: that day's practice earns extra experience points.
-- A limit on how many tokens one skater can earn in a week.
-- Tell the helper how many skaters their update reached ("38 skaters saw your update"), and give a badge for keeping a rink up to date. Knowing it helped is a reward too.
+- No token for changing something back and forth, and none for an update that is undone as wrong.
 
 ### Clubs and safety
 
@@ -259,9 +258,9 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 
 - Skate Lodge has not been checked against Google Play or trademarks. skatelodge.app and skatelodge.com looked free on 2026-11-14, which is not proof.
 - Does a club have one shared pond that everyone's practice builds up?
-- Rink schedules: how does each of the owner's own rinks publish its schedule (a public calendar, a booking system, a PDF, a web page)? That decides how much is automatic.
-- Shared updates: who may make one (the suggestion is skaters with that rink's stamp), how many people must agree before it goes live, and is the helper's username shown to everyone?
-- The thank-you token: how much extra experience is it worth, and how many can one skater earn in a week?
+- Rink schedules: six of the nine rink sites looked at keep their schedule in a booking system with no open calendar (see the rink survey below). Do we ask those rinks for a calendar address or their permission to read the schedule? The owner knows coaches and clubs who could ask.
+- Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
+- Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
@@ -271,6 +270,33 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Jump Lab: what do the owner's real clips show? This decides how much of the three tiers is realistic.
 - What does a coach want to see about a student between lessons? (Ask one.)
 - Partnering with rinks so a stamp is earned after buying a session, or redeemed at the front counter. How would that work?
+
+## Rink survey: how nine rink sites near the owner publish their schedules (looked at 2026-11-15)
+
+The owner listed nine rink sites around Puget Sound (eleven rinks, because Sno-King has three). The agent read each site's home page and schedule pages once, on one day. Systems change, so check again before building on any of this.
+
+| Rink | Where the schedule lives | Can a server read it today? |
+| --- | --- | --- |
+| Kent Valley Ice Centre (Kent) | Google Calendar, one calendar for each kind of session (public skating, freestyle) | Yes. Both calendars were downloaded and read. |
+| Bremerton Ice Center (Bremerton) | Google Calendar, one calendar holding everything; sign-up is in DaySmart | Yes. Downloaded and read. It needs sorting (see below). |
+| Sprinker Recreation Center (Parkland) | Pierce County's website calendar, with a "Subscribe to iCalendar" link | Maybe. The county's site refused the agent's automatic request, so it may need the county's permission. |
+| Kraken Community Iceplex (Seattle) | DaySmart, a booking system; the freestyle season calendar is also a PDF | No open calendar found. |
+| Sno-King Ice Arenas (Renton, Snoqualmie, Kirkland) | DaySmart, shown as a week view on their own site, one view for each of three rinks | No open calendar found. |
+| Tacoma Twin Rinks (Tacoma) | LeagueApps bookings (open skate, the club's freestyles, curling) | No open calendar found. |
+| Lynnwood Ice Center (Lynnwood) | RecTimes, a live schedule app | No open calendar found. |
+| Everett Community Ice Rink (Everett) | Bond Sports schedule page | No open calendar found. |
+| Bellevue Ice Rink (Bellevue, seasonal) | A page of hours and a weekly timetable on a Wix site | No. Its hours are mostly fixed for the season, so by hand is fine. |
+
+What this means:
+
+- Two of the nine can be automatic today, one might be, and six cannot without the rink's help. So the shared updates the owner asked for are not a side feature: most rinks will depend on them, or on the AI drafting a schedule for a person to approve.
+- The same few systems keep coming up. DaySmart alone runs the Kraken rink and all three Sno-King rinks, and takes sign-ups for Bremerton. If one of those rinks agrees to share its schedule, the same work may serve the others.
+- Booking systems are not to be read without permission. The agent made no request to any of them. One rink's page carries its own key for its booking system in plain view; that key is the rink's and must never be used.
+- The owner was right that one site carries several schedules. Kent keeps a separate calendar for each kind of session. Bremerton puts everything in one: public sessions, stick and puck, freestyle, learn to skate, team practices, private rentals, and ice maintenance. Sno-King is one organisation with three rinks. So the shared list needs: an organisation, its rinks, and for each rink one or more schedule sources, each marked with its kind or as mixed.
+- A mixed calendar needs sorting by its titles, and hiding what is not for the public (private rentals, team practices). MySkate's reader sorted Bremerton's 286 coming sessions into 56 stick and puck, 50 public skate, 22 freestyle, 15 learn to skate, and 143 it could not place, which were mostly practices, rentals, and maintenance.
+- MySkate's reader needs one change before it can read a real rink's calendar. These calendars go back years (Bremerton's has 14,256 events since 2011, and the file is 5.6 MB). The reader only looks at the first 300 events in a file, which are the oldest, so it found nothing in all three. With the past events removed first, it read 176 public sessions and 52 freestyle sessions at Kent, and 286 sessions at Bremerton. The fix: drop what has ended before counting, and raise the limit on the server.
+- Kinds of session seen: public skating, holiday public skating, sessions under black lights, freestyle, stick and puck, learn to skate, drop-in hockey, curling, ice maintenance, and closed days. The owner also named collegiate sessions.
+- Not looked at: whether Kent has more calendars (hockey), what the all-day entries in Kent's calendars are, Sprinker's calendar subscription itself, and anything inside a booking system.
 
 ## Name search (checked 2026-11-14)
 
