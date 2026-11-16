@@ -192,6 +192,8 @@ Where the schedules come from:
 - Give each skater a private calendar address for their picks, so their phone calendar can still follow along, with only the sessions they chose.
 - Reach: point the app at a rink's schedule page, PDF, or a photo of the printed schedule, and the AI drafts the sessions for a person to check. The draft then goes through the same checks as any shared update. The photo is read and thrown away; nobody else ever sees it.
 - Only read what a rink publishes openly. No reading behind a login, and no copying a booking system's pages against its rules.
+- A page reader, for rinks whose schedule is an open page with no calendar address (six of the sites surveyed). A job that runs a few times a day opens the page the way a visitor's browser does and reads the words on it. The AI turns those words into a draft of the sessions, and plain code checks the draft. Then the draft goes in as a proposal like anyone else's, and is approved the same way: the reader is one more helper, not a way round the rules. Once a rink's drafts have been approved many times with no corrections, they can go live on their own.
+- The page reader's own rules: it only opens the page a visitor sees. It never asks a booking system's data service directly and never uses a key. It goes slowly (a few visits a day), every schedule links back to the rink's page, and the rink is told and can ask to be left out.
 
 Keeping shared updates safe (the owner asked for protection against malicious, inappropriate, and junk updates):
 
@@ -258,7 +260,7 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 
 - Skate Lodge has not been checked against Google Play or trademarks. skatelodge.app and skatelodge.com looked free on 2026-11-14, which is not proof.
 - Does a club have one shared pond that everyone's practice builds up?
-- Rink schedules: six of the nine rink sites looked at keep their schedule in a booking system with no open calendar (see the rink survey below). Do we ask those rinks for a calendar address or their permission to read the schedule? The owner knows coaches and clubs who could ask.
+- Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). Is a page reader in? Do we ask those rinks first, or tell them after? The owner knows coaches and clubs who could ask. Their terms of use have not been read.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
@@ -280,12 +282,12 @@ The owner listed nine rink sites around Puget Sound (eleven rinks, because Sno-K
 | Kent Valley Ice Centre (Kent) | Google Calendar, one calendar for each kind of session (public skating, freestyle) | Yes. Both calendars were downloaded and read. |
 | Bremerton Ice Center (Bremerton) | Google Calendar, one calendar holding everything; sign-up is in DaySmart | Yes. Downloaded and read. It needs sorting (see below). |
 | Sprinker Recreation Center (Parkland) | Pierce County's website calendar, with a "Subscribe to iCalendar" link | Maybe. The county's site refused the agent's automatic request, so it may need the county's permission. |
-| Kraken Community Iceplex (Seattle) | DaySmart, a booking system; the freestyle season calendar is also a PDF | No open calendar found. |
-| Sno-King Ice Arenas (Renton, Snoqualmie, Kirkland) | DaySmart, shown as a week view on their own site, one view for each of three rinks | No open calendar found. |
-| Tacoma Twin Rinks (Tacoma) | LeagueApps bookings (open skate, the club's freestyles, curling) | No open calendar found. |
-| Lynnwood Ice Center (Lynnwood) | RecTimes, a live schedule app | No open calendar found. |
-| Everett Community Ice Rink (Everett) | Bond Sports schedule page | No open calendar found. |
-| Bellevue Ice Rink (Bellevue, seasonal) | A page of hours and a weekly timetable on a Wix site | No. Its hours are mostly fixed for the season, so by hand is fine. |
+| Kraken Community Iceplex (Seattle) | DaySmart, a booking system, shown on the rink's own pages: a public and drop-in calendar, and a separate monthly freestyle calendar. The freestyle season calendar is also a PDF. | No calendar address. The pages are open to any visitor. |
+| Sno-King Ice Arenas (Renton, Snoqualmie, Kirkland) | DaySmart, shown as a week view on their own site, with a filter for the rink and for the kind of session | No calendar address. The page is open to any visitor. |
+| Tacoma Twin Rinks (Tacoma) | LeagueApps bookings (open skate, the club's freestyles, pond hockey, speed skating, curling). The rink's own Events page only explains the sessions and links there. | No calendar address. The bookings page is open to any visitor. |
+| Lynnwood Ice Center (Lynnwood) and Olympicview Arena (Mountlake Terrace) | RecTimes, a live schedule app. One page covers both rinks and shows everything on the ice. | No calendar address. The page is open to any visitor. |
+| Everett Community Ice Rink (Everett) | Bond Sports schedule page | No calendar address. The page is open to any visitor, though it did not finish loading in the agent's browser. |
+| Bellevue Ice Rink (Bellevue, seasonal) | A month calendar of opening hours on a Wix site | No calendar address. Open to any visitor. Its hours are mostly fixed for the season, so by hand is fine. |
 
 What this means:
 
@@ -297,6 +299,15 @@ What this means:
 - MySkate's reader needs one change before it can read a real rink's calendar. These calendars go back years (Bremerton's has 14,256 events since 2011, and the file is 5.6 MB). The reader only looks at the first 300 events in a file, which are the oldest, so it found nothing in all three. With the past events removed first, it read 176 public sessions and 52 freestyle sessions at Kent, and 286 sessions at Bremerton. The fix: drop what has ended before counting, and raise the limit on the server.
 - Kinds of session seen: public skating, holiday public skating, sessions under black lights, freestyle, stick and puck, learn to skate, drop-in hockey, curling, ice maintenance, and closed days. The owner also named collegiate sessions.
 - Not looked at: whether Kent has more calendars (hockey), what the all-day entries in Kent's calendars are, Sprinker's calendar subscription itself, and anything inside a booking system.
+
+A second look, with the schedule pages the owner sent (same day). The agent opened each page in a browser, the way a visitor would:
+
+- None of the six needs a sign-in to see the schedule. Each is a page that fills itself in after it loads (the Kraken page says to allow 10 to 15 seconds).
+- None has a "subscribe" or "export" button, so there is still no calendar address to read.
+- None of these sites' robots files (where a site says what automatic visitors may read) forbids its schedule page. That is a good sign, not permission: the sites' terms of use were not read.
+- So there is a middle way between an open calendar and updating by hand: read the page itself, as a visitor's browser does. See "A page reader" under Suggested.
+- What the pages show adds to the list of kinds. The Kraken rink has four kinds of freestyle (open, aspire, competitive, and collegiate or adult), tot play hour, and several kinds of public skate. Tacoma has sessions for members only. Freestyle at Sno-King and the Kraken rink is sold in 30-minute slots, so one morning can be six entries in a row: the page should join slots that touch into one block.
+- The owner's Lynnwood link covers a second rink, Olympicview Arena, which makes twelve rinks on ten sites.
 
 ## Name search (checked 2026-11-14)
 

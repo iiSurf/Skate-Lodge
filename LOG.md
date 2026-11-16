@@ -141,3 +141,13 @@ Not done, on purpose:
 - Pierce County's site refused the agent's automatic request, so Sprinker's calendar subscription was seen in a browser but not downloaded.
 
 Not verified: each site was read once, today. Kent may have more calendars than the two found. What the all-day entries in Kent's calendars mean is unknown.
+
+### A second look at six rinks (same day)
+
+The owner sent the schedule page for each of the six rinks where no calendar address was found. The agent opened each in a browser as a visitor would, and read each site's robots file.
+
+- All six show the schedule without a sign-in, none has a subscribe or export button, and no robots file forbids the schedule page. The sites' terms of use were not read.
+- New in `ROADMAP.md`: the survey table and a "second look" list, and under Suggested a page reader (a job that opens the open page like a visitor, has the AI draft the sessions, and sends the draft through the same approval as a skater's update).
+- Learned along the way: the Kraken rink has four kinds of freestyle, including collegiate; freestyle is sold in 30-minute slots that should be joined into blocks; Tacoma has members-only sessions; and the Lynnwood page also covers Olympicview Arena.
+
+Not verified: the Everett page did not finish loading in the agent's browser. Whether a job on a free service can open these pages reliably has not been tried.
