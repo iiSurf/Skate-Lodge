@@ -34,6 +34,7 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 - Jump Lab needs clips at 60 frames a second.
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.
+- The page reader only opens a rink's schedule page the way a visitor's browser does. It never asks a booking system's data service directly, and never uses a key, even one left in plain view on a rink's page. Read a site's terms of use before pointing the reader at it.
 - Shared rink schedules are made of choices, not typed text, and an update only goes live once someone else agrees or a coach or club admin makes it. Nothing a skater sends is trusted by the page alone: the server checks it.
 
 ## Working agreements

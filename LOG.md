@@ -151,3 +151,7 @@ The owner sent the schedule page for each of the six rinks where no calendar add
 - Learned along the way: the Kraken rink has four kinds of freestyle, including collegiate; freestyle is sold in 30-minute slots that should be joined into blocks; Tacoma has members-only sessions; and the Lynnwood page also covers Olympicview Arena.
 
 Not verified: the Everett page did not finish loading in the agent's browser. Whether a job on a free service can open these pages reliably has not been tried.
+
+### The page reader is in (same day)
+
+The owner said yes to the page reader, choosing it over asking the rinks first. It moved to Decided in `ROADMAP.md` with its rules (only the page a visitor sees, never a booking system's data service, never a key, a few visits a day, a link back to the rink, and the rink is told and can ask to be left out). The same rule is now in `CLAUDE.md`, with a reminder to read a site's terms of use before the reader is pointed at it. That reading has not been done for any rink yet.
