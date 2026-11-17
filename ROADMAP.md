@@ -410,6 +410,32 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - What does a coach want to see about a student between lessons? (Ask one.)
 - Partnering with rinks so a stamp is earned after buying a session, or redeemed at the front counter. How would that work?
 
+## Jump Lab test: body tracking on three real clips (2026-11-16)
+
+A test, not the app. The code is in `spikes/jump-lab/`. The clips, the tracked points, and the pictures stay on the owner's Mac and are never committed, because they show other skaters.
+
+The clips: three iPhone videos filmed from the stands at an event, looking down at an angle and following the skater, who fills a quarter to two fifths of the height of the picture. 60 frames a second, HDR, phone upright. Two are one jump each (3.7 and 2.6 seconds). The third, a whole program, has not been tracked yet.
+
+What worked:
+
+- The tracker (Google's MediaPipe pose model, running in Chrome) found a body in every frame of the first clip (223 of 223) and all but one of the second (156 of 157).
+- The skeleton sits on the skater, also in mid-air while turning fast. The agent looked at twelve frames with the skeleton drawn over them.
+- Turns can be counted. Seen from the camera, the width of the shoulders swings through zero twice in every turn. In the first clip that gave seven half turns in the air, evenly spaced: about 3.7 turns, 4.7 turns a second on average and 5.4 at the fastest. This was the part the agent had expected to be only "likely".
+- HDR video and Chrome on the Mac are fine together.
+
+What did not, or not yet:
+
+- Air time is only rough when someone follows the skater with the phone. "Feet together and legs long" gave 0.83 and 0.85 seconds, which is probably too long by a few frames at each end. So no height was worked out: from those times it would come out near 85 cm, which is not believable.
+- At the takeoff the picture blurs and the points jump about. In the second clip that added false half turns (it claimed 4.9 turns). The count is good in mid-air and poor at the edges.
+- The tracker's own sense of depth, used to tell which way the shoulders face, counted too many turns. The simple width of the shoulders was better.
+- It is slow: about a fifth of a second for each frame on this Mac without the graphics chip, so a 3.7 second clip took 48 seconds. Not tried: the graphics chip, a lighter model, or a phone.
+
+What this changes:
+
+- Turn counting and rotation speed move up to "sure", even for a followed clip of a jump with several turns.
+- Air time and height stay "sure" only for a propped phone, and that has not been tested, because none of these clips is propped. For followed clips they need a better way to find the takeoff and the landing.
+- Still to do: the owner's own single jumps, from the side with the phone propped; the long clip; a real iPhone in Safari; and speed.
+
 ## Rink survey: how nine rink sites near the owner publish their schedules (looked at 2026-11-15)
 
 The owner listed nine rink sites around Puget Sound (eleven rinks, because Sno-King has three). The agent read each site's home page and schedule pages once, on one day. Systems change, so check again before building on any of this.

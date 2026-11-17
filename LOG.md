@@ -286,3 +286,15 @@ What this means for the test:
 - They show other people, so they stay on this Mac, are never committed, and cannot become a jump card's animation without that skater agreeing (a rule already in the roadmap).
 
 Next: run the body tracking on them. That needs two downloads the owner has not yet approved: Google's MediaPipe package from npm (`@mediapipe/tasks-vision` 1.2.3, about 31 MB unpacked, Apache 2.0 licence) and its pose model from Google's own storage (`pose_landmarker_full.task`, 9.4 MB).
+
+### The Jump Lab test ran (same day)
+
+The owner approved two downloads, and the agent ran body tracking on the two short clips.
+
+- **A new dependency, for the test only** (`SECURITY.md` asks for this to be written down): `@mediapipe/tasks-vision` 1.2.3 from npm, Apache 2.0, pinned to that exact version with a lock file, installed without running its scripts. And Google's pose model `pose_landmarker_full.task`, 9,398,198 bytes, from Google's own storage; its SHA-256 starts `4eaa5eb7a98365221087693fcc286334`. Both sit in folders Git ignores. Neither is part of the app yet.
+- **The test code** is in `spikes/jump-lab/`: `track.html` (tracks a clip frame by frame in the browser and draws the skeleton), `run.mjs` (opens it in headless Chrome, serving files on this computer only), and `analyze.mjs` (prints the signals and counts half turns).
+- **The result** is in `ROADMAP.md` under "Jump Lab test". In short: the tracker found the skater in 379 of 380 frames and the skeleton fits; turns can be counted from the width of the shoulders (about 3.7 turns at 4.7 turns a second in the first clip); air time is only rough when the camera follows the skater, so no height was worked out; and it is slow on this Mac without the graphics chip.
+
+What a stranger could do with this: nothing. The test runs on the owner's Mac, listens only on 127.0.0.1, and sends nothing out. The clips show other people, so they, the tracked points, and the pictures are in folders Git ignores.
+
+Not verified: the long clip, a propped phone, the owner's own jumps, a real iPhone, Safari, and the agent's memory that a top skater's time in the air is about 0.6 to 0.7 seconds.
