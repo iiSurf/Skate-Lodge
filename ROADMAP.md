@@ -273,6 +273,11 @@ Alerts and the thank-you:
 - The alert says where the change came from ("from the rink's calendar", "confirmed by a coach", "confirmed by 2 skaters").
 - No token for changing something back and forth, and none for an update that is undone as wrong.
 
+### Security
+
+- A full set of security rules, written before any building, is proposed in `SECURITY.md` (the agent, 2026-11-16): fourteen sections, from children's safety and signing in to keys, the AI, and what to do on a bad day. They become the project's rules when the owner says yes.
+- Three risks the agent found inside ideas that are already decided, each with a rule in that file: "who is on the ice" says where a child will be; the server fetching addresses that people give it can be turned against us; and a rink's page could try to give the AI instructions.
+
 ### Clubs and safety
 
 - Channels only, no private messages. U.S. Center for SafeSport rules ask for messages between an adult and a child athlete to be open, with another adult included.
@@ -320,6 +325,7 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
+- Are the security rules in `SECURITY.md` adopted?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?

@@ -179,3 +179,25 @@ The owner took out the "Name that jump" puzzle and asked for something else in i
 ### How the jump cards work (same day)
 
 The owner approved the agent's list of how the cards work, and added one thing: the animation should be the skater with the skeleton and its joints, the same drawing used elsewhere. The whole list moved to Decided in `ROADMAP.md` under Jump cards: the defining moment on the front, the tie to the practice tracker, a coach approving the tips, the "not coaching" note, the skeleton animation with poses that can come from Jump Lab, slowing it down and turning it round, your attempt beside the card, the card turning gold when you land the jump, and cards for spins, turns, and Learn to Skate skills after the jumps.
+
+## 2026-11-16 (Monday): security rules, before any building
+
+### Plan
+
+The owner asked what security practices could be set now, before building starts, so that every idea so far is safe from outside threats.
+
+### What changed
+
+- `SECURITY.md` (new): the agent went through every decided idea asking what an outsider could do with it, and wrote the rules as fourteen sections of boxes to tick: children first, signing in, who can see what, text from outside, the server fetching from the internet, the AI, video and pictures, keys, the browser's protections, other people's code, abuse and cheating, data and leaving, watching for trouble, and how we build. It is marked as proposed until the owner says yes.
+- `ROADMAP.md`: a Security entry under Suggested pointing at the file, and an open question.
+- `README.md`: lists the file.
+
+### Risks found in ideas already decided
+
+- "Who is on the ice" tells people where a child will be and when. The proposed rule: off until a parent or coach turns it on, names only to approved friends in the same club, a number for everyone else.
+- The calendar reader and the page reader make our server visit addresses that people give it. The proposed rules: refuse addresses inside private networks, limit size and time, and give the page reader one key that can only add a proposal.
+- A rink's page could contain words meant for the AI. The proposed rule: whatever the AI produces can only become a proposal made of choices.
+
+### Not verified
+
+Listed at the end of `SECURITY.md`: what Supabase, GitHub, and Vercel offer on the plans we would use, and what the law requires for children under 13.

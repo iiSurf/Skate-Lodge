@@ -21,6 +21,7 @@ Around those sit the things that make it fun to come back to: a scoreboard that 
 - [`ROADMAP.md`](ROADMAP.md): what has been decided, what has been suggested and is waiting for an answer, the open questions, and what was set aside.
 - [`LOG.md`](LOG.md): what was planned and what changed, oldest first.
 - [`CLAUDE.md`](CLAUDE.md): what an AI agent needs to know to work in this repository.
+- [`SECURITY.md`](SECURITY.md): the security rules proposed for the project, written before any building.
 - [`design/`](design/): two sneak peeks drawn for inspiration. Open them in a browser. Every name and number in them is made up.
 
 ## Dates
