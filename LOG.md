@@ -268,3 +268,21 @@ The owner asked for at least fifteen more tools or features. The agent suggested
 ### All sixteen tools are in (same day)
 
 The owner said yes to all sixteen. They moved to Decided in `ROADMAP.md` under More tools, and the order of work names them. Several of them take in typed or spoken words, pictures, or other people's time (the coach board, rink guides, say it don't type it), so each gets the "What could a stranger do with this?" answer before it is built, as `SECURITY.md` requires.
+
+### The first three clips (same day)
+
+The owner put three clips in `clips/` (a folder Git ignores). No body tracking has been run yet. What was checked, by opening each clip in headless Chrome on the owner's Mac:
+
+- All three play. They are HEVC video with HDR (the owner forgot to turn HDR off), 1080 by 1920, filmed with the phone upright.
+- All three are a true 60 frames a second: Chrome showed a new frame every 16.67 thousandths of a second.
+- Two are short cuts (3.7 and 2.6 seconds, one jump each) and one is a whole program (4 minutes 10 seconds, 416 MB).
+- They were filmed from the stands at an event, looking down at an angle and following the skater, who fills about a quarter to two fifths of the height of the picture. They show other skaters, not the owner.
+
+What this means for the test:
+
+- HDR and Chrome are not a problem on this Mac. Other browsers and a real iPhone are not checked.
+- These are the hard case on purpose or by accident: followed, from above, small in the picture, and likely jumps with several turns. If the tracking holds on these, it will hold on a propped phone at the boards.
+- They cannot stand in for the owner's own jumps, which are still wanted: single jumps, from the side, at ice level.
+- They show other people, so they stay on this Mac, are never committed, and cannot become a jump card's animation without that skater agreeing (a rule already in the roadmap).
+
+Next: run the body tracking on them. That needs two downloads the owner has not yet approved: Google's MediaPipe package from npm (`@mediapipe/tasks-vision` 1.2.3, about 31 MB unpacked, Apache 2.0 licence) and its pose model from Google's own storage (`pose_landmarker_full.task`, 9.4 MB).
