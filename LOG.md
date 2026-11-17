@@ -347,3 +347,10 @@ Not verified: how many jumps the program really has. The agent did not watch the
 
 - That 30 frames a second is the cause of the undercount. It fits, but the same jumps were not available at 60 to compare.
 - None of the owner's own jumps has been tested yet.
+
+### The professor's feedback (same day)
+
+The owner shared a comment from the professor on the checkpoint: "In ROADMAP.md you kept what you decided apart from what Claude only suggested. Next week, put the Jump Lab results from your own clips on the card."
+
+- Recorded in `ROADMAP.md` under "The professor's feedback", as four boxes for next week: film the owner's own jumps, run them through the test against a known answer, put those results on the Artifact 5 card, and log it.
+- The card was not changed now. Its last sentence already says "Next I will test Jump Lab on real clips of my own jumps", and the professor asked for results from the owner's own clips, which do not exist yet. The Commons and event clips are someone else's and do not count for this.

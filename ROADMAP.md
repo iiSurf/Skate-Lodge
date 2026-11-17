@@ -536,8 +536,17 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 - Checking a ticket purchase through a rink's sales system: out of reach for now. Location first.
 - MongoDB: Supabase was chosen, because clubs, coaches, skaters, and homework are related tables with rules about who can read each row.
 
+## The professor's feedback
+
+- Week of 2026-11-16, on the Artifact 5 checkpoint: "In ROADMAP.md you kept what you decided apart from what Claude only suggested. Next week, put the Jump Lab results from your own clips on the card."
+- What that asks for, by the next checkpoint (end of the week of 2026-11-23):
+  - [ ] Film three to five of the owner's own jumps: 60 frames a second, HDR off, the phone still on the boards, side-on, the skater filling at least a quarter of the picture's height, a jump the owner can name (so the right number of turns is known).
+  - [ ] Run them through the Jump Lab test, and check each against its known answer, as was done for the Commons clips.
+  - [ ] Put the results on the Artifact 5 card in the Portfolio (`cards.js`), in the owner's own words: what was measured, what was right, and what was not. Only results from the owner's own clips, not the Commons or event clips.
+  - [ ] Log it here.
+
 ## What the owner is bringing
 
-- Three to five clips of their own jumps: side-on, at 60 frames a second, some with the phone propped and some with someone following.
+- Three to five clips of their own jumps: side-on, at 60 frames a second, some with the phone propped and some with someone following. This is now due: the professor asked for the Jump Lab results from the owner's own clips to be on the Portfolio card next week (see the checkpoint below).
 - One coach's answer to: what would you want to see about a student between lessons?
 - If the chance comes up: ask one rink that uses DaySmart (the Kraken rink or Sno-King) whether it has a calendar address it would share.
