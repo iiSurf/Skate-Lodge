@@ -2,32 +2,41 @@
 
 **Status: proposed by the agent on 2026-11-16. They become the project's rules when the owner says yes.** Nothing is built yet, so none of these boxes is ticked.
 
+Revised the same day: the owner set the audience to adults only (18 and over), asked for friends to be found by username, and added a map of who is at which rink. The first draft was written around children and has been reworked.
+
 These are the rules for keeping Skate Lodge and the people who use it safe from outside threats. They are written before any building so that every feature starts out safe. A box is ticked when its rule is in place and has been checked.
 
 ## Who we protect, and from what
 
-Many of the skaters are children. That decides almost everything below.
+Skate Lodge is for adults, 18 and over. It will show, to people a skater chooses, which rink that skater is at. So the first worry is no longer children: it is one person using the app to find, follow, or pester another.
 
 The threats, worst first:
 
-1. A stranger trying to reach a child, or to find out where a child will be.
+1. Someone using the app to find out where another skater is, to follow them, or to keep contacting them when they do not want it.
 2. Someone taking over an account, above all a coach's or a club admin's.
-3. Someone reading data they should not: a child's notes, a club's roster, where a skater has been.
+3. Someone reading data they should not: a skater's notes, a club's roster, where a skater has been.
 4. Bad input that turns into running code or a broken page: a name, a rink's calendar, a file, an answer from the AI.
 5. Someone using our server as a tool: to reach other machines, to run up the AI bill, or to fill the database with junk.
 6. A leaked key, or a bad piece of someone else's code inside the app.
 7. Cheating and vandalism: fake experience points, prank schedule changes, mass reports.
 
-## 1. Children first
+## 1. People first
 
-- [ ] Collect as little as possible. No real name is required, and no home address, phone number, or school. Store an age band (under 13, 13 to 17, adult), not a date of birth.
-- [ ] A skater under 13 only has an account through a parent, who can see it and delete it. Have the children's privacy rules checked by someone qualified before real clubs join (already an open question in `ROADMAP.md`).
-- [ ] No public profiles, no searching for people by name or email, and no way to list who uses the app. A skater is only ever found through their club or a friend link they gave out themselves.
-- [ ] A profile picture is always the skater's drawn character, never a photo.
-- [ ] No typed messages between skaters, and no private messages between an adult and a child, anywhere (`CLAUDE.md` already says what skaters may share).
-- [ ] "Who is on the ice" is the most sensitive idea we have, because it says where a child will be and when. Rules for it: it is off until a parent or coach turns it on for that skater. Names are shown only to friends in the same club whom the skater (and for a child, the parent) has approved. Everyone else in the club sees a number ("3 clubmates"), never names. Nobody outside the club sees anything.
-- [ ] Location is asked for only at the moment of checking in. The server answers yes or no, and what is saved is the rink and the day. No coordinates, no trail, and never a live position.
+- [ ] Adults only. Signing up means confirming you are 18 or older, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
+- [ ] Collect as little as possible. No real name is required, and no date of birth, home address, phone number, or school.
+- [ ] A profile shows a username, the skater's drawn character, a level, and badges. Never a photo, a real name, a home rink, or the times a person usually skates.
+- [ ] Skaters are found by exact username only. There is no browsing, no searching by real name or email, no "people you may know", and no way to list who uses the app.
+- [ ] A friend is only a friend after accepting a request. Each skater chooses who may send them one (anyone, friends of friends, nobody), and there is a daily limit on sending.
+- [ ] Block and report are on every avatar, profile, and list. A blocked person cannot see you on the map, find you by username, or send a request, and is not told. Reports from several skaters get an account looked at.
+- [ ] Sharing where you are is off until you turn it on, and is chosen at each check-in: nobody, friends, or everyone. "Everyone" never stays on by itself, and means signed-in skaters only. The map cannot be seen without an account.
+- [ ] The map knows the rink and nothing finer. Location is asked for only at the moment of checking in, the server answers yes or no, and no coordinates are kept.
+- [ ] Being "there now" ends by itself when the session is saved or the booked time runs out. "Recently" means the last two hours and is for friends only.
+- [ ] Nobody's past visits are ever listed for anyone else. A routine is what a follower wants most. The passport's stamps are the skater's own to see.
+- [ ] "Hide from": share with friends but not this one.
+- [ ] Statuses are choices from a menu, never typed.
+- [ ] "Who is on the ice" follows the same rules: each skater turns it on for themselves, and clubmates who are not friends see a number, not names.
 - [ ] A skater's private calendar address holds session times and rinks only, no names. It is a long random secret that the skater can throw away and replace.
+- [ ] Typed messages between skaters are not in the plan. If friends are later allowed to message, it comes with block, report, and a limit, and never reaches someone who has not accepted a request.
 
 ## 2. Accounts and signing in
 
@@ -35,7 +44,7 @@ The threats, worst first:
 - [ ] An email address must be confirmed before the account works.
 - [ ] Long beats clever: at least 10 characters, no forced symbols, and passwords known from past breaches are refused (check that Supabase offers this on our plan).
 - [ ] Signing in with Google is offered, so fewer people need a password at all.
-- [ ] Coaches and club admins must use two-step sign-in, because they can see children's data. It is offered to everyone else.
+- [ ] Coaches and club admins must use two-step sign-in, because they can see other people's data. It is offered to everyone else.
 - [ ] Limits on tries for signing in, signing up, and resetting a password. The message is the same whether or not an email has an account, so nobody can test which emails are members.
 - [ ] A way to sign out everywhere. Coach and admin sessions run out sooner than skaters'.
 - [ ] Usernames cannot pretend: no "admin", "coach", "staff", or "skatelodge", no look-alikes of an existing name, and a word filter.
@@ -137,7 +146,7 @@ Set once, as headers on every page:
 
 ## Before real people use it
 
-The short list that must all be true first: sections 1, 2, 3, and 8 complete; the content security policy on; the access tests passing; a restore tried; the privacy page written and checked; and the bad-day plan written.
+The short list that must all be true first: sections 1, 2, 3, and 8 complete; block and report working everywhere a skater can see another; the content security policy on; the access tests passing; a restore tried; the privacy page written and checked; and the bad-day plan written.
 
 ## Not verified
 
@@ -146,4 +155,4 @@ These came from the agent's memory and must be checked against each service's ow
 - That Supabase refuses breached passwords, offers two-step sign-in, and backs up on the plan we use.
 - That GitHub's secret scanning, push protection, and private reporting are free for a public repository.
 - The exact header settings Vercel needs, and what the content security policy must allow for the body-tracking files to run.
-- What the law requires for children under 13. This needs someone qualified, not the agent.
+- What a privacy policy and terms must say for an adults-only app that shows where people are. This needs someone qualified, not the agent.

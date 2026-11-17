@@ -29,6 +29,7 @@ MySkate grown into a platform for figure skaters, their coaches, and their clubs
 3. **The game:** rink time turned into a game, played off the ice.
 4. **The AI coach:** carried over from Artifact 3 if we go that way.
 5. **Rink schedules:** several rinks' schedules on one page, kept up to date by the rinks' own calendars and by skaters, with an alert when your ice time moves.
+6. **Friends and the rink map:** find friends by username, and see on a map drawn from above who is skating where right now.
 
 Around these sit the things that make it fun to come back to: a scoreboard when you save a session, jump cards that show how each jump is done, a dress studio, friends on the same ice, and more (see Fun and coming back under Decided).
 
@@ -43,6 +44,7 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Build on what exists: MySkate (Artifact 2, `../MySkate`) and MySkate Coach (Artifact 3, `../MySkate-Coach`).
 - [ ] A website, not an App Store app. It must work well on an iPhone.
 - [ ] A big platform with many tools. The owner accepts the risk of thin tools and believes there is time and skill to avoid it.
+- [ ] Adults only. The youngest skater is 18 (the owner, 2026-11-16). The owner does not expect children to use it. Earlier parts of this plan were written with children in mind, and those parts were reworked the same day.
 - [ ] Go big. The size of an idea is not a reason to hold it back: this project calls for it, and building goes fast with the agent (the owner, 2026-11-15). Plan the hard parts of an idea; do not shrink it.
 - [ ] A database with a schema: Supabase (hosted Postgres).
 - [ ] Coaches and clubs the owner knows will be asked to try it.
@@ -122,10 +124,10 @@ After you skate:
 
 With other skaters, safely:
 
-- [ ] Who is on the ice. On a session you picked, see which clubmates picked it too. Skating the same session (both checked in by location) earns both a bonus. Clubmates only, and only skaters whose parent or coach allows it.
+- [ ] Who is on the ice. On a session you picked, see which clubmates picked it too. Skating the same session (both checked in by location) earns both a bonus. Clubmates only, and only skaters who have turned it on for themselves.
 - [ ] Buddy visits. Send one of your buddies to a friend's pond. It is there when they open the app, and it comes home the next day with a sticker from them. No typing anywhere.
 - [ ] The swap shelf. A club's board for outgrown dresses and skates: a kind, a size, and a picture of the item, approved by a club admin before it shows. Families need this every season.
-- [ ] Cue cards. After a lesson the coach taps a few cues from a list or adds their own ("more knee bend on the landing"). The skater sees their coach's three cues before the next practice. A parent can see them too.
+- [ ] Cue cards. After a lesson the coach taps a few cues from a list or adds their own ("more knee bend on the landing"). The skater sees their coach's three cues before the next practice.
 
 At home, off the ice:
 
@@ -137,7 +139,7 @@ At home, off the ice:
 In Jump Lab:
 
 - [ ] Your best as a ghost. Play today's jump with the skeleton of your best one drawn faintly on top, so progress can be seen, not only read.
-- [ ] Send the skeleton, not the video. A skater shares the skeleton replay with their coach, who draws on it and sends it back. No video of a child leaves the phone.
+- [ ] Send the skeleton, not the video. A skater shares the skeleton replay with their coach, who draws on it and sends it back. No video leaves the phone.
 - [ ] Milestone cards. A keepsake card for a first: your first clean salchow, with the date and its numbers. Rare ones for the big firsts.
 
 The front door:
@@ -160,6 +162,18 @@ The owner's idea, with the agent's list of how the cards work, which the owner a
 - [ ] In Jump Lab, put your own attempt beside the card's animation, so the difference can be seen.
 - [ ] When you land the jump for the first time, its card turns gold and becomes your milestone card for it.
 - [ ] The same kind of card for spins, turns, and the Learn to Skate skills, after the jumps.
+
+### Friends and the rink map
+
+All of this is the owner's (2026-11-16).
+
+- [ ] Friends are found by searching for a username, and added with a friend request that the other skater accepts. This keeps some privacy: nobody is a friend without saying yes.
+- [ ] A page of its own with a map. On it you can see your friends: who is online, who checked in to a rink recently, and who is there skating now.
+- [ ] A second filter shows skaters who have chosen to share where they are with everyone, with the rink they are at, so that people can make new friends and skate with new people.
+- [ ] The map is seen from above. Each rink is an arena you look down on, with round avatars beside it when skaters are there.
+- [ ] Tap the avatars and a list opens of the skaters who are there now.
+- [ ] Each skater has a status, chosen from a menu and shown beside their username and avatar: for example, working on skills with a coach, or looking for someone to skate with. It works like the statuses in Slack (active, away, in a huddle).
+- [ ] The status can be set by itself from what the skater chose to work on in their session.
 
 ### Clubs
 
@@ -218,7 +232,7 @@ The owner's idea, with the agent's list of how the cards work, which the owner a
 
 ### The game
 
-- Hatches are earned only, never bought. No paid mystery packs, because children use this.
+- Hatches are earned only, never bought. No paid mystery packs: they work the way gambling does, at any age.
 - A buddy arrives frozen in an ice cube that thaws with minutes on the ice, so it is not a copy of an egg.
 - An album with empty outlines for the buddies not yet found.
 - Rarity, with rare buddies tied to real milestones.
@@ -275,16 +289,38 @@ Alerts and the thank-you:
 
 ### Security
 
-- A full set of security rules, written before any building, is proposed in `SECURITY.md` (the agent, 2026-11-16): fourteen sections, from children's safety and signing in to keys, the AI, and what to do on a bad day. They become the project's rules when the owner says yes.
-- Three risks the agent found inside ideas that are already decided, each with a rule in that file: "who is on the ice" says where a child will be; the server fetching addresses that people give it can be turned against us; and a rink's page could try to give the AI instructions.
+- A full set of security rules, written before any building, is proposed in `SECURITY.md` (the agent, 2026-11-16): fourteen sections, from people's safety and signing in to keys, the AI, and what to do on a bad day. They become the project's rules when the owner says yes.
+- Three risks the agent found inside ideas that are already decided, each with a rule in that file: "who is on the ice" and the rink map say where a person is; the server fetching addresses that people give it can be turned against us; and a rink's page could try to give the AI instructions.
+
+### Friends and the rink map
+
+The features are decided. These are the agent's ideas for making them safe, because a map of where people are is the part of Skate Lodge most open to misuse (someone following a person who does not want to be found):
+
+- Sharing where you are is off until you turn it on, and you choose each time you check in: nobody, friends, or everyone. "Everyone" is never a setting that stays on by itself.
+- "Everyone" means every signed-in skater, never the open web. The map cannot be seen without an account.
+- The map only ever knows the rink, not a spot on the ground. It shows "at Kent Valley", not a dot that moves.
+- Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
+- "Recently" means the last two hours, and only friends see it. There is no list of where someone has been, for anyone. A person's routine is what a follower wants most.
+- A block button on every avatar and every list. A blocked person cannot see you on the map, find you by username, or send a request. Blocking is silent.
+- "Hide from": share with friends but not this one, without unfriending them.
+- A report button on every profile and list, and an account that is reported by several skaters is looked at.
+- Username search finds an exact username only. There is no browsing through skaters and no "people you may know", so nobody can collect a list of everyone.
+- You choose who may send you a friend request: anyone, friends of friends, or nobody. A limit on how many requests one skater can send in a day.
+- A profile shows a username, the drawn character, a level, and badges. Never a real name, a photo, a home rink, or the times a person usually skates.
+- Statuses are choices from a menu, never typed. A starting list: with my coach, working on jumps, working on spins, edges and skills, running my program, just skating, open to skating together, and heads down (please do not disturb).
+- "Open to skating together" is the one that makes new friends: it puts a small mark on your avatar, and two skaters who skate the same session earn the skate-together bonus that is already planned.
+- If you ask for it: a nudge when a friend arrives at the rink you are at.
+- The map is our own drawing of the region with each rink as a little arena, not a map from a map company. That keeps the lodge look and means no other company learns who looked at which rink. Rinks that are not on the drawing are in a list beside it.
+- Online, away, and offline for friends, with a way to appear offline.
 
 ### Clubs and safety
 
-- Channels only, no private messages. U.S. Center for SafeSport rules ask for messages between an adult and a child athlete to be open, with another adult included.
-- A report button, and parents can see their child's channels.
+- Channels only, no private messages. (This was suggested when children were expected. The owner's own worry was bullying, which adults do too. Whether friends can message each other is now an open question.)
+- A report button and a block button, everywhere one skater can see another.
 - Standard encryption (in transit and stored) with moderation, not the kind that hides messages from club admins.
 - Build chat last, after announcements and comments on homework.
-- Accounts for ages 13 and over, or a parent's account for younger skaters. Join a club by a coach's invite only. No public profiles.
+- Signing up means confirming you are 18 or older, and the terms say so. Nobody can check an age on a web page, so there is also a way to report an account that seems to belong to someone younger, and such an account is closed.
+- Join a club by an invite from its coach or admin only.
 
 ### Notifications
 
@@ -306,14 +342,14 @@ Alerts and the thank-you:
 ### Privacy page
 
 - Written in plain language, with a short terms page beside it.
-- It says what is collected and what never is, who can see what, how children's accounts work, how chat is moderated, and how to export and delete your data.
+- It says what is collected and what never is, who can see what, that it is for adults only, how the rink map and sharing where you are work, how chat is moderated, and how to export and delete your data.
 
 ### Order of work
 
 1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)
 2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top, open to anyone without an account; session reports and the kiss and cry when a session is saved; and Jump Lab's sure tier, with your best as a ghost.
-3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and the jump cards.
-4. Nov 30 to Dec 6: the page reader; the AI explanation in Jump Lab and your patterns; the pond with buddy visits and the dress studio; the off-ice studio; the swap shelf; watch your program; quests and the Fresh Ice token; a trial with one real coach; and polish for the demo.
+3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; friends by username, with requests, block, and report; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and the jump cards.
+4. Nov 30 to Dec 6: the rink map with statuses; the page reader; the AI explanation in Jump Lab and your patterns; the pond with buddy visits and the dress studio; the off-ice studio; the swap shelf; watch your program; quests and the Fresh Ice token; a trial with one real coach; and polish for the demo.
 5. Dec 7 to 13: show it, fix what the trial found, write the reflection.
 
 Design the XP and hatch rules early, because they touch every tool. The art can come later.
@@ -329,7 +365,9 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
-- Who checks the privacy policy, above all the part about children?
+- Who checks the privacy policy?
+- Now that everyone is an adult: can friends send each other typed messages, and can a visitor write on a pond, or do stickers stay the only way?
+- The rink map: can a skater who is not sharing where they are see the skaters who share with everyone, or must they be sharing too?
 - How is the hosted AI coach paid for?
 - Is Vercel the host?
 - Jump Lab: what do the owner's real clips show? This decides how much of the three tiers is realistic.
@@ -393,6 +431,7 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 ## Set aside
 
+- Accounts for children, parents' accounts, and the rules written for them (typed messages banned everywhere, a parent's yes for sharing): the owner expects no one under 18 (2026-11-16).
 - "Name that jump", a daily puzzle of guessing a jump from a slow skeleton clip: the owner does not think it is needed, and would rather have jump cards that teach each jump (2026-11-15).
 - A video game you play while skating: nobody should use a phone on the ice.
 - An App Store app: there is no Apple developer account, and a website is enough.

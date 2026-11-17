@@ -1,6 +1,6 @@
 # Skate Lodge
 
-A platform for figure skaters, their coaches, and their clubs. It grows out of MySkate (a practice tracker) and adds accounts, clubs, Jump Lab (measurements from a video of a jump), a game played off the ice, and rink schedules (several rinks on one page, with an alert when your ice time moves). The owner (GitHub: iiSurf) is a figure skater at Learn to Skate USA Pre-Free Skate and its first user.
+A platform for adult figure skaters (18 and over), their coaches, and their clubs. It grows out of MySkate (a practice tracker) and adds accounts, clubs, Jump Lab (measurements from a video of a jump), a game played off the ice, and rink schedules (several rinks on one page, with an alert when your ice time moves). The owner (GitHub: iiSurf) is a figure skater at Learn to Skate USA Pre-Free Skate and its first user.
 
 This is Artifact 5 ("The Moonshot") for TCSS 490. Solo. Final show and tell is Monday 2026-12-07. Due Sunday 2026-12-13, 11:59pm. The Canvas submission is the Portfolio link, not this repo. The Portfolio card is the Artifact 5 entry in `cards.js` in github.com/iiSurf/Portfolio.
 
@@ -30,12 +30,13 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 
 - A website, not an App Store app. It must work well on an iPhone.
 - Supabase (hosted Postgres) is the database. Accounts have a username other people see, an email, and a password.
-- Children use this. No private messages are planned, chat is in channels that club admins create, and nothing is ever sold as a mystery pack.
+- Adults only: the youngest skater is 18, and signing up says so. No private messages are planned, chat is in channels that club admins create, and nothing is ever sold as a mystery pack.
+- The rink map shows where people are, so it is the part most open to misuse. Sharing is off until a skater turns it on, it is chosen at each check-in, it only ever names the rink, and it ends by itself. Nobody's past visits are ever listed. Every avatar has a block and a report button.
 - Jump Lab needs clips at 60 frames a second.
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.
 - The page reader only opens a rink's schedule page the way a visitor's browser does. It never asks a booking system's data service directly, and never uses a key, even one left in plain view on a rink's page. Read a site's terms of use before pointing the reader at it.
-- Anything skaters share with each other is choices, stickers, or pictures of things, never typed messages and never pictures or video of a child. Seeing which clubmates are on a session needs a parent's or coach's yes. A swap shelf listing waits for a club admin.
+- What skaters share with each other is choices, stickers, or pictures of things. Typed messages between skaters, and pictures or video of people, are not in the plan (whether friends may message is an open question). Seeing which clubmates are on a session is something each skater turns on for themselves. A swap shelf listing waits for a club admin.
 - Shared rink schedules are made of choices, not typed text, and an update only goes live once someone else agrees or a coach or club admin makes it. Nothing a skater sends is trusted by the page alone: the server checks it.
 
 ## Working agreements

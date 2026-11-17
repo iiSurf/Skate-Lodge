@@ -201,3 +201,19 @@ The owner asked what security practices could be set now, before building starts
 ### Not verified
 
 Listed at the end of `SECURITY.md`: what Supabase, GitHub, and Vercel offer on the plans we would use, and what the law requires for children under 13.
+
+### Adults only, friends, and the rink map (same day)
+
+The owner answered the security draft with three things:
+
+- **The audience is adults.** The owner does not believe children will use the app; the youngest skater is 18. The draft had been written around children, so it was reworked: parents' accounts, age bands, and a parent's yes are gone (now under Set aside), and the first worry in `SECURITY.md` became one person using the app to find or follow another.
+- **Friends by username.** A skater can be found by username and sent a friend request, which keeps some privacy. This replaces the draft's "no searching for people".
+- **A rink map.** A page with a map seen from above, each rink an arena with round avatars beside it when skaters are there. Filters: your friends (online, checked in recently, there now), or skaters who chose to share where they are with everyone, to meet new people. Tapping the avatars lists who is there. Each skater has a status from a menu, like Slack's, which can set itself from what they chose to work on.
+
+What changed:
+
+- `ROADMAP.md`: "Adults only" under Foundations; a new Decided section, Friends and the rink map; a sixth part under What it is; the order of work; three decided items reworded where they named children or parents; and the agent's safety ideas for the map under Suggested. Three open questions: whether friends may message, whether a pond visitor may write, and whether a skater must be sharing to see those who share with everyone.
+- `SECURITY.md`: section 1 rewritten as "People first" (still proposed, not adopted).
+- `CLAUDE.md` and `README.md`: adults only, and the map's core rules.
+
+What the agent said plainly: an age rule on a sign-up page does not keep a 16-year-old out, and skating has many of them, so there is a way to report an account that seems under 18. And a map of where people are is the part most open to misuse, by someone following a person who does not want to be found. The safety ideas are aimed at that: off until turned on, chosen at each check-in, the rink and nothing finer, ending by itself, no list of past visits, and block and report on every avatar.
