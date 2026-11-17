@@ -304,7 +304,7 @@ The features are decided. These are the agent's ideas for making them safe, beca
 - Sharing where you are is off until you turn it on, and you choose each time you check in: nobody, friends, or everyone. "Everyone" is never a setting that stays on by itself.
 - "Everyone" means every signed-in skater, never the open web. The map cannot be seen without an account.
 - Skaters under 18 share with friends only. For them the "everyone" choice is not there: they are not shown to skaters they do not know, and they do not see them either. The map's "everyone" side is where adults meet strangers at a rink, and a 15-year-old should not be on it. This is the agent's strongest suggestion in this plan.
-- For that, signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14 (that is also where the law for young children stops applying).
+- For that, signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14. (The U.S. law on young children's data covers those under 13, as far as the agent remembers. Not checked.)
 - A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows to their friends only.
 - A skater who is sharing with everyone sees the others at the rink they are at, not at every rink. Being there in person is then the price of seeing who else is, which keeps out someone looking from far away. Friends are still seen at any rink.
 - Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
@@ -350,7 +350,7 @@ The features are decided. These are the agent's ideas for making them safe, beca
 ### Privacy page
 
 - Written in plain language, with a short terms page beside it.
-- It says what is collected and what never is, who can see what, that it is for adults only, how the rink map and sharing where you are work, how chat is moderated, and how to export and delete your data.
+- It says what is collected and what never is, who can see what, who it is for (skaters of 14 and over), how the rink map and sharing where you are work, how chat is moderated, and how to export and delete your data.
 
 ### Order of work
 
