@@ -298,3 +298,16 @@ The owner approved two downloads, and the agent ran body tracking on the two sho
 What a stranger could do with this: nothing. The test runs on the owner's Mac, listens only on 127.0.0.1, and sends nothing out. The clips show other people, so they, the tracked points, and the pictures are in folders Git ignores.
 
 Not verified: the long clip, a propped phone, the owner's own jumps, a real iPhone, Safari, and the agent's memory that a top skater's time in the air is about 0.6 to 0.7 seconds.
+
+### The Jump Lab test, second round (same day)
+
+The owner asked for the four-minute program to be tracked.
+
+- **Speed.** The test code was waiting 150 thousandths of a second after every frame for a signal that never came. With that fixed, tracking runs at about 26 frames a second. The first clip gave the same answer as before.
+- **The program.** Tracked in parts of 4,000 frames. The first three parts (200 seconds) ran. The fourth did not: while the run was going, the files in `clips/` changed. The four-minute `IMG_8441.MOV` was replaced by a four-second `IMG_8441.mov`, `IMG_8437.MOV` became an 18-second clip, and `IMG_8440.MOV` appeared. So the last 50 seconds of the program were never tracked.
+- **The new clips** were tracked too. Results are in `ROADMAP.md` under "Jump Lab test".
+- `spikes/jump-lab/find.mjs` (new) looks through a tracked clip for bursts of fast turning. `run.mjs` and `track.html` can now track every nth frame or use the graphics chip.
+
+A mistake by the agent: saved points are named after the clip, so tracking the new four-second `IMG_8441.mov` wrote over the saved points for the first 67 seconds of the program. The search of the whole 200 seconds had already been run and its table read, so the findings stand, but those points are gone and the program's video is no longer in the folder to redo them. Saved points should be named after the clip's size or date as well as its name.
+
+Not verified: none of the "likely jumps" in the program was checked against a picture. The eight are the agent's reading of a table.

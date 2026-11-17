@@ -1,5 +1,5 @@
 // A test only, not part of the app. Tracks the body in a clip with headless Chrome and saves the points and some pictures.
-// usage: node run.mjs <clip file in ../../clips> [from frame] [to frame] [VIDEO|IMAGE] [frames to draw, comma list]
+// usage: node run.mjs <clip file in ../../clips> [from frame] [to frame] [VIDEO|IMAGE] [frames to draw, comma list] [step] [CPU|GPU]
 // It serves this repository on this computer only (127.0.0.1), because the page's modules and the clip need a server
 // that can send part of a file. Nothing is sent anywhere else.
 import { spawn } from "node:child_process";
@@ -10,7 +10,7 @@ import { fileURLToPath } from "node:url";
 import { tmpdir } from "node:os";
 
 const here = dirname(fileURLToPath(import.meta.url)), root = normalize(join(here, "..", ".."));
-const [clip, from = "0", to = "100000", mode = "VIDEO", drawList = ""] = process.argv.slice(2);
+const [clip, from = "0", to = "100000", mode = "VIDEO", drawList = "", step = "1", delegate = "CPU"] = process.argv.slice(2);
 const TYPES = { ".html": "text/html", ".mjs": "text/javascript", ".js": "text/javascript", ".wasm": "application/wasm", ".task": "application/octet-stream", ".mov": "video/quicktime", ".mp4": "video/mp4", ".json": "application/json" };
 
 const server = createServer((req, res) => {
@@ -47,9 +47,9 @@ try {
   for (let i = 0; i < 100 && !(await run("window.READY === true")); i++) await sleep(200);
   if (errors.length) console.log("page errors:", errors);
   const started = Date.now();
-  const data = await run(`window.track(${JSON.stringify("/clips/" + clip)}, { from: ${+from}, to: ${+to}, runningMode: ${JSON.stringify(mode)} })`);
+  const data = await run(`window.track(${JSON.stringify("/clips/" + clip)}, { from: ${+from}, to: ${+to}, runningMode: ${JSON.stringify(mode)}, step: ${+step}, delegate: ${JSON.stringify(delegate)} })`);
   const name = basename(clip, extname(clip)), outDir = join(here, "out"); mkdirSync(outDir, { recursive: true });
-  writeFileSync(join(outDir, `${name}-${mode}-${from}.json`), JSON.stringify(data));
+  writeFileSync(join(outDir, `${name}-${mode}-${from}${+step > 1 ? "-step" + step : ""}.json`), JSON.stringify(data));
   const found = data.frames.filter((f) => f.p).length;
   console.log(`${clip}: ${data.w}x${data.h}, ${data.total} frames in the clip, tracked ${data.frames.length}, body found in ${found} (${Math.round((100 * found) / data.frames.length)}%), ${data.msPerFrame} ms a frame, ${Math.round((Date.now() - started) / 1000)} s in all`);
   for (const f of drawList.split(",").filter(Boolean)) {

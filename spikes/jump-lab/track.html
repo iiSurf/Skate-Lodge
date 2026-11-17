@@ -12,14 +12,14 @@
   const FPS = 60;
   let tracker = null, mode = "";
 
-  async function init(runningMode) {
-    if (tracker && mode === runningMode) return;
+  async function init(runningMode, delegate) {
+    if (tracker && mode === runningMode + delegate) return;
     const files = await FilesetResolver.forVisionTasks("./node_modules/@mediapipe/tasks-vision/wasm");
     tracker = await PoseLandmarker.createFromOptions(files, {
-      baseOptions: { modelAssetPath: "./models/pose_landmarker_full.task", delegate: "CPU" },
+      baseOptions: { modelAssetPath: "./models/pose_landmarker_full.task", delegate },
       runningMode, numPoses: 1, minPoseDetectionConfidence: 0.3, minPosePresenceConfidence: 0.3, minTrackingConfidence: 0.3,
     });
-    mode = runningMode;
+    mode = runningMode + delegate;
   }
 
   const load = (url) => new Promise((res, rej) => {
@@ -29,24 +29,26 @@
   // show exactly the frame at time t
   const seek = (t) => new Promise((res) => {
     let done = false; const fin = () => { if (!done) { done = true; res(); } };
-    v.onseeked = () => { v.requestVideoFrameCallback(fin); setTimeout(fin, 150); };
+    // the frame is ready when the seek ends; wait one screen refresh so it is the one being shown
+    v.onseeked = () => { requestAnimationFrame(fin); setTimeout(fin, 150); };
     v.currentTime = t;
   });
   const r4 = (n) => Math.round(n * 10000) / 10000;
 
   // Track frames [from, to) of a clip. Returns one entry per frame: null when no body was found, or the 33 body points
   // as [x, y, visibility] (x and y from 0 to 1 across the picture) and the same points in metres around the hips.
-  window.track = async (url, { from = 0, to = Infinity, runningMode = "VIDEO" } = {}) => {
-    await init(runningMode);
+  // step: track every nth frame (a quick pass). delegate: "CPU", or "GPU" to use the graphics chip.
+  window.track = async (url, { from = 0, to = Infinity, runningMode = "VIDEO", step = 1, delegate = "CPU" } = {}) => {
+    await init(runningMode, delegate);
     await load(url);
     const total = Math.floor(v.duration * FPS), frames = [], t0 = performance.now();
-    for (let i = Math.max(0, from); i < Math.min(total, to); i++) {
+    for (let i = Math.max(0, from); i < Math.min(total, to); i += step) {
       await seek((i + 0.5) / FPS);
       const r = runningMode === "VIDEO" ? tracker.detectForVideo(v, Math.round((i * 1000) / FPS)) : tracker.detect(v);
       const p = r.landmarks && r.landmarks[0], w = r.worldLandmarks && r.worldLandmarks[0];
       frames.push(p ? { i, p: p.map((k) => [r4(k.x), r4(k.y), r4(k.visibility ?? 0)]), w: w ? w.map((k) => [r4(k.x), r4(k.y), r4(k.z)]) : null } : { i, p: null });
     }
-    window.DATA = { url, w: v.videoWidth, h: v.videoHeight, fps: FPS, total, frames, msPerFrame: Math.round((performance.now() - t0) / Math.max(1, frames.length)) };
+    window.DATA = { url, w: v.videoWidth, h: v.videoHeight, fps: FPS, total, step, delegate, frames, msPerFrame: Math.round((performance.now() - t0) / Math.max(1, frames.length)) };
     return window.DATA;
   };
 

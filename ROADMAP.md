@@ -428,11 +428,19 @@ What did not, or not yet:
 - Air time is only rough when someone follows the skater with the phone. "Feet together and legs long" gave 0.83 and 0.85 seconds, which is probably too long by a few frames at each end. So no height was worked out: from those times it would come out near 85 cm, which is not believable.
 - At the takeoff the picture blurs and the points jump about. In the second clip that added false half turns (it claimed 4.9 turns). The count is good in mid-air and poor at the edges.
 - The tracker's own sense of depth, used to tell which way the shoulders face, counted too many turns. The simple width of the shoulders was better.
-- It is slow: about a fifth of a second for each frame on this Mac without the graphics chip, so a 3.7 second clip took 48 seconds. Not tried: the graphics chip, a lighter model, or a phone.
+- It looked slow at first (a fifth of a second for each frame). That turned out to be the test code, not the tracker: see the second round below.
+
+A second round, the same evening, on more clips:
+
+- The slowness was the agent's own test code waiting too long between frames, not the tracker. Fixed, it tracks about 26 frames a second on this Mac without the graphics chip, with the same answers. The graphics chip made little difference.
+- Two more single jumps gave clean readings: six evenly spaced half turns (about 3.3 turns, 5.9 turns a second, roughly 0.58 seconds in the air), and five (about 2.4 turns, 3.8 turns a second, roughly 0.65 seconds). The skeleton sat on the skater in mid-air in both.
+- The size of the skater in the picture matters most. In the single-jump clips the skater fills a quarter to two fifths of the picture's height, and it works. In a whole program (200 seconds tracked) the skater fills about 18%, and in an 18-second clip about 14%. There the body is still "found" in over 95% of frames, but the points are loose: the search for bursts of turning raised about forty alarms in the program, most with speeds no person can turn at. About eight looked like real jumps (three to seven half turns at 3.3 to 5.1 turns a second, feet together). In a spin, with the skater small, the skeleton was simply wrong.
+- So the rule of thumb so far: the skater should fill at least a quarter of the picture's height. That belongs in the filming guide, and the app should say so when a clip is too far away.
+- Not finished: the last 50 seconds of the program were never tracked, and the candidates in it could not be checked against the pictures, because the file was replaced in the folder during the run.
 
 What this changes:
 
-- Turn counting and rotation speed move up to "sure", even for a followed clip of a jump with several turns.
+- Turn counting and rotation speed move up to "sure", even for a followed clip of a jump with several turns, as long as the skater is big enough in the picture.
 - Air time and height stay "sure" only for a propped phone, and that has not been tested, because none of these clips is propped. For followed clips they need a better way to find the takeoff and the landing.
 - Still to do: the owner's own single jumps, from the side with the phone propped; the long clip; a real iPhone in Safari; and speed.
 
