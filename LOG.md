@@ -264,3 +264,7 @@ Still not verified: the list at the end of `SECURITY.md`.
 ### Sixteen more tools (same day)
 
 The owner asked for at least fifteen more tools or features. The agent suggested sixteen, now in `ROADMAP.md` under Suggested ("Sixteen more tools"), in four groups: at the rink, planning, looking after yourself and your skates, and people. None is decided.
+
+### All sixteen tools are in (same day)
+
+The owner said yes to all sixteen. They moved to Decided in `ROADMAP.md` under More tools, and the order of work names them. Several of them take in typed or spoken words, pictures, or other people's time (the coach board, rink guides, say it don't type it), so each gets the "What could a stranger do with this?" answer before it is built, as `SECURITY.md` requires.
