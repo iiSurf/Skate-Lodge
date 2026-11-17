@@ -311,3 +311,11 @@ The owner asked for the four-minute program to be tracked.
 A mistake by the agent: saved points are named after the clip, so tracking the new four-second `IMG_8441.mov` wrote over the saved points for the first 67 seconds of the program. The search of the whole 200 seconds had already been run and its table read, so the findings stand, but those points are gone and the program's video is no longer in the folder to redo them. Saved points should be named after the clip's size or date as well as its name.
 
 Not verified: none of the "likely jumps" in the program was checked against a picture. The eight are the agent's reading of a table.
+
+### The whole program, checked by eye (same day)
+
+The owner put the four-minute clip back. The agent tracked all of it (about ten minutes), searched it for bursts of turning, and made a close-up with the skeleton for each of the seventeen bursts the search called a jump (`drawCrop` in `track.html`). Looking at them: seven are jumps, three cannot be judged, seven are wrong. The details are in `ROADMAP.md` under "Jump Lab test".
+
+Saved points are now named after the clip's name and its size, after the earlier mistake.
+
+Not verified: how many jumps the program really has. The agent did not watch the video, only one frame from each find. A free program usually has seven jumping passes, as far as the agent remembers, which would fit, but that is memory and a coincidence is possible.

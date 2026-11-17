@@ -71,5 +71,25 @@
     g.fillText(`frame ${i}  ${(i / FPS).toFixed(2)} s  ${f && f.p ? "" : "NO BODY FOUND"} ${label}`, 8, 18);
     return true;
   };
+  // Draw a close-up of frame i: a square around the body, with its skeleton, for checking a find by eye.
+  window.drawCrop = async (i, size = 300, label = "") => {
+    const d = window.DATA, f = d.frames.find((x) => x.i === i);
+    await seek((i + 0.5) / FPS);
+    c.width = size; c.height = size;
+    let cx = 0.5, cy = 0.5;
+    if (f && f.p) { cx = (f.p[23][0] + f.p[24][0]) / 2; cy = (f.p[23][1] + f.p[24][1]) / 2; }
+    const src = 0.3 * d.h, sx = cx * d.w - src / 2, sy = cy * d.h - src / 2, k = size / src;
+    g.fillStyle = "#111"; g.fillRect(0, 0, size, size);
+    g.drawImage(v, sx, sy, src, src, 0, 0, size, size);
+    if (f && f.p) {
+      const X = (p) => (p[0] * d.w - sx) * k, Y = (p) => (p[1] * d.h - sy) * k;
+      g.lineWidth = 2.5; g.strokeStyle = "#7fd0ff";
+      for (const { start, end } of PoseLandmarker.POSE_CONNECTIONS) { const a = f.p[start], b = f.p[end]; if (start < 11 || end < 11) continue; g.beginPath(); g.moveTo(X(a), Y(a)); g.lineTo(X(b), Y(b)); g.stroke(); }
+      f.p.forEach((p, n) => { if (n > 10) { g.fillStyle = n % 2 ? "#ffd36b" : "#ffffff"; g.beginPath(); g.arc(X(p), Y(p), 3, 0, 7); g.fill(); } });
+    }
+    g.fillStyle = "rgba(0,0,0,.65)"; g.fillRect(0, 0, size, 22); g.fillStyle = "#fff"; g.font = "13px system-ui";
+    g.fillText(`${Math.floor(i / FPS / 60)}:${((i / FPS) % 60).toFixed(1).padStart(4, "0")}  frame ${i} ${label}`, 6, 16);
+    return true;
+  };
   window.READY = true;
 </script>

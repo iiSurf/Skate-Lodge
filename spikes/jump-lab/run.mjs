@@ -48,14 +48,17 @@ try {
   if (errors.length) console.log("page errors:", errors);
   const started = Date.now();
   const data = await run(`window.track(${JSON.stringify("/clips/" + clip)}, { from: ${+from}, to: ${+to}, runningMode: ${JSON.stringify(mode)}, step: ${+step}, delegate: ${JSON.stringify(delegate)} })`);
-  const name = basename(clip, extname(clip)), outDir = join(here, "out"); mkdirSync(outDir, { recursive: true });
+  // named after the clip and its size in bytes, so a different clip with the same name never writes over these
+  const name = `${basename(clip, extname(clip))}-${statSync(join(root, "clips", clip)).size}`, outDir = join(here, "out"); mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, `${name}-${mode}-${from}${+step > 1 ? "-step" + step : ""}.json`), JSON.stringify(data));
   const found = data.frames.filter((f) => f.p).length;
   console.log(`${clip}: ${data.w}x${data.h}, ${data.total} frames in the clip, tracked ${data.frames.length}, body found in ${found} (${Math.round((100 * found) / data.frames.length)}%), ${data.msPerFrame} ms a frame, ${Math.round((Date.now() - started) / 1000)} s in all`);
-  for (const f of drawList.split(",").filter(Boolean)) {
-    await run(`window.draw(${+f})`); await sleep(120);
-    const shot = await send("Page.captureScreenshot", { format: "jpeg", quality: 72 });
-    writeFileSync(join(outDir, `${name}-f${f}.jpg`), Buffer.from(shot.result.data, "base64"));
+  // a draw list that starts with "crop:" makes 300 by 300 close-ups around the body instead of whole frames
+  const crop = drawList.startsWith("crop:");
+  for (const f of drawList.replace("crop:", "").split(",").filter(Boolean)) {
+    await run(crop ? `window.drawCrop(${+f})` : `window.draw(${+f})`); await sleep(120);
+    const shot = await send("Page.captureScreenshot", crop ? { format: "jpeg", quality: 78, clip: { x: 0, y: 0, width: 300, height: 300, scale: 1 } } : { format: "jpeg", quality: 72 });
+    writeFileSync(join(outDir, `${name}-${crop ? "c" : "f"}${f}.jpg`), Buffer.from(shot.result.data, "base64"));
   }
   if (drawList) console.log("drew frames", drawList);
 } finally { try { ws?.close(); } catch {} chrome.kill(); server.close(); try { rmSync(profile, { recursive: true, force: true }); } catch {} }
