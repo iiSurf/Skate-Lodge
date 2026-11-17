@@ -349,6 +349,40 @@ The safety rules for the map are in `SECURITY.md` and are now the project's rule
 - Written in plain language, with a short terms page beside it.
 - It says what is collected and what never is, who can see what, who it is for (skaters of 14 and over), how the rink map and sharing where you are work, how chat is moderated, and how to export and delete your data.
 
+### Sixteen more tools (the agent's, 2026-11-16)
+
+The owner asked for at least fifteen more new tools or features. None of these is decided.
+
+At the rink:
+
+- Say it, don't type it. Step off the ice and say "waltz jump, eight out of ten, sit spin three stars". The AI fills in the session log for you to confirm.
+- The music room. Keep your program music, mark where each element falls, slow it down to practise a section, and count clean run-throughs.
+- The punch card. Track the passes and punch cards you have bought at each rink, and be told when one is nearly used up or about to run out.
+- Rink guides. A page for each rink: parking, rental skates, the pro shop, lockers, and the rules for freestyle and music. Kept up to date the same way as schedules, by a suggestion that someone else confirms.
+- Warm-up and cool-down. A short timed routine to follow off the ice before stepping on and after stepping off.
+
+Planning:
+
+- Plan my week. Give it your free time, your budget, and your goals, and it picks the sessions for the week, favouring the ones skaters report as quiet.
+- The trip finder. Going somewhere? See the rinks near where you will be, with their sessions on your dates, and the stamps you could earn.
+- The program builder's score. As you lay a program out, see what its elements add up to in base value, so you can weigh one layout against another.
+- The competition and test board. Local competitions and test sessions with their entry deadlines, a reminder before each, and a packing list.
+
+Looking after yourself and your skates:
+
+- The skate bench. A record for each pair: sharpenings and who did them, the hollow you asked for, when the boots were heat-moulded or punched out, and notes on fit.
+- Aches and rest. Note a sore spot after a session with two taps. If the same one keeps coming up, the app says so and suggests showing your coach, and a planned rest keeps your week whole.
+
+People:
+
+- The coach board. Coaches at each rink who are taking new skaters, what they teach, and their open lesson times. A skater asks for a time and the coach says yes or no.
+- Cheers. One tap to cheer a friend's milestone: a first clean jump, a new level, a hundredth hour.
+- Postcards. Earn a postcard at each rink you visit and send it to a friend's pond, where it sits on a shelf.
+- Lodge hosts. An experienced skater who offers to welcome newcomers at their rink wears a host mark on the map. A newcomer can see who to say hello to.
+- The show board. For a club's ice show or event: sign up, see your group and rehearsal times, and take a volunteer shift.
+
+The agent's top three: say it, don't type it; plan my week; and the coach board.
+
 ### Order of work
 
 1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)

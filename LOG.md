@@ -260,3 +260,7 @@ Rules in the file that are the agent's own and that the owner has not looked at 
 - Everything in sections 2 to 14 (signing in, the database, text from outside, fetching, the AI, video and pictures, keys, the browser, other people's code, abuse, data, watching for trouble, and how we build).
 
 Still not verified: the list at the end of `SECURITY.md`.
+
+### Sixteen more tools (same day)
+
+The owner asked for at least fifteen more tools or features. The agent suggested sixteen, now in `ROADMAP.md` under Suggested ("Sixteen more tools"), in four groups: at the rink, planning, looking after yourself and your skates, and people. None is decided.
