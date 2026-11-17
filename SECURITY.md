@@ -24,8 +24,8 @@ The threats, worst first:
 
 - [ ] For skaters of 14 and over. Signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
 - [ ] Sharing with everyone is for accounts of 18 and over only (decided by the owner). A skater under 18 does not have that choice, and does not see those who use it. They can get friend requests only from clubmates and friends of friends (those last two are the agent's, not yet decided).
-- [ ] Sharing with chosen people works person by person and both ways, like Find My, and is only ever about rinks: the one a skater is at, or ones nearby. Never where someone is through the rest of the day (decided by the owner). Either skater can end it at any moment without the other being told.
-- [ ] Only skaters who are sharing where they are can see the others who share with everyone (decided by the owner).
+- [ ] Sharing with chosen people works person by person and always both ways, like Find My, and is only ever about rinks: the one a skater is at, or ones nearby. Never where someone is through the rest of the day (decided by the owner). Either skater can end it at any moment without the other being told.
+- [ ] Only skaters who are sharing where they are can see the others who share with everyone, and they see them at every rink (decided by the owner). Because that reaches further than one rink, the other rules here matter more: 18 and over only, the rink and nothing finer, ending by itself, no list of past visits, and block and report on every avatar.
 - [ ] Collect as little as possible. No real name is required, and no date of birth, home address, phone number, or school.
 - [ ] A profile shows a username, the skater's drawn character, a level, and badges. Never a photo, a real name, a home rink, or the times a person usually skates.
 - [ ] Skaters are found by exact username only. There is no browsing, no searching by real name or email, no "people you may know", and no way to list who uses the app.

@@ -236,3 +236,8 @@ Also open: whether a sharing skater sees the others at every rink or only at the
 - Tracings as stickers are in. The owner left that to the agent.
 
 The agent's ideas for how approved sharing works are under Suggested in `ROADMAP.md`: being friends shares nothing by itself, the approval is a second yes that works both ways, it stays on but each check-in shows who will see it, and either skater can end it without the other being told. `SECURITY.md` and `CLAUDE.md` carry the new rules. Still open: whether a skater sharing with everyone sees the others at every rink or only at their own.
+
+### Two answers on sharing (same day)
+
+- Approved sharing always works both ways.
+- A skater who is sharing with everyone sees the others at every rink. The agent had suggested only the rink they are at; the owner chose every rink. `SECURITY.md` notes that the other rules for that side of the map matter more because of it.

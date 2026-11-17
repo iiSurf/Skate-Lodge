@@ -183,6 +183,8 @@ All of this is the owner's (2026-11-16).
 - [ ] Sharing with everyone that you are at a rink is for accounts of 18 and over only. A skater under 18 does not have that choice.
 - [ ] So signing up asks one thing about age: 14 to 17, or 18 and over.
 - [ ] Sharing with chosen people, the way Apple's Find My works: two skaters each approve sharing rink visits with the other, and then each can see when the other is at a rink. Every skater can use this, at any age.
+- [ ] Approved sharing always works both ways: you see a skater at a rink only if they see you (the owner, 2026-11-16).
+- [ ] A skater who is sharing with everyone sees the others who are sharing with everyone at every rink, not only at the rink they are at (the owner, 2026-11-16; the agent had suggested their own rink only).
 - [ ] The difference from Find My: it is only about rinks, the one a skater is at now or the ones nearby. It never shares where someone is through the rest of the day. That is what this plan avoids.
 
 ### Clubs
@@ -310,10 +312,9 @@ The features are decided. These are the agent's ideas for making them safe, beca
 - A skater under 18 does not see the skaters who share with everyone, just as they are not shown to them. (The owner decided they cannot share with everyone; this is the other half.)
 - Nobody under 14. (The U.S. law on young children's data covers those under 13, as far as the agent remembers. Not checked.)
 - A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows only to the skaters they have approved.
-- Being friends does not share anything by itself. Sharing rink visits is a second yes, given person by person, and it works both ways or not at all: you see a friend at a rink only if they see you.
+- Being friends does not share anything by itself. Sharing rink visits is a second yes, given person by person.
 - The approval stays on, so there is nothing to decide every visit. But each check-in shows who will see it, with one tap for "just me this time". Either skater can end the sharing at any moment, and the other is not told.
 - On the map, your approved skaters show at whichever rink they are at. Friends you have not approved show as online or away only, with no rink.
-- A skater who is sharing with everyone sees the others at the rink they are at, not at every rink. Being there in person is then the price of seeing who else is, which keeps out someone looking from far away. Friends are still seen at any rink.
 - Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
 - "Recently" means the last two hours, and only friends see it. There is no list of where someone has been, for anyone. A person's routine is what a follower wants most.
 - A block button on every avatar and every list. A blocked person cannot see you on the map, find you by username, or send a request. Blocking is silent.
@@ -381,7 +382,6 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
 - Who checks the privacy policy?
-- The rink map: does a skater who is sharing with everyone see the others at every rink, or only at the rink they are at?
 - How is the hosted AI coach paid for?
 - Is Vercel the host?
 - Jump Lab: what do the owner's real clips show? This decides how much of the three tiers is realistic.
