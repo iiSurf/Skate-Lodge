@@ -185,7 +185,17 @@ All of this is the owner's (2026-11-16).
 - [ ] Sharing with chosen people, the way Apple's Find My works: two skaters each approve sharing rink visits with the other, and then each can see when the other is at a rink. Every skater can use this, at any age.
 - [ ] Approved sharing always works both ways: you see a skater at a rink only if they see you (the owner, 2026-11-16).
 - [ ] A skater who is sharing with everyone sees the others who are sharing with everyone at every rink, not only at the rink they are at (the owner, 2026-11-16; the agent had suggested their own rink only).
+- [ ] Being friends does not share anything by itself. Sharing rink visits is a second yes, given person by person, on top of being friends.
+- [ ] The approval stays on between visits, so there is nothing to decide each time. Every check-in shows who will see it, with one tap for "just me this time".
+- [ ] Either skater can end the sharing at any moment, and the other is not told.
+- [ ] Friends you have not approved show as online or away only, with no rink.
+- [ ] A skater under 18 does not see the skaters who share with everyone, just as they are not shown to them.
 - [ ] The difference from Find My: it is only about rinks, the one a skater is at now or the ones nearby. It never shares where someone is through the rest of the day. That is what this plan avoids.
+
+### Security
+
+- [ ] The rules in `SECURITY.md` are the project's security rules, set before any building (adopted 2026-11-16; the owner left the decision to the agent, who adopted them). Every feature is planned and built to them.
+- [ ] Before any code for a feature, its plan answers one question: "What could a stranger do with this?"
 
 ### Clubs
 
@@ -298,34 +308,13 @@ Alerts and the thank-you:
 - The alert says where the change came from ("from the rink's calendar", "confirmed by a coach", "confirmed by 2 skaters").
 - No token for changing something back and forth, and none for an update that is undone as wrong.
 
-### Security
-
-- A full set of security rules, written before any building, is proposed in `SECURITY.md` (the agent, 2026-11-16): fourteen sections, from people's safety and signing in to keys, the AI, and what to do on a bad day. They become the project's rules when the owner says yes.
-- Three risks the agent found inside ideas that are already decided, each with a rule in that file: "who is on the ice" and the rink map say where a person is; the server fetching addresses that people give it can be turned against us; and a rink's page could try to give the AI instructions.
-
 ### Friends and the rink map
 
-The features are decided. These are the agent's ideas for making them safe, because a map of where people are is the part of Skate Lodge most open to misuse (someone following a person who does not want to be found):
+The safety rules for the map are in `SECURITY.md` and are now the project's rules. What is left here are the agent's ideas about how it feels to use:
 
-- Sharing where you are is off until you turn it on. At a check-in the choices are: just me, the skaters I have approved, or (for 18 and over) everyone. "Everyone" is never a setting that stays on by itself: it is chosen at that check-in and ends with it.
-- "Everyone" means every signed-in skater, never the open web. The map cannot be seen without an account.
-- A skater under 18 does not see the skaters who share with everyone, just as they are not shown to them. (The owner decided they cannot share with everyone; this is the other half.)
-- Nobody under 14. (The U.S. law on young children's data covers those under 13, as far as the agent remembers. Not checked.)
-- A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows only to the skaters they have approved.
-- Being friends does not share anything by itself. Sharing rink visits is a second yes, given person by person.
-- The approval stays on, so there is nothing to decide every visit. But each check-in shows who will see it, with one tap for "just me this time". Either skater can end the sharing at any moment, and the other is not told.
-- On the map, your approved skaters show at whichever rink they are at. Friends you have not approved show as online or away only, with no rink.
-- Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
-- "Recently" means the last two hours, and only friends see it. There is no list of where someone has been, for anyone. A person's routine is what a follower wants most.
-- A block button on every avatar and every list. A blocked person cannot see you on the map, find you by username, or send a request. Blocking is silent.
-- "Hide from": share with friends but not this one, without unfriending them.
-- A report button on every profile and list, and an account that is reported by several skaters is looked at.
-- Username search finds an exact username only. There is no browsing through skaters and no "people you may know", so nobody can collect a list of everyone.
-- You choose who may send you a friend request: anyone, friends of friends, or nobody. A limit on how many requests one skater can send in a day.
-- A profile shows a username, the drawn character, a level, and badges. Never a real name, a photo, a home rink, or the times a person usually skates.
-- Statuses are choices from a menu, never typed. A starting list: with my coach, working on jumps, working on spins, edges and skills, running my program, just skating, open to skating together, and heads down (please do not disturb).
+- A starting list of statuses: with my coach, working on jumps, working on spins, edges and skills, running my program, just skating, open to skating together, and heads down (please do not disturb).
 - "Open to skating together" is the one that makes new friends: it puts a small mark on your avatar, and two skaters who skate the same session earn the skate-together bonus that is already planned.
-- If you ask for it: a nudge when a friend arrives at the rink you are at.
+- If you ask for it: a nudge when a skater you share with arrives at the rink you are at.
 - The map is our own drawing of the region with each rink as a little arena, not a map from a map company. That keeps the lodge look and means no other company learns who looked at which rink. Rinks that are not on the drawing are in a list beside it.
 - Online, away, and offline for friends, with a way to appear offline.
 
@@ -377,7 +366,6 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
-- Are the security rules in `SECURITY.md` adopted?
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?

@@ -1,6 +1,6 @@
 # Skate Lodge security rules
 
-**Status: proposed by the agent on 2026-11-16. They become the project's rules when the owner says yes.** Nothing is built yet, so none of these boxes is ticked.
+**Status: these are the project's rules.** The agent proposed them on 2026-11-16, the owner shaped the first section over the same day and then left the decision to the agent, who adopted them. Nothing is built yet, so none of these boxes is ticked.
 
 Revised the same day, twice. The owner set the audience to mostly adults, with some skaters of 14 to 17, asked for friends to be found by username, and added a map of who is at which rink. The first draft was written around young children and has been reworked.
 
@@ -23,9 +23,9 @@ The threats, worst first:
 ## 1. People first
 
 - [ ] For skaters of 14 and over. Signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
-- [ ] Sharing with everyone is for accounts of 18 and over only (decided by the owner). A skater under 18 does not have that choice, and does not see those who use it. They can get friend requests only from clubmates and friends of friends (those last two are the agent's, not yet decided).
-- [ ] Sharing with chosen people works person by person and always both ways, like Find My, and is only ever about rinks: the one a skater is at, or ones nearby. Never where someone is through the rest of the day (decided by the owner). Either skater can end it at any moment without the other being told.
-- [ ] Only skaters who are sharing where they are can see the others who share with everyone, and they see them at every rink (decided by the owner). Because that reaches further than one rink, the other rules here matter more: 18 and over only, the rink and nothing finer, ending by itself, no list of past visits, and block and report on every avatar.
+- [ ] Sharing with everyone is for accounts of 18 and over only. A skater under 18 does not have that choice, and does not see those who use it. They can get friend requests only from clubmates and friends of friends.
+- [ ] Sharing with chosen people works person by person and always both ways, like Find My, and is only ever about rinks: the one a skater is at, or ones nearby. Never where someone is through the rest of the day. Being friends shares nothing by itself: sharing is a second yes. The approval stays on between visits, each check-in shows who will see it with one tap for "just me this time", and either skater can end it at any moment without the other being told. Friends who are not approved show as online or away only.
+- [ ] Only skaters who are sharing where they are can see the others who share with everyone, and they see them at every rink. Because that reaches further than one rink, the other rules here matter more: 18 and over only, the rink and nothing finer, ending by itself, no list of past visits, and block and report on every avatar.
 - [ ] Collect as little as possible. No real name is required, and no date of birth, home address, phone number, or school.
 - [ ] A profile shows a username, the skater's drawn character, a level, and badges. Never a photo, a real name, a home rink, or the times a person usually skates.
 - [ ] Skaters are found by exact username only. There is no browsing, no searching by real name or email, no "people you may know", and no way to list who uses the app.
@@ -33,13 +33,12 @@ The threats, worst first:
 - [ ] Block and report are on every avatar, profile, and list. A blocked person cannot see you on the map, find you by username, or send a request, and is not told. Reports from several skaters get an account looked at.
 - [ ] Sharing where you are is off until you turn it on. At a check-in the choices are: just me, the skaters I have approved, or (18 and over) everyone. "Everyone" never stays on by itself, and means signed-in skaters only. The map cannot be seen without an account.
 - [ ] The map knows the rink and nothing finer. Location is asked for only at the moment of checking in, the server answers yes or no, and no coordinates are kept.
-- [ ] Being "there now" ends by itself when the session is saved or the booked time runs out. "Recently" means the last two hours and is for friends only.
+- [ ] Being "there now" ends by itself when the session is saved or the booked time runs out. "Recently" means the last two hours and is shown only to skaters you have approved.
 - [ ] Nobody's past visits are ever listed for anyone else. A routine is what a follower wants most. The passport's stamps are the skater's own to see.
-- [ ] "Hide from": share with friends but not this one.
 - [ ] Statuses are choices from a menu, never typed.
-- [ ] "Who is on the ice" follows the same rules: each skater turns it on for themselves, and clubmates who are not friends see a number, not names.
+- [ ] "Who is on the ice" follows the same rules: each skater turns it on for themselves, and clubmates they have not approved see a number, not names.
 - [ ] A skater's private calendar address holds session times and rinks only, no names. It is a long random secret that the skater can throw away and replace.
-- [ ] There are no messages between skaters, and a visitor to a pond can only leave stickers (decided by the owner). If messages are ever added, they come with block, report, and a limit, and never reach someone who has not accepted a request.
+- [ ] There are no messages between skaters, and a visitor to a pond can only leave stickers. If messages are ever added, they come with block, report, and a limit, and never reach someone who has not accepted a request.
 
 ## 2. Accounts and signing in
 

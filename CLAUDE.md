@@ -15,6 +15,7 @@ Nothing is built yet. Do not start building a feature until the owner says so. U
   - **Suggested:** the agent proposed it and the owner has not answered. Never build a suggested item as if it were decided. Ask.
   - **Open questions:** need an answer before the part they touch is built.
   - **Set aside:** chosen not to do, with the reason.
+- `SECURITY.md` holds the project's security rules, as boxes to tick. Read it before planning or building anything, and tick a box only when its rule is in place and has been checked.
 - `LOG.md` records what was planned, what was decided, what changed, and what was not verified, oldest first.
 - `design/` holds sneak peeks: single pages drawn for inspiration. They are not the app, and every name and number in them is made up.
 
@@ -42,6 +43,7 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 ## Working agreements
 
 - Go big. The owner has said more than once that the size of an idea is not a reason to hold it back, and that this project calls for it. Do not warn about scope or hours, and do not suggest cutting one thing to make room for another unless the owner asks. Say what is hard or unknown about an idea, then plan it.
+- Before any code for a feature, its plan answers one question in `LOG.md`: "What could a stranger do with this?" Anything that touches signing in, permissions, uploads, sharing where someone is, or fetching from the internet gets a separate review before it is called done.
 - Plan before building anything large. Keep changes small and commit after each working step with a clear message.
 - Add a dated entry to `LOG.md` after each meaningful change: what was planned, what changed, what was verified, and what was not.
 - When the owner decides something, record it in `ROADMAP.md` under Decided the same day. When the agent suggests something, record it under Suggested.

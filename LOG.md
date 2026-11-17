@@ -241,3 +241,22 @@ The agent's ideas for how approved sharing works are under Suggested in `ROADMAP
 
 - Approved sharing always works both ways.
 - A skater who is sharing with everyone sees the others at every rink. The agent had suggested only the rink they are at; the owner chose every rink. `SECURITY.md` notes that the other rules for that side of the map matter more because of it.
+
+### The security rules are adopted (same day)
+
+- The owner said yes to all five of the agent's ideas for approved sharing: it is a second yes on top of being friends; the approval stays on, with "just me this time" at each check-in; either skater can end it without the other being told; friends who are not approved show as online or away only; and a skater under 18 does not see the "everyone" side. All five are under Decided in `ROADMAP.md`.
+- On the security rules the owner said: they should be the project's rules if the agent thinks they should be. The agent does, and adopted them. `SECURITY.md` now says so at the top, `ROADMAP.md` has a Security section under Decided, and `CLAUDE.md` tells any future session to read the rules before planning or building.
+
+Why the agent adopted them: the plan now has accounts, a map of where people are, skaters of 14 to 17, a server that fetches addresses people give it, and an AI that reads other sites' pages. Each of those can hurt someone if it is built first and made safe afterward. Rules that exist before the first line of code cost nothing to follow.
+
+Rules in the file that are the agent's own and that the owner has not looked at one by one. Any of them can be changed by the owner saying so:
+
+- A skater under 18 can get friend requests only from clubmates and friends of friends.
+- Username search finds an exact username only, with no browsing.
+- Each skater chooses who may send them a friend request, and there is a daily limit on sending.
+- A profile shows a username, the drawn character, a level, and badges, and nothing else.
+- Coaches and club admins must use two-step sign-in.
+- "Recently" on the map means the last two hours.
+- Everything in sections 2 to 14 (signing in, the database, text from outside, fetching, the AI, video and pictures, keys, the browser, other people's code, abuse, data, watching for trouble, and how we build).
+
+Still not verified: the list at the end of `SECURITY.md`.
