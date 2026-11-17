@@ -44,7 +44,7 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Build on what exists: MySkate (Artifact 2, `../MySkate`) and MySkate Coach (Artifact 3, `../MySkate-Coach`).
 - [ ] A website, not an App Store app. It must work well on an iPhone.
 - [ ] A big platform with many tools. The owner accepts the risk of thin tools and believes there is time and skill to avoid it.
-- [ ] Adults only. The youngest skater is 18 (the owner, 2026-11-16). The owner does not expect children to use it. Earlier parts of this plan were written with children in mind, and those parts were reworked the same day.
+- [ ] Mostly adults. The owner first said the youngest skater is 18, then that a skater of 14, 15, 16, or 17 may sometimes use it, and that this is fine (2026-11-16). No younger children are expected. Earlier parts of this plan were written with young children in mind, and those parts were reworked the same day.
 - [ ] Go big. The size of an idea is not a reason to hold it back: this project calls for it, and building goes fast with the agent (the owner, 2026-11-15). Plan the hard parts of an idea; do not shrink it.
 - [ ] A database with a schema: Supabase (hosted Postgres).
 - [ ] Coaches and clubs the owner knows will be asked to try it.
@@ -174,6 +174,11 @@ All of this is the owner's (2026-11-16).
 - [ ] Tap the avatars and a list opens of the skaters who are there now.
 - [ ] Each skater has a status, chosen from a menu and shown beside their username and avatar: for example, working on skills with a coach, or looking for someone to skate with. It works like the statuses in Slack (active, away, in a huddle).
 - [ ] The status can be set by itself from what the skater chose to work on in their session.
+- [ ] Only skaters who are sharing where they are, at a rink, can see the other skaters who are sharing with everyone. If you are not sharing, you do not see them.
+- [ ] What is shared is "I am here" at a rink, never an exact position, and only while at a rink.
+- [ ] No messages between friends for now. Friends already have an easy way to talk: they text each other.
+- [ ] Visitors to a pond leave stickers, and that is all. Keep it simple.
+- [ ] Sticker packs with different themes and colors, unlocked by reaching certain levels.
 
 ### Clubs
 
@@ -210,7 +215,7 @@ All of this is the owner's (2026-11-16).
 - Each tool is a place in the village: Jump Lab is a room in the lodge, the passport is kept at the front desk, badges are in the trophy room, club channels are the lounge, announcements are on the notice board, homework comes from the coach's office, and the pond is out the back.
 - A visit shows the pond as its owner last left it. Nothing is live, so there is no need for a server that keeps everyone connected.
 - Decorations are earned: levels, badges, stamps, and quests unlock them, so the level road has plenty to give.
-- Visitors leave a wave or a sticker from a fixed set, not typed words. This keeps ponds safe from unkind messages, the same worry as with private chat.
+- Tracings as stickers: a figure eight, a three-turn, a heart, a star, a spiral, laid on the ice like marks a blade left. This gives the look of etching into the pond with nothing to check for bad words or drawings, because every tracing is one we drew.
 - Only friends and clubmates can visit. No pond is open to strangers.
 - A way to have both: the village lives in the home screen, the pond, the rewards, and the names of places. Starting a session switches to a plain "rink mode" with big type and plain cards, and the village comes back when the session is saved.
 - The character's default outfit is leggings and a top, with a dress as an option (the owner's choice in MySkate's roadmap).
@@ -298,7 +303,10 @@ The features are decided. These are the agent's ideas for making them safe, beca
 
 - Sharing where you are is off until you turn it on, and you choose each time you check in: nobody, friends, or everyone. "Everyone" is never a setting that stays on by itself.
 - "Everyone" means every signed-in skater, never the open web. The map cannot be seen without an account.
-- The map only ever knows the rink, not a spot on the ground. It shows "at Kent Valley", not a dot that moves.
+- Skaters under 18 share with friends only. For them the "everyone" choice is not there: they are not shown to skaters they do not know, and they do not see them either. The map's "everyone" side is where adults meet strangers at a rink, and a 15-year-old should not be on it. This is the agent's strongest suggestion in this plan.
+- For that, signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14 (that is also where the law for young children stops applying).
+- A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows to their friends only.
+- A skater who is sharing with everyone sees the others at the rink they are at, not at every rink. Being there in person is then the price of seeing who else is, which keeps out someone looking from far away. Friends are still seen at any rink.
 - Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
 - "Recently" means the last two hours, and only friends see it. There is no list of where someone has been, for anyone. A person's routine is what a follower wants most.
 - A block button on every avatar and every list. A blocked person cannot see you on the map, find you by username, or send a request. Blocking is silent.
@@ -319,7 +327,7 @@ The features are decided. These are the agent's ideas for making them safe, beca
 - A report button and a block button, everywhere one skater can see another.
 - Standard encryption (in transit and stored) with moderation, not the kind that hides messages from club admins.
 - Build chat last, after announcements and comments on homework.
-- Signing up means confirming you are 18 or older, and the terms say so. Nobody can check an age on a web page, so there is also a way to report an account that seems to belong to someone younger, and such an account is closed.
+- Signing up means saying you are 14 or older, and the terms say so. Nobody can check an age on a web page, so there is also a way to report an account that seems to belong to someone younger, and such an account is closed.
 - Join a club by an invite from its coach or admin only.
 
 ### Notifications
@@ -366,8 +374,8 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
 - Who checks the privacy policy?
-- Now that everyone is an adult: can friends send each other typed messages, and can a visitor write on a pond, or do stickers stay the only way?
-- The rink map: can a skater who is not sharing where they are see the skaters who share with everyone, or must they be sharing too?
+- Skaters of 14 to 17: are they limited to sharing with friends only, as the agent suggests, or do they use the map the same way adults do?
+- The rink map: does a skater who is sharing with everyone see the others at every rink, or only at the rink they are at?
 - How is the hosted AI coach paid for?
 - Is Vercel the host?
 - Jump Lab: what do the owner's real clips show? This decides how much of the three tiers is realistic.
@@ -431,7 +439,9 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 ## Set aside
 
-- Accounts for children, parents' accounts, and the rules written for them (typed messages banned everywhere, a parent's yes for sharing): the owner expects no one under 18 (2026-11-16).
+- Accounts for young children, parents' accounts, and the rules written for them (a parent's yes for sharing): the owner expects mostly adults, with a few skaters of 14 to 17 (2026-11-16).
+- Messages between friends: not needed for now, because friends already text each other (the owner, 2026-11-16).
+- Drawing freehand into the ice of a pond: it would need checking for bad words and drawings, perhaps with computer vision. The owner chose to keep it simple with stickers (2026-11-16).
 - "Name that jump", a daily puzzle of guessing a jump from a slow skeleton clip: the owner does not think it is needed, and would rather have jump cards that teach each jump (2026-11-15).
 - A video game you play while skating: nobody should use a phone on the ice.
 - An App Store app: there is no Apple developer account, and a website is enough.

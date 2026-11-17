@@ -2,17 +2,17 @@
 
 **Status: proposed by the agent on 2026-11-16. They become the project's rules when the owner says yes.** Nothing is built yet, so none of these boxes is ticked.
 
-Revised the same day: the owner set the audience to adults only (18 and over), asked for friends to be found by username, and added a map of who is at which rink. The first draft was written around children and has been reworked.
+Revised the same day, twice. The owner set the audience to mostly adults, with some skaters of 14 to 17, asked for friends to be found by username, and added a map of who is at which rink. The first draft was written around young children and has been reworked.
 
 These are the rules for keeping Skate Lodge and the people who use it safe from outside threats. They are written before any building so that every feature starts out safe. A box is ticked when its rule is in place and has been checked.
 
 ## Who we protect, and from what
 
-Skate Lodge is for adults, 18 and over. It will show, to people a skater chooses, which rink that skater is at. So the first worry is no longer children: it is one person using the app to find, follow, or pester another.
+Skate Lodge is mostly for adults, and some skaters of 14 to 17 will use it too. It will show, to people a skater chooses, which rink that skater is at. So the first worry is one person using the app to find, follow, or pester another, and above all an adult using it to reach a teenager.
 
 The threats, worst first:
 
-1. Someone using the app to find out where another skater is, to follow them, or to keep contacting them when they do not want it.
+1. Someone using the app to find out where another skater is, to follow them, or to keep contacting them when they do not want it. Worst of all, an adult doing this to a skater under 18.
 2. Someone taking over an account, above all a coach's or a club admin's.
 3. Someone reading data they should not: a skater's notes, a club's roster, where a skater has been.
 4. Bad input that turns into running code or a broken page: a name, a rink's calendar, a file, an answer from the AI.
@@ -22,7 +22,9 @@ The threats, worst first:
 
 ## 1. People first
 
-- [ ] Adults only. Signing up means confirming you are 18 or older, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
+- [ ] For skaters of 14 and over. Signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
+- [ ] Skaters under 18 share where they are with friends only. The "everyone" choice does not exist for them: they are never shown to skaters they do not know, and do not see them. They can get friend requests only from clubmates and friends of friends. (Proposed by the agent; the owner has not decided this.)
+- [ ] Only skaters who are sharing where they are can see the others who share with everyone (decided by the owner).
 - [ ] Collect as little as possible. No real name is required, and no date of birth, home address, phone number, or school.
 - [ ] A profile shows a username, the skater's drawn character, a level, and badges. Never a photo, a real name, a home rink, or the times a person usually skates.
 - [ ] Skaters are found by exact username only. There is no browsing, no searching by real name or email, no "people you may know", and no way to list who uses the app.
@@ -36,7 +38,7 @@ The threats, worst first:
 - [ ] Statuses are choices from a menu, never typed.
 - [ ] "Who is on the ice" follows the same rules: each skater turns it on for themselves, and clubmates who are not friends see a number, not names.
 - [ ] A skater's private calendar address holds session times and rinks only, no names. It is a long random secret that the skater can throw away and replace.
-- [ ] Typed messages between skaters are not in the plan. If friends are later allowed to message, it comes with block, report, and a limit, and never reaches someone who has not accepted a request.
+- [ ] There are no messages between skaters, and a visitor to a pond can only leave stickers (decided by the owner). If messages are ever added, they come with block, report, and a limit, and never reach someone who has not accepted a request.
 
 ## 2. Accounts and signing in
 
@@ -155,4 +157,4 @@ These came from the agent's memory and must be checked against each service's ow
 - That Supabase refuses breached passwords, offers two-step sign-in, and backs up on the plan we use.
 - That GitHub's secret scanning, push protection, and private reporting are free for a public repository.
 - The exact header settings Vercel needs, and what the content security policy must allow for the body-tracking files to run.
-- What a privacy policy and terms must say for an adults-only app that shows where people are. This needs someone qualified, not the agent.
+- What a privacy policy and terms must say for an app that shows where people are and that some skaters of 14 to 17 will use. This needs someone qualified, not the agent.

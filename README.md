@@ -1,6 +1,6 @@
 # Skate Lodge
 
-A platform for adult figure skaters (18 and over), their coaches, and their clubs.
+A platform for figure skaters, their coaches, and their clubs. Its skaters are mostly adults, with some of 14 to 17.
 
 **Status: planning.** Nothing is built yet. This repository holds the plan and the record of decisions so far.
 

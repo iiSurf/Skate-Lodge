@@ -217,3 +217,14 @@ What changed:
 - `CLAUDE.md` and `README.md`: adults only, and the map's core rules.
 
 What the agent said plainly: an age rule on a sign-up page does not keep a 16-year-old out, and skating has many of them, so there is a way to report an account that seems under 18. And a map of where people are is the part most open to misuse, by someone following a person who does not want to be found. The safety ideas are aimed at that: off until turned on, chosen at each check-in, the rink and nothing finer, ending by itself, no list of past visits, and block and report on every avatar.
+
+### Four more answers (same day)
+
+- **Ages.** A skater of 14, 15, 16, or 17 may sometimes use the app, and the owner is fine with that. "Adults only" became "mostly adults" everywhere. Nobody under 14.
+- **No messages between friends** for now: friends already text each other.
+- **Ponds: stickers only.** The owner thought about letting visitors etch into the ice, with something to keep out bad words and drawings, and chose to keep it simple: stickers, with sticker packs in different themes and colors unlocked at certain levels. The agent added a suggestion that keeps the etched look with nothing to check: tracings (a figure eight, a three-turn, a heart) as stickers.
+- **The map.** Only skaters who are sharing where they are can see the others who share with everyone, and what is shared is "I am here" at a rink, never an exact position.
+
+What the agent raised: with skaters of 14 to 17 on it, the map's "everyone" side is where an adult could meet a teenager they do not know at a rink. The agent's suggestion, the strongest in this plan, is that skaters under 18 share with friends only, which needs one question about age at sign-up. It is under Suggested in `ROADMAP.md` and marked as not decided in `SECURITY.md`, and it is an open question for the owner.
+
+Also open: whether a sharing skater sees the others at every rink or only at the rink they are at. The owner's words could mean either.
