@@ -31,7 +31,7 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 - A website, not an App Store app. It must work well on an iPhone.
 - Supabase (hosted Postgres) is the database. Accounts have a username other people see, an email, and a password.
 - Mostly adults, and skaters of 14 to 17 may use it too. Nobody under 14. There are no messages between skaters (friends text each other), chat is in channels that club admins create, a visitor to a pond can only leave stickers, and nothing is ever sold as a mystery pack.
-- The rink map shows where people are, so it is the part most open to misuse. Sharing is off until a skater turns it on, it is chosen at each check-in, it only ever says "I am here" at a rink, and it ends by itself. Only skaters who are sharing can see the others who share with everyone. Nobody's past visits are ever listed. Every avatar has a block and a report button.
+- The rink map shows where people are, so it is the part most open to misuse. Sharing is off until a skater turns it on, it is chosen at each check-in, it only ever says "I am here" at a rink, and it ends by itself. Only skaters who are sharing can see the others who share with everyone, and only accounts of 18 and over can share with everyone. Otherwise sharing is person by person, approved both ways, and only ever about rinks. Nobody's past visits are ever listed. Every avatar has a block and a report button.
 - Jump Lab needs clips at 60 frames a second.
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.

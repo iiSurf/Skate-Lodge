@@ -179,6 +179,11 @@ All of this is the owner's (2026-11-16).
 - [ ] No messages between friends for now. Friends already have an easy way to talk: they text each other.
 - [ ] Visitors to a pond leave stickers, and that is all. Keep it simple.
 - [ ] Sticker packs with different themes and colors, unlocked by reaching certain levels.
+- [ ] Tracings as stickers: a figure eight, a three-turn, a heart, a star, a spiral, laid on the ice like marks a blade left. They give the look of etching into the pond with nothing to check, because every tracing is one we drew. (The agent's idea; the owner left adding it to the agent, 2026-11-16.)
+- [ ] Sharing with everyone that you are at a rink is for accounts of 18 and over only. A skater under 18 does not have that choice.
+- [ ] So signing up asks one thing about age: 14 to 17, or 18 and over.
+- [ ] Sharing with chosen people, the way Apple's Find My works: two skaters each approve sharing rink visits with the other, and then each can see when the other is at a rink. Every skater can use this, at any age.
+- [ ] The difference from Find My: it is only about rinks, the one a skater is at now or the ones nearby. It never shares where someone is through the rest of the day. That is what this plan avoids.
 
 ### Clubs
 
@@ -215,7 +220,6 @@ All of this is the owner's (2026-11-16).
 - Each tool is a place in the village: Jump Lab is a room in the lodge, the passport is kept at the front desk, badges are in the trophy room, club channels are the lounge, announcements are on the notice board, homework comes from the coach's office, and the pond is out the back.
 - A visit shows the pond as its owner last left it. Nothing is live, so there is no need for a server that keeps everyone connected.
 - Decorations are earned: levels, badges, stamps, and quests unlock them, so the level road has plenty to give.
-- Tracings as stickers: a figure eight, a three-turn, a heart, a star, a spiral, laid on the ice like marks a blade left. This gives the look of etching into the pond with nothing to check for bad words or drawings, because every tracing is one we drew.
 - Only friends and clubmates can visit. No pond is open to strangers.
 - A way to have both: the village lives in the home screen, the pond, the rewards, and the names of places. Starting a session switches to a plain "rink mode" with big type and plain cards, and the village comes back when the session is saved.
 - The character's default outfit is leggings and a top, with a dress as an option (the owner's choice in MySkate's roadmap).
@@ -301,11 +305,14 @@ Alerts and the thank-you:
 
 The features are decided. These are the agent's ideas for making them safe, because a map of where people are is the part of Skate Lodge most open to misuse (someone following a person who does not want to be found):
 
-- Sharing where you are is off until you turn it on, and you choose each time you check in: nobody, friends, or everyone. "Everyone" is never a setting that stays on by itself.
+- Sharing where you are is off until you turn it on. At a check-in the choices are: just me, the skaters I have approved, or (for 18 and over) everyone. "Everyone" is never a setting that stays on by itself: it is chosen at that check-in and ends with it.
 - "Everyone" means every signed-in skater, never the open web. The map cannot be seen without an account.
-- Skaters under 18 share with friends only. For them the "everyone" choice is not there: they are not shown to skaters they do not know, and they do not see them either. The map's "everyone" side is where adults meet strangers at a rink, and a 15-year-old should not be on it. This is the agent's strongest suggestion in this plan.
-- For that, signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14. (The U.S. law on young children's data covers those under 13, as far as the agent remembers. Not checked.)
-- A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows to their friends only.
+- A skater under 18 does not see the skaters who share with everyone, just as they are not shown to them. (The owner decided they cannot share with everyone; this is the other half.)
+- Nobody under 14. (The U.S. law on young children's data covers those under 13, as far as the agent remembers. Not checked.)
+- A skater under 18 can get friend requests only from clubmates and friends of friends, and "open to skating together" shows only to the skaters they have approved.
+- Being friends does not share anything by itself. Sharing rink visits is a second yes, given person by person, and it works both ways or not at all: you see a friend at a rink only if they see you.
+- The approval stays on, so there is nothing to decide every visit. But each check-in shows who will see it, with one tap for "just me this time". Either skater can end the sharing at any moment, and the other is not told.
+- On the map, your approved skaters show at whichever rink they are at. Friends you have not approved show as online or away only, with no rink.
 - A skater who is sharing with everyone sees the others at the rink they are at, not at every rink. Being there in person is then the price of seeing who else is, which keeps out someone looking from far away. Friends are still seen at any rink.
 - Being "there now" ends by itself: when the session is saved, or when the booked time runs out, whichever comes first. No one is left on the map by accident.
 - "Recently" means the last two hours, and only friends see it. There is no list of where someone has been, for anyone. A person's routine is what a follower wants most.
@@ -374,7 +381,6 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
 - Who checks the privacy policy?
-- Skaters of 14 to 17: are they limited to sharing with friends only, as the agent suggests, or do they use the map the same way adults do?
 - The rink map: does a skater who is sharing with everyone see the others at every rink, or only at the rink they are at?
 - How is the hosted AI coach paid for?
 - Is Vercel the host?

@@ -228,3 +228,11 @@ What the agent said plainly: an age rule on a sign-up page does not keep a 16-ye
 What the agent raised: with skaters of 14 to 17 on it, the map's "everyone" side is where an adult could meet a teenager they do not know at a rink. The agent's suggestion, the strongest in this plan, is that skaters under 18 share with friends only, which needs one question about age at sign-up. It is under Suggested in `ROADMAP.md` and marked as not decided in `SECURITY.md`, and it is an open question for the owner.
 
 Also open: whether a sharing skater sees the others at every rink or only at the rink they are at. The owner's words could mean either.
+
+### Sharing with chosen people, and tracings (same day)
+
+- The owner agreed that sharing with everyone that you are at a rink is for accounts of 18 and over only. So signing up asks one thing about age.
+- The owner added a way of sharing for everyone, at any age: skaters share rink visits only with people they have approved, each approving the other, the way Apple's Find My works. The difference is that it is only about rinks (the current one, or ones nearby), never where someone is through the day, which this plan avoids.
+- Tracings as stickers are in. The owner left that to the agent.
+
+The agent's ideas for how approved sharing works are under Suggested in `ROADMAP.md`: being friends shares nothing by itself, the approval is a second yes that works both ways, it stays on but each check-in shows who will see it, and either skater can end it without the other being told. `SECURITY.md` and `CLAUDE.md` carry the new rules. Still open: whether a skater sharing with everyone sees the others at every rink or only at their own.

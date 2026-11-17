@@ -23,14 +23,15 @@ The threats, worst first:
 ## 1. People first
 
 - [ ] For skaters of 14 and over. Signing up asks one thing about age: 14 to 17, or 18 and over. Nobody under 14, and the terms say so. A web page cannot check an age, so any skater can report an account that seems to belong to someone younger, and such an account is closed.
-- [ ] Skaters under 18 share where they are with friends only. The "everyone" choice does not exist for them: they are never shown to skaters they do not know, and do not see them. They can get friend requests only from clubmates and friends of friends. (Proposed by the agent; the owner has not decided this.)
+- [ ] Sharing with everyone is for accounts of 18 and over only (decided by the owner). A skater under 18 does not have that choice, and does not see those who use it. They can get friend requests only from clubmates and friends of friends (those last two are the agent's, not yet decided).
+- [ ] Sharing with chosen people works person by person and both ways, like Find My, and is only ever about rinks: the one a skater is at, or ones nearby. Never where someone is through the rest of the day (decided by the owner). Either skater can end it at any moment without the other being told.
 - [ ] Only skaters who are sharing where they are can see the others who share with everyone (decided by the owner).
 - [ ] Collect as little as possible. No real name is required, and no date of birth, home address, phone number, or school.
 - [ ] A profile shows a username, the skater's drawn character, a level, and badges. Never a photo, a real name, a home rink, or the times a person usually skates.
 - [ ] Skaters are found by exact username only. There is no browsing, no searching by real name or email, no "people you may know", and no way to list who uses the app.
 - [ ] A friend is only a friend after accepting a request. Each skater chooses who may send them one (anyone, friends of friends, nobody), and there is a daily limit on sending.
 - [ ] Block and report are on every avatar, profile, and list. A blocked person cannot see you on the map, find you by username, or send a request, and is not told. Reports from several skaters get an account looked at.
-- [ ] Sharing where you are is off until you turn it on, and is chosen at each check-in: nobody, friends, or everyone. "Everyone" never stays on by itself, and means signed-in skaters only. The map cannot be seen without an account.
+- [ ] Sharing where you are is off until you turn it on. At a check-in the choices are: just me, the skaters I have approved, or (18 and over) everyone. "Everyone" never stays on by itself, and means signed-in skaters only. The map cannot be seen without an account.
 - [ ] The map knows the rink and nothing finer. Location is asked for only at the moment of checking in, the server answers yes or no, and no coordinates are kept.
 - [ ] Being "there now" ends by itself when the session is saved or the booked time runs out. "Recently" means the last two hours and is for friends only.
 - [ ] Nobody's past visits are ever listed for anyone else. A routine is what a follower wants most. The passport's stamps are the skater's own to see.
