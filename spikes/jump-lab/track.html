@@ -9,7 +9,7 @@
 <script type="module">
   import { FilesetResolver, PoseLandmarker } from "./node_modules/@mediapipe/tasks-vision/vision_bundle.mjs";
   const v = document.getElementById("v"), c = document.getElementById("c"), g = c.getContext("2d");
-  const FPS = 60;
+  let FPS = 60;   // set for each clip by window.rate()
   let tracker = null, mode = "";
 
   async function init(runningMode, delegate) {
@@ -34,6 +34,19 @@
     v.currentTime = t;
   });
   const r4 = (n) => Math.round(n * 10000) / 10000;
+
+  // The clip's real frame rate: play it for a moment and time the gaps between the frames the browser shows.
+  window.rate = async (url) => {
+    await load(url);
+    const gap = await new Promise((res) => {
+      const ts = [], cb = (now, m) => { ts.push(m.mediaTime); if (ts.length < 60 && !v.ended) v.requestVideoFrameCallback(cb); else fin(); };
+      let done = false;
+      const fin = () => { if (done) return; done = true; v.pause(); const d = []; for (let i = 1; i < ts.length; i++) if (ts[i] > ts[i - 1]) d.push(ts[i] - ts[i - 1]); d.sort((a, b) => a - b); res(d.length ? d[Math.floor(d.length / 2)] : 0); };
+      v.currentTime = 0; v.requestVideoFrameCallback(cb); v.play(); setTimeout(fin, 5000);
+    });
+    FPS = gap ? Math.round((1 / gap) * 100) / 100 : 60;
+    return FPS;
+  };
 
   // Track frames [from, to) of a clip. Returns one entry per frame: null when no body was found, or the 33 body points
   // as [x, y, visibility] (x and y from 0 to 1 across the picture) and the same points in metres around the hips.

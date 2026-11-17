@@ -57,7 +57,7 @@ for (let k = 0; k < ok.length; k++) {
 // feet together and legs long: a rough sign of being in the air
 const air = ok.filter((r) => r.feetApart < 0.7 && r.legLen > 1.25).map((r) => r.i);
 const runs = []; for (const i of air) { const last = runs[runs.length - 1]; if (last && i - last[1] <= 2) last[1] = i; else runs.push([i, i]); }
-const long = runs.filter((r) => r[1] - r[0] >= 20);
+const long = runs.filter((r) => r[1] - r[0] >= d.fps / 3);   // a third of a second or more
 console.log("\nhalf turns at frames:", cross.map((c) => c.toFixed(1)).join(", "));
 for (const [a, b] of long) {
   const inAir = cross.filter((c) => c >= a && c <= b), gaps = inAir.slice(1).map((c, k) => c - inAir[k]);

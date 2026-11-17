@@ -46,13 +46,14 @@ try {
   await send("Page.navigate", { url: `${base}/spikes/jump-lab/track.html` });
   for (let i = 0; i < 100 && !(await run("window.READY === true")); i++) await sleep(200);
   if (errors.length) console.log("page errors:", errors);
+  const fps = await run(`window.rate(${JSON.stringify("/clips/" + clip)})`);
   const started = Date.now();
   const data = await run(`window.track(${JSON.stringify("/clips/" + clip)}, { from: ${+from}, to: ${+to}, runningMode: ${JSON.stringify(mode)}, step: ${+step}, delegate: ${JSON.stringify(delegate)} })`);
   // named after the clip and its size in bytes, so a different clip with the same name never writes over these
   const name = `${basename(clip, extname(clip))}-${statSync(join(root, "clips", clip)).size}`, outDir = join(here, "out"); mkdirSync(outDir, { recursive: true });
   writeFileSync(join(outDir, `${name}-${mode}-${from}${+step > 1 ? "-step" + step : ""}.json`), JSON.stringify(data));
   const found = data.frames.filter((f) => f.p).length;
-  console.log(`${clip}: ${data.w}x${data.h}, ${data.total} frames in the clip, tracked ${data.frames.length}, body found in ${found} (${Math.round((100 * found) / data.frames.length)}%), ${data.msPerFrame} ms a frame, ${Math.round((Date.now() - started) / 1000)} s in all`);
+  console.log(`${clip}: ${data.w}x${data.h}, ${fps} frames a second, ${data.total} frames in the clip, tracked ${data.frames.length}, body found in ${found} (${Math.round((100 * found) / data.frames.length)}%), ${data.msPerFrame} ms a frame, ${Math.round((Date.now() - started) / 1000)} s in all`);
   // a draw list that starts with "crop:" makes 300 by 300 close-ups around the body instead of whole frames
   const crop = drawList.startsWith("crop:");
   for (const f of drawList.replace("crop:", "").split(",").filter(Boolean)) {
