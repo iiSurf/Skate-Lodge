@@ -42,7 +42,7 @@ try {
   const run = async (expression) => { const r = await send("Runtime.evaluate", { expression, awaitPromise: true, returnByValue: true });
     if (r.result?.exceptionDetails) throw new Error(r.result.exceptionDetails.exception?.description || r.result.exceptionDetails.text); return r.result?.result?.value; };
   await send("Page.enable"); await send("Runtime.enable");
-  await send("Emulation.setDeviceMetricsOverride", { width: 405, height: 720, deviceScaleFactor: 1, mobile: false });
+  await send("Emulation.setDeviceMetricsOverride", { width: 720, height: 720, deviceScaleFactor: 1, mobile: false });
   await send("Page.navigate", { url: `${base}/spikes/jump-lab/track.html` });
   for (let i = 0; i < 100 && !(await run("window.READY === true")); i++) await sleep(200);
   if (errors.length) console.log("page errors:", errors);

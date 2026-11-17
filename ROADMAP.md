@@ -442,9 +442,33 @@ A second round, the same evening, on more clips:
 
 What this changes:
 
-- Turn counting and rotation speed move up to "sure", even for a followed clip of a jump with several turns, as long as the skater is big enough in the picture.
+- Turn counting and rotation speed moved up to "sure" after this round, then back to "likely" after the third round below.
 - Air time and height stay "sure" only for a propped phone, and that has not been tested, because none of these clips is propped. For followed clips they need a better way to find the takeoff and the landing.
 - Still to do: the owner's own single jumps, from the side with the phone propped; the long clip; a real iPhone in Safari; and speed.
+
+### Third round: nine jumps whose answer is known (2026-11-17)
+
+Nine single jumps from Wikimedia Commons, each named in its title, so the right number of turns is known (credits in `spikes/jump-lab/CREDITS.md`). Filmed from the side at ice level, the skater filling a third to a half of the picture's height. All nine turned out to be 30 frames a second, not 60.
+
+| Jump | Should be | Counted | Verdict |
+| --- | --- | --- | --- |
+| Triple Axel (Glenn, 01) | 3.5 | 3.5 | right |
+| Triple Axel (Glenn, 02) | 3.5 | 2.6 | under by 0.9 |
+| Triple flip (Brown) | 3 | 2.0 | under by 1.0 |
+| Triple loop (Glenn) | 3 | 2.3 | under by 0.7 |
+| Triple Lutz (Siao Him Fa) | 3 | 3.7 | over by 0.7 |
+| Triple Salchow (Kim) | 3 | 2.6 | within half a turn |
+| Triple toe loop (Andrews) | 3 | 3.2 | within half a turn |
+| Quad toe loop (Siao Him Fa) | 4 | 2.9 | under by 1.1 |
+| Quad Salchow (Tomono) | 4 | 3.0 | under by 1.0 |
+
+- 3 of 9 within half a turn. The average miss is 0.65 of a turn, and the misses lean low: six of nine undercount.
+- The skeleton sat on the skater in mid-air in all nine (one frame from each, looked at by eye). Finding the body is not the problem.
+- The way of counting matters more than its settings. Counting from the width of the shoulders, at three different thresholds, gave the same answers. Counting from the tracker's own sense of depth was worse (2 of 9 at best).
+- What 30 frames a second costs: the agent counted the owner's three 60-frame clips again using only every second frame. Two came out about the same; the third went from 3.3 turns to 5.0, because the time in the air was found wrongly. So a lower frame rate makes the takeoff and the landing harder to place, which is where the turns before and after the counted half turns are added.
+- The likely reason for the undercount, not yet proven: at 30 frames a second a triple turns about one sixth of a turn between frames, so the moment of takeoff and of landing can each be a frame off, and part of a turn is lost at each end. A quad loses more.
+- What it means for the plan: counting turns is right on some jumps but not reliable yet, so it moves back from "sure" to "likely". The 60-frame rule for Jump Lab is now backed by a test, not only a guess. The next fix is finding the takeoff and the landing from the blade and the free leg, not from "feet together, legs long".
+- Still untested: the owner's own single jumps, filmed at 60 frames a second from the boards with the phone still.
 
 ## Rink survey: how nine rink sites near the owner publish their schedules (looked at 2026-11-15)
 

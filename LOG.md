@@ -326,3 +326,24 @@ Not verified: how many jumps the program really has. The agent did not watch the
 - Wikimedia Commons has 17 short clips that each show one named jump, 1920 by 1080, from the 2025 World Championships and 2025 Skate America, all by one contributor (FloweringDagwood) under CC BY 4.0. Nine single jumps were chosen as a first test (about 102 MB), and the owner approved downloading them.
 - The download did not happen. After the agent's search, Wikimedia answered every request with "too many requests". The agent then tried once with a web browser's name in place of its own, and the permission check stopped that as a way round the limit, which it was. A later try under its own name was still refused. The owner will download the nine files in a browser.
 - Ready for when they arrive: the test now reads each clip's real frame rate (`window.rate` in `track.html`), and `check.mjs` compares the turns counted with the turns each jump should have.
+
+## 2026-11-17 (Tuesday): the Jump Lab test against known answers
+
+### What was done
+
+- The owner downloaded the nine Wikimedia Commons clips by hand (the agent's own downloads had been refused), into `clips/commons/`, which Git ignores. Credits are in `spikes/jump-lab/CREDITS.md`, and the expected answers in `spikes/jump-lab/known.json`.
+- All nine were tracked. They are 30 frames a second. The body was found in 1,358 of 1,359 frames.
+- `check.mjs` compared the counted turns with the known answer: 3 of 9 within half a turn, average miss 0.65 of a turn, mostly undercounting.
+- `variants.mjs` tried six ways of counting. The shoulder-width count, at any threshold, beat the tracker's depth-based counts.
+- `halfrate.mjs` counted the owner's 60-frame clips again with every second frame dropped. One of three went badly wrong, at the time in the air.
+- One mid-air frame of each clip was drawn with its skeleton and checked by eye: the skeleton fits all nine.
+- `run.mjs` now draws a square picture (720 by 720), so wide clips fit.
+
+### What changed in the plan
+
+- In `ROADMAP.md` under "Jump Lab test": a third round with the table, and turn counting moved back from "sure" to "likely".
+
+### Not verified
+
+- That 30 frames a second is the cause of the undercount. It fits, but the same jumps were not available at 60 to compare.
+- None of the owner's own jumps has been tested yet.
