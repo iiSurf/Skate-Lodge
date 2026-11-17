@@ -4,3 +4,10 @@ node_modules/
 .env
 .env.*
 .tmp/
+
+# Test clips of real people skating: never in Git
+clips/
+*.mov
+*.MOV
+*.mp4
+*.MP4
