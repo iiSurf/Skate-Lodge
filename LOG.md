@@ -407,3 +407,7 @@ What was found, checked on 2026-11-20:
 Recorded in `ROADMAP.md` under Suggested ("Music in the music room"), with an open question. The agent's recommendation: the skater's own file, kept on the phone, and neither streaming service.
 
 Not verified: whether Spotify's Web Playback SDK or Apple's MusicKit actually play on an iPhone in Safari (no phone test); whether a rink's licence covers a skater playing music from their own phone (memory); what the iTunes Store terms mean for editing a bought track beyond "personal, noncommercial" use. This is not legal advice.
+
+### Music: the skater's own file only (same day)
+
+The owner said yes: the music room plays only the skater's own file, kept on the phone, with no Apple Music or Spotify. Moved from Suggested to Decided in `ROADMAP.md` ("Music"), the streaming services went under Set aside with the reason, and `SECURITY.md` section 7 gained a rule that the music file never leaves the phone.

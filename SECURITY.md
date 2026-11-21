@@ -89,6 +89,7 @@ Reading a rink's calendar address, and the page reader, both mean our server vis
 
 ## 7. Video and pictures
 
+- [ ] A skater's music file never leaves the phone either: no code uploads it, and it is never shared between skaters (decided 2026-11-20).
 - [ ] Jump Lab video never leaves the phone, and this is enforced, not just promised: there is no place in our code that uploads video, and the browser is told the only addresses the app may send anything to (see section 9). A mistake could not send a video somewhere else.
 - [ ] The body-tracking files are served from our own site, with a check that they have not been changed.
 - [ ] The camera and location are asked for only at the moment they are used, never when the app opens.
