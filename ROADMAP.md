@@ -354,24 +354,71 @@ The safety rules for the map are in `SECURITY.md` and are now the project's rule
 
 ### What sets Skate Lodge apart (the agent, 2026-11-20)
 
-The owner noticed many new figure skating apps and asked what would add more value than what is out there. The agent studied 44 apps from their App Store descriptions; the full study and every idea in detail are in `MARKET.md`. The short answer: be the app that knows the rink, and make Jump Lab win on honesty (a clip check, one filming spot per rink, ranges, "not measured yet", published accuracy, and a coach giving the grade).
+The owner noticed many new figure skating apps and asked what would add more value than what is out there. The agent studied 44 apps from their App Store descriptions (read on 2026-11-20; no app was used). The short answer: be the app that knows the rink, and make Jump Lab win on honesty. None of these is decided.
 
-The ranked ideas, best first (details, safety rules, and what each would change in `MARKET.md`):
+One rule every idea below depends on: a check-in record (which session, what time) stays on the phone, or on the server for a few hours at most, then becomes counts or yes-or-no flags that are deleted once used. Only the stamp stays: the rink, the first visit, and a count.
 
-- The log that is already written
-- Filming marks at each rink
-- The weekly test skate
-- Four steps to gold
-- Lessons that move with the ice
-- The lesson card
-- Tonight's plan fits tonight's ice
-- How sure are we
-- The virtual camera bench
-- The rink desk
-- A year frozen into your pond
-- Ice wanted
+1. The log that is already written. After skating, most of the session is filled in from the session picked and the check-in; the skater taps or says outcomes from a fixed list.
+2. Filming marks at each rink. One to three agreed spots on the boards per rink, so everyone films the same skill the same way, and history compares like with like. Each mark keeps only plain numbers, never a picture.
+3. The weekly test skate. The same three skills each week; the result is the middle reading of the attempts, shown with their spread.
+4. Four steps to gold. Tried, landed (silver), steady, and passed by a coach (gold). This changes the Decided rule that a card turns gold on the first landing.
+5. Lessons that move with the ice. A coach puts lessons on real sessions, sent as requests the student accepts, so when the ice moves, the lessons move with it.
+6. The lesson card. Before a lesson the coach sees one card per student, built only from lines the skater turned on. Never the rink, start time, or session.
+7. Tonight's plan fits tonight's ice. A packed public session leads with edges and spins; a quiet freestyle leads with jumps.
+8. How sure are we. A page of plain counts of how often each measurement was right, starting with the owner's own clips.
+9. The virtual camera bench. A research tool: film a card's 3D skeleton with a pretend camera from many places, to learn how much the camera alone moves a number.
+10. The rink desk. A free account for a rink's front desk to confirm its week, fix a session, or post a same-day notice from a fixed list.
+11. A year frozen into your pond. Each week skated freezes a ring into the pond; at the season's end the pond makes a season book on the phone.
+12. Ice wanted. A club admin sees which sessions members pick and which empty times they would skate, as evidence when buying ice.
 
-None is decided. Several would change Decided items; those are listed at the end of `MARKET.md` and in Open questions.
+The scoring approach behind ideas 2, 3, and 8: keep "measured" (what the camera sees, as a range, with "not measured yet" when it cannot tell) apart from "graded" (a coach's call). Check every clip first: 60 frames a second, the skater a quarter of the picture or more, a still phone, steady points. Bring measurements in by evidence: turns per second in mid-air first; air time and held positions after the owner's propped clips are tested; spins later.
+
+### Learned from the 44 apps (the agent, 2026-11-20)
+
+Things other apps already do that our plan lacks, worth adding. Each names the apps that do it. None is decided.
+
+In the practice log:
+
+- More outcomes than landed or missed: fell, under-rotated, popped, two-footed, stepped out (Inside Edge, IceNote). Now expected, and it gives Jump Lab a label from the skater to check against.
+- A plan set before skating, with a target per skill, ticked off afterwards (Inside Edge, SkatePath, IceStudio). Coach homework fills it.
+- Download your log as a spreadsheet file (IceNote). The privacy page already promises export.
+- Try it before signing up: a visitor can log a session and run Jump Lab on the phone, moved into an account later (IceNote, Skate Plan, and IceReel need no account at all).
+
+On the skate bench:
+
+- A sharpening reminder from hours skated since the last one, with ice time for each pair (IceNote, Inside Edge, IceStudio; BladeBuddy forecasts it). Five apps have it; the hours already come from the log.
+
+On the jump cards and Learn to Skate cards:
+
+- A skill map: each skill linked to the ones it builds on, so the skater sees what to learn next (SkatePath; Axel lists skills in order). Links are drafted, then approved by a coach, and the card says the order is a guide and to follow your coach.
+- Random edge and turn drills to skate (Edge Exercises, not updated since 2022).
+- Level lists built so another federation can be added later (Skate Canada, Japan, Australia: IceNote, Inside Edge, SkatePath, ISA Tests). Learn to Skate USA first.
+
+In the game:
+
+- Weekly goal rings and automatic streak freezes (SkatePath), folded into "rest counts" and the level road.
+
+With coaches:
+
+- The skater chooses which notes the coach sees, and keeps everything after unlinking (Inside Edge, Skating Storage).
+- Share a practice plan as a link or a printable sheet with someone who has no account (Inside Edge; Clean Skate shares programs). This is how a coach who has not joined first sees Skate Lodge.
+
+With rink schedules:
+
+- "Tell me when a new freestyle appears at my rinks", beside the alert for moved sessions (Open Ice, by email). Through the bell and Home Screen alerts.
+- Add a session to the phone calendar, and directions to the rink (Open Ice).
+
+In the music room:
+
+- A delayed start, so the skater can put the phone down and get into position (SkateLoops). Supports the no-phone-on-the-ice rule.
+- Perhaps: find the beats and drop elements on a timeline (Skate Plan finds them; Cavin places markers by hand).
+
+From IceReel, the app the owner saw: IceReel does not measure from the camera. A skating parent imports a competition video and the official judges' protocol, tags each element as it happens, and IceReel draws the element name, its GOE, and the running score on the video. The scores come from the protocol. It keeps everything on the phone, with no account and no server. What we could take from it:
+
+- Perhaps: a competition replay on your own phone. Enter or import your protocol, tag your elements on your own video, and see the official marks beside Jump Lab's measurements for the same jump. The video stays on the phone and the app never uploads or shares it. A competition protocol is also a known answer for Jump Lab (the technical panel's call), which helps "How sure are we".
+- A shareable card with only the skeleton and the numbers, made on the phone, as the in-app way to show off a jump (RinkUp and IceReel export video; our rule keeps video of people out of what skaters share).
+
+Not worth adding, and why: Apple Watch and Lock Screen logging (needs an App Store app); a full IJS score calculator (four apps do it well); competition results (Skater-Stats leads with 201 ratings; link to it); class registration and payment (booking platforms do it); a public feed of videos with typed comments (left out on purpose); paid workout courses; blade condition from a photo; comparing yourself with an Olympian as the main view (comparing with yourself, filmed the same way, is the honest view).
 
 ### Clubs and safety
 

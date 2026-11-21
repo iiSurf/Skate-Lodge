@@ -377,3 +377,9 @@ Nothing: it is reading and writing about public App Store pages. No app was inst
 - Everything about another app comes from its App Store description as read on 2026-11-20. No app was used, and screenshots and websites were not seen.
 - Which app the owner saw scoring from video. None of the seven descriptions the owner linked mentions camera scoring.
 - Several facts in `MARKET.md` are marked "from memory, not checked", among them whether Safari's speech recognition sends audio to Apple and what the SafeSport rule says about messages between adults and young athletes.
+
+### MARKET.md removed, and what to add from the 44 apps (same day)
+
+- The owner said the camera scoring was IceReel. Its App Store description says it puts the element, GOE, and running score on a parent's competition video, read from the official judges' protocol after the parent tags each element. It does not measure from the camera.
+- The owner asked for `MARKET.md` to be removed as not needed. It was deleted (it stays in the Git history). The twelve ideas under "What sets Skate Lodge apart" in `ROADMAP.md` now carry a one-line summary each instead of a pointer to it, and the scoring approach is kept as a short paragraph.
+- The owner asked what to add from what was learned. `ROADMAP.md` has a new Suggested section, "Learned from the 44 apps": about twenty things other apps do that our plan lacks, grouped by where they would go, each naming the apps that do it, plus two ideas from IceReel and a short list of what is not worth adding. None is decided.
