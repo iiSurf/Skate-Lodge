@@ -354,3 +354,26 @@ The owner shared a comment from the professor on the checkpoint: "In ROADMAP.md 
 
 - Recorded in `ROADMAP.md` under "The professor's feedback", as four boxes for next week: film the owner's own jumps, run them through the test against a known answer, put those results on the Artifact 5 card, and log it.
 - The card was not changed now. Its last sentence already says "Next I will test Jump Lab on real clips of my own jumps", and the professor asked for results from the owner's own clips, which do not exist yet. The Commons and event clips are someone else's and do not count for this.
+
+## 2026-11-20 (Friday): the figure skating app market
+
+### Plan
+
+The owner noticed many new figure skating apps in the App Store, with no clear winner, sent seven links, and asked what Skate Lodge could make that adds more value than what is out there. They singled out an app that scores skills from a camera video, and asked about scoring any skill at any level, given that two films of the same skill can give different numbers.
+
+### What was done
+
+- Read the seven apps' App Store listings (Apple's public lookup), and searched the store for more. 44 relevant apps after leaving out games and unrelated apps.
+- A multi-agent study, run twice. First: nine analysts profiled the apps against `ROADMAP.md`, one looked hard at scoring from video, one mapped the market, three designed ideas from different angles (skater, coaches and clubs, camera), one ranked them, and two skeptics checked the result. The skeptics found 60 problems: "nobody does this" claims that some app does, and real safety gaps (one idea would have let a coach learn whether a teenager was at the rink). Second: one agent applied the fixes, two fresh skeptics checked again (45 more problems), and a last agent applied those.
+- `MARKET.md` (new): the market in numbers, the groups of apps, where each Decided part of our plan stands, video scoring today and the camera-variance problem, what others have that we lack, a note on each competitor worth watching, all 44 apps with links, the twelve ranked ideas in full, and the changes they would make to Decided items.
+- `ROADMAP.md`: the twelve idea titles under Suggested ("What sets Skate Lodge apart"), and fourteen questions for the owner under Open questions.
+
+### What a stranger could do with this
+
+Nothing: it is reading and writing about public App Store pages. No app was installed or signed into.
+
+### Not verified
+
+- Everything about another app comes from its App Store description as read on 2026-11-20. No app was used, and screenshots and websites were not seen.
+- Which app the owner saw scoring from video. None of the seven descriptions the owner linked mentions camera scoring.
+- Several facts in `MARKET.md` are marked "from memory, not checked", among them whether Safari's speech recognition sends audio to Apple and what the SafeSport rule says about messages between adults and young athletes.

@@ -352,6 +352,27 @@ The safety rules for the map are in `SECURITY.md` and are now the project's rule
 - The map is our own drawing of the region with each rink as a little arena, not a map from a map company. That keeps the lodge look and means no other company learns who looked at which rink. Rinks that are not on the drawing are in a list beside it.
 - Online, away, and offline for friends, with a way to appear offline.
 
+### What sets Skate Lodge apart (the agent, 2026-11-20)
+
+The owner noticed many new figure skating apps and asked what would add more value than what is out there. The agent studied 44 apps from their App Store descriptions; the full study and every idea in detail are in `MARKET.md`. The short answer: be the app that knows the rink, and make Jump Lab win on honesty (a clip check, one filming spot per rink, ranges, "not measured yet", published accuracy, and a coach giving the grade).
+
+The ranked ideas, best first (details, safety rules, and what each would change in `MARKET.md`):
+
+- The log that is already written
+- Filming marks at each rink
+- The weekly test skate
+- Four steps to gold
+- Lessons that move with the ice
+- The lesson card
+- Tonight's plan fits tonight's ice
+- How sure are we
+- The virtual camera bench
+- The rink desk
+- A year frozen into your pond
+- Ice wanted
+
+None is decided. Several would change Decided items; those are listed at the end of `MARKET.md` and in Open questions.
+
 ### Clubs and safety
 
 - Channels only, no private messages. (This was suggested when children were expected. The owner's own worry was bullying, which adults do too. Whether friends can message each other is now an open question.)
@@ -400,6 +421,20 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
+- Which app showed the computer-vision scoring you saw? None of the seven links you sent describes camera scoring in its text. If it covered jumps only, OOFSkate or RinkUp fit best. If a judge-like score was the point, Skate Score fits. IceReel, one of your own links, lays official judges' scores over a phone video; the scores come from the protocol, not the camera, but it may be the one you remember. Scribe's link went to a custom product page we could not see.
+- Do you want four steps to gold (tried, landed in frost silver, steady, coach-passed in gold) in place of gold on the first landing?
+- For cue cards, keep the coach's own words with a length limit, an admin-visible history, and report and block, or limit cues to the list only? And are you happy for homework and coach corrections to be picks from lists?
+- Should the coach see only the lines a skater turns on, off by default, shown the next day or as weekly totals (weekly totals by default under 18), never rink, start time or session?
+- Lessons would be the one place a coach sees a student's rink and time: only future lessons the student accepted, with past lessons kept only as a count. Is that exception to the past-visits rule acceptable?
+- Voice through Safari may send audio to Apple, and our page's rules cannot stop that. After a test on a real iPhone, which do you want: speech recognition that runs on the phone (if it works), an exception, or tapping only?
+- Should a second phone be able to film a test-skate try (recorded in the page, measured and thrown away, never saved, with its owner not stored)? Adults could let a friend approved both ways join. Under 18 it would be off until the SafeSport check, then only the linked coach or a friend also under 18. Is that acceptable, or should it be adults only, or left out?
+- Do you agree to the one rule for check-ins: check-in records kept a few hours at most, then only counts or yes-or-no flags deleted once used, with the stamp kept as rink, first-visit date and a count?
+- Can you ask the coach you know two things: what they want to see before a lesson, and whether they would put their lessons on rink sessions, sent as requests their students accept, so lessons move when the ice moves?
+- Should the 'How sure are we' page be public, starting with raw counts from your own 3 to 5 propped clips and no rate until there are dozens of known answers, with per-rink and per-mark figures shown only to signed-in users?
+- May adult skaters give single attempts (skeleton only, kept in a locked table in the real Supabase project, checked by a server job that returns totals only, never in the repo or CI) to grow the known answers, in return for XP and a thank-you sticker?
+- Should a visitor be able to try Jump Lab and the log on the phone before signing up, moved into an account later?
+- Would the clubs and rinks you know want an 'ice wanted' page and a free rink desk account, and how should a rink prove it speaks for the rink?
+- Should a rink desk's fixes and same-day notices wait for a coach or club admin of that rink to approve them, as planned, or go live at once? Going live at once would change the Decided rule that a shared update needs someone else's yes.
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
 - Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?

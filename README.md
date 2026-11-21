@@ -22,6 +22,7 @@ Around those sit the things that make it fun to come back to: a scoreboard that 
 - [`ROADMAP.md`](ROADMAP.md): what has been decided, what has been suggested and is waiting for an answer, the open questions, and what was set aside.
 - [`LOG.md`](LOG.md): what was planned and what changed, oldest first.
 - [`CLAUDE.md`](CLAUDE.md): what an AI agent needs to know to work in this repository.
+- [`MARKET.md`](MARKET.md): the figure skating app market as of 2026-11-20 (44 apps), and what would set Skate Lodge apart.
 - [`SECURITY.md`](SECURITY.md): the project's security rules, set before any building.
 - [`design/`](design/): two sneak peeks drawn for inspiration. Open them in a browser. Every name and number in them is made up.
 
