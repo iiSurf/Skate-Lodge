@@ -393,6 +393,16 @@ One rule every idea below depends on: a check-in record (which session, what tim
 
 The scoring approach behind ideas 2, 3, and 8: keep "measured" (what the camera sees, as a range, with "not measured yet" when it cannot tell) apart from "graded" (a coach's call). Check every clip first: 60 frames a second, the skater a quarter of the picture or more, a still phone, steady points. Bring measurements in by evidence: turns per second in mid-air first; air time and held positions after the owner's propped clips are tested; spins later.
 
+### Music in the music room (the agent, 2026-11-20)
+
+The owner asked whether skaters could pick program music through Apple Music or Spotify inside Skate Lodge, and whether that is a copyright problem. The agent checked each service's current developer rules and the copyright side (sources and dates in `LOG.md`). The answer: neither service can play a skater's real program music, so the music room should play the skater's own file, kept on the phone.
+
+- Spotify: no. Its developer rules forbid editing its songs, forbid playing them publicly from a business (the policy names dance studios as an example), and since early 2026 cap an app at five named users unless it is a registered business with at least 250,000 monthly users. Every listener would also need Premium.
+- Apple Music: not for program music. It can play only the song as released, in Apple's own player, for a listener who pays for Apple Music, and it needs Apple's paid developer account ($99 a year). Apple's terms forbid editing, downloading, or "synchronizing" its songs with other content, so a program cut cannot come from it, and marking elements against it or playing it at the rink with no signal is at best unclear. Not recommended, even for warm-ups.
+- The program cut is a file the skater or their coach already has (usually made from bought tracks). The skater loads it from their phone into the music room, and it stays on that phone: never uploaded to our server, never passed to another skater, never hosted by us. This is what SkateLoops does. The music room's countdown, element marks, section repeats, and run-through counts then all work on that file.
+- Two practical points. Safari can delete what a website stores if the site has not been tapped for seven days, so the music room should ask the browser to keep its storage, show when a file is missing, and make reloading it one tap. And iPhones only play sound after a tap, so the countdown starts from a tap on "Start".
+- A short note in the music room: the skater is responsible for their music being cleared for where they skate it. U.S. Figure Skating covers songs cleared through ASCAP and BMI at its sanctioned events, and ClicknClear sells licences for edited mixes.
+
 ### Clubs and safety
 
 - Channels only, no private messages. (This was suggested when children were expected. The owner's own worry was bullying, which adults do too. Whether friends can message each other is now an open question.)
@@ -441,6 +451,7 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
+- Music: is the music room the skater's own file kept on the phone, with no Apple Music or Spotify?
 - Which app showed the computer-vision scoring you saw? None of the seven links you sent describes camera scoring in its text. If it covered jumps only, OOFSkate or RinkUp fit best. If a judge-like score was the point, Skate Score fits. IceReel, one of your own links, lays official judges' scores over a phone video; the scores come from the protocol, not the camera, but it may be the one you remember. Scribe's link went to a custom product page we could not see.
 - Do you want four steps to gold (tried, landed in frost silver, steady, coach-passed in gold) in place of gold on the first landing?
 - For cue cards, keep the coach's own words with a length limit, an admin-visible history, and report and block, or limit cues to the list only? And are you happy for homework and coach corrections to be picks from lists?

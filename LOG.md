@@ -392,3 +392,18 @@ The owner left it to the agent to decide which of the additions to take, refine,
 - 2 were ignored (random drills, automatic beat finding), and the IceReel-style replay was cut down to its honest part: the official call as a known answer. These, and the earlier "not worth adding" list, are under Set aside.
 - The Suggested section "Learned from the 44 apps" was removed, since everything in it is now decided or set aside.
 - Two safety details came from the reviewers: a spreadsheet export must make formula cells safe, and nothing logged before signing up earns rewards, because the server could not check it.
+
+### Apple Music, Spotify, and program music (same day)
+
+The owner asked whether skaters could choose program music through Apple Music or Spotify inside Skate Lodge, or whether copyright stops it. Three researchers read the current official rules, and a skeptic checked every claim against its source (it found eleven to correct, all applied below).
+
+What was found, checked on 2026-11-20:
+
+- Spotify Developer Policy and Developer Terms (version 10, effective 15 May 2025, https://developer.spotify.com/policy and /terms): no modifying or editing content; Spotify is for personal, non-commercial use and "can't be broadcast or played publicly from a business", with dance studios among the examples; no games; no syncing music to visual media. Since 11 February 2026 (new apps) and 9 March 2026 (existing apps) an app in development mode has at most five named users; extended access is only for registered businesses with at least 250,000 monthly users. Listeners need Premium. Spotify's own listener terms (updated 4 September 2026) require users to be 18, or 13 to 17 with a parent's consent.
+- Apple Developer Program License Agreement, section 3.3.6(D) (read 2026-11-20): no downloading, uploading, or modifying MusicKit content, and it "cannot be synchronized with any other content"; users must start playback; no charging for or indirectly making money from access to Apple Music. MusicKit on the web needs the $99-a-year developer program, a signed token made on our server, and the listener's own Apple Music subscription (otherwise only previews play). Its documentation is still marked beta.
+- Copyright: a rink is a public place, and rinks hold their own ASCAP and BMI licences (ASCAP has an ice rink plan and BMI a "Skating Rinks" licence). U.S. Figure Skating's music policy covers songs listed as 100% cleared in Songview at its sanctioned events and puts clearing the music on the coach, choreographer, skater, or parent; it strongly recommends cleared music for training too (from search snippets of its policy PDF, which would not open). ClicknClear sells licences for mixes, typically $10, $15 to $20, or $25 per track for a year in one country. At the 2026 Olympics one skater, Petr Gumennik, changed his short program music two days before competing because it was not cleared.
+- SkateLoops, the leading skating music app, plays the skater's own audio files.
+
+Recorded in `ROADMAP.md` under Suggested ("Music in the music room"), with an open question. The agent's recommendation: the skater's own file, kept on the phone, and neither streaming service.
+
+Not verified: whether Spotify's Web Playback SDK or Apple's MusicKit actually play on an iPhone in Safari (no phone test); whether a rink's licence covers a skater playing music from their own phone (memory); what the iTunes Store terms mean for editing a bought track beyond "personal, noncommercial" use. This is not legal advice.
