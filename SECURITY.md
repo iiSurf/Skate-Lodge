@@ -90,7 +90,15 @@ Reading a rink's calendar address, and the page reader, both mean our server vis
 ## 7. Video and pictures
 
 - [ ] A skater's music file never leaves the phone either: no code uploads it, and it is never shared between skaters (decided 2026-11-20).
-- [ ] Jump Lab video never leaves the phone, and this is enforced, not just promised: there is no place in our code that uploads video, and the browser is told the only addresses the app may send anything to (see section 9). A mistake could not send a video somewhere else.
+- [ ] Jump Lab video stays on the phone unless the skater sends a clip to their own coach (the owner decided coaches can get video, 2026-11-20). Then:
+  - It goes only to a coach linked to that skater through a club invite, who has two-step sign-in. Never to friends, clubmates, the club, or anyone else, and never shown on any public page.
+  - The skater chooses each clip and sends it with a tap. Nothing is sent by itself.
+  - Clips are kept in private storage that only that skater and that coach can read, checked by the database rules, and shown through links that expire within minutes.
+  - Clips are deleted after 30 days, or at once when the skater deletes them or unlinks the coach. The coach cannot download a copy through our app.
+  - A clip is uploaded only from Jump Lab's send button, with a size and length limit, as video only; the server checks the type. The browser may send video only to our own storage address.
+  - Clips are never used to train or test anything and never sent to the AI, unless the skater separately gives that clip.
+  - Before sending, the skater is reminded that other skaters may be in the background.
+  - The access tests in section 3 include clips: a stranger, a clubmate, a friend, and a coach from another club must each be refused.
 - [ ] The body-tracking files are served from our own site, with a check that they have not been changed.
 - [ ] The camera and location are asked for only at the moment they are used, never when the app opens.
 - [ ] Swap shelf pictures: images only, with a size limit. The server saves its own fresh copy of each picture, which drops hidden details such as where it was taken and stops a disguised file. Pictures are kept privately and shown through links that expire. A club admin approves each one, and no picture may show a person.

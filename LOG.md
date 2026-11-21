@@ -415,3 +415,7 @@ The owner said yes: the music room plays only the skater's own file, kept on the
 ### Jump Lab may show the real skater (same day)
 
 The owner said Jump Lab does not need to show the skater only as a skeleton or wireframe; the skater can be visible. Recorded under Decided in `ROADMAP.md` (Jump Lab): replays, the side-by-side with a card, and saved milestone pictures can show the real skater. The agent read this as being about what is shown on the skater's own phone. Whether the video may leave the phone (to a coach, or onto our server) would change `SECURITY.md` section 7, so it is an open question, not assumed.
+
+### A coach can get the video (same day)
+
+Asked whether a skater may send the video itself to their coach, the owner said yes. `ROADMAP.md`: "Send the skeleton, not the video" became "Send a jump to your coach", with the real video. `SECURITY.md` section 7 was rewritten for it: only to a coach linked through a club invite with two-step sign-in, chosen clip by clip, private storage with links that expire, deleted after 30 days or on unlinking, never to the AI or training, a reminder about others in the background, and clip access added to the access tests. `CLAUDE.md` names it as the one exception to "no video of people". The agent chose the 30-day limit and the other details; the owner can change any of them.
