@@ -226,6 +226,26 @@ People:
 
 Build these three first (the agent's pick): say it, don't type it; plan my week; and the coach board.
 
+### Refinements learned from other apps
+
+From the study of 44 figure skating apps (2026-11-20). The owner left the call to the agent: add, fold in, or ignore, including ignoring all of them. The agent had three reviewers judge each candidate from different angles (the skater, a strict editor, and safety and honesty) and went with where at least two agreed. None of these is a new tool. Each sharpens something already decided.
+
+- [ ] The practice log's outcomes grow from landed or missed to: landed, two-footed, stepped out, under-rotated, popped, fell (as in Inside Edge and IceNote). The same fixed list is used when saying it instead of typing, in a jump card's common mistakes, and as the skater's own label on a Jump Lab clip. Jump Lab never sets "under-rotated" itself: the tests missed by 0.65 of a turn on average, too far off for that call.
+- [ ] Tonight's plan becomes a real list: the skills for the session, each with an optional target (for example 6 of 10 landed), set before skating and ticked off on the kiss and cry when the session is saved. Coach homework arrives as lines in it, and jump cards add to it.
+- [ ] The download of everything held about a skater includes the practice log as a spreadsheet file, as MySkate already does. Cells that start with =, +, - or @ are made safe, so an opened file cannot run a formula.
+- [ ] The practice log and Jump Lab work without an account, with everything kept on the phone, the way MySkate works today. Signing up moves the log into the account through the same cleaning as a restored backup. Nothing logged before signing up earns experience points, stamps, or badges, because the server could not check it. Nothing social, no map, and no club works without an account.
+- [ ] The skate bench counts hours on each pair from the log since its last sharpening, and gives one reminder at a number of hours the skater sets (five apps have this).
+- [ ] Every skill card shows "learn first" and "next" links to other skills, drafted and then approved by a coach like the tips, with the line that the order is a guide and to follow your own coach (as in SkatePath).
+- [ ] Skill and level lists are stored as data with a federation field. Only Learn to Skate USA is filled in, so another federation can be added later without a rewrite.
+- [ ] The streak is counted in weeks: a weekly goal ring the skater sets (for example 3 sessions), where off-ice training and planned rest count. A rest week, a sore week, or a week the rink cancelled uses a freeze by itself instead of breaking the streak. The server works it out.
+- [ ] The coach sees only the lines and notes the skater turns on for them. Unlinking ends the coach's access at once in the database rules, and the skater keeps everything, including the coach's cue cards and homework.
+- [ ] A plan can be printed or saved as a sheet made on the phone, to hand to a coach who has not joined. It holds skills and targets only, never a rink, session, or time. There is no public link.
+- [ ] A second schedule alert the skater can turn on: a new session of a chosen kind (for example freestyle) has appeared at my rinks. Same bell, same rule that only confirmed changes or a rink's own calendar trigger it (as in Open Ice).
+- [ ] Each picked session has an "add to my calendar" button, and each rink guide a "directions" link that opens the phone's own maps app with the rink's address. The app never reads or sends the skater's position for this.
+- [ ] The music room has a countdown before the music starts, so the skater can put the phone on the boards and get into position (as in SkateLoops).
+- [ ] A skater can add the official call for their own jump from a competition protocol (clean, under-rotated, downgraded, an edge call) to a clip of that jump, as a known answer for Jump Lab. Taken from IceReel, which puts official scores on competition video; the replay itself is left to IceReel.
+- [ ] A milestone card can be saved as a picture: the skeleton, the jump's name, the date, and only measurements that passed the clip check, shown as ranges and marked "measured by a phone, not judged". No rink, time, or username unless the skater turns the username on. Never the video.
+
 ### Security
 
 - [ ] The rules in `SECURITY.md` are the project's security rules, set before any building (adopted 2026-11-16; the owner left the decision to the agent, who adopted them). Every feature is planned and built to them.
@@ -372,53 +392,6 @@ One rule every idea below depends on: a check-in record (which session, what tim
 12. Ice wanted. A club admin sees which sessions members pick and which empty times they would skate, as evidence when buying ice.
 
 The scoring approach behind ideas 2, 3, and 8: keep "measured" (what the camera sees, as a range, with "not measured yet" when it cannot tell) apart from "graded" (a coach's call). Check every clip first: 60 frames a second, the skater a quarter of the picture or more, a still phone, steady points. Bring measurements in by evidence: turns per second in mid-air first; air time and held positions after the owner's propped clips are tested; spins later.
-
-### Learned from the 44 apps (the agent, 2026-11-20)
-
-Things other apps already do that our plan lacks, worth adding. Each names the apps that do it. None is decided.
-
-In the practice log:
-
-- More outcomes than landed or missed: fell, under-rotated, popped, two-footed, stepped out (Inside Edge, IceNote). Now expected, and it gives Jump Lab a label from the skater to check against.
-- A plan set before skating, with a target per skill, ticked off afterwards (Inside Edge, SkatePath, IceStudio). Coach homework fills it.
-- Download your log as a spreadsheet file (IceNote). The privacy page already promises export.
-- Try it before signing up: a visitor can log a session and run Jump Lab on the phone, moved into an account later (IceNote, Skate Plan, and IceReel need no account at all).
-
-On the skate bench:
-
-- A sharpening reminder from hours skated since the last one, with ice time for each pair (IceNote, Inside Edge, IceStudio; BladeBuddy forecasts it). Five apps have it; the hours already come from the log.
-
-On the jump cards and Learn to Skate cards:
-
-- A skill map: each skill linked to the ones it builds on, so the skater sees what to learn next (SkatePath; Axel lists skills in order). Links are drafted, then approved by a coach, and the card says the order is a guide and to follow your coach.
-- Random edge and turn drills to skate (Edge Exercises, not updated since 2022).
-- Level lists built so another federation can be added later (Skate Canada, Japan, Australia: IceNote, Inside Edge, SkatePath, ISA Tests). Learn to Skate USA first.
-
-In the game:
-
-- Weekly goal rings and automatic streak freezes (SkatePath), folded into "rest counts" and the level road.
-
-With coaches:
-
-- The skater chooses which notes the coach sees, and keeps everything after unlinking (Inside Edge, Skating Storage).
-- Share a practice plan as a link or a printable sheet with someone who has no account (Inside Edge; Clean Skate shares programs). This is how a coach who has not joined first sees Skate Lodge.
-
-With rink schedules:
-
-- "Tell me when a new freestyle appears at my rinks", beside the alert for moved sessions (Open Ice, by email). Through the bell and Home Screen alerts.
-- Add a session to the phone calendar, and directions to the rink (Open Ice).
-
-In the music room:
-
-- A delayed start, so the skater can put the phone down and get into position (SkateLoops). Supports the no-phone-on-the-ice rule.
-- Perhaps: find the beats and drop elements on a timeline (Skate Plan finds them; Cavin places markers by hand).
-
-From IceReel, the app the owner saw: IceReel does not measure from the camera. A skating parent imports a competition video and the official judges' protocol, tags each element as it happens, and IceReel draws the element name, its GOE, and the running score on the video. The scores come from the protocol. It keeps everything on the phone, with no account and no server. What we could take from it:
-
-- Perhaps: a competition replay on your own phone. Enter or import your protocol, tag your elements on your own video, and see the official marks beside Jump Lab's measurements for the same jump. The video stays on the phone and the app never uploads or shares it. A competition protocol is also a known answer for Jump Lab (the technical panel's call), which helps "How sure are we".
-- A shareable card with only the skeleton and the numbers, made on the phone, as the in-app way to show off a jump (RinkUp and IceReel export video; our rule keeps video of people out of what skaters share).
-
-Not worth adding, and why: Apple Watch and Lock Screen logging (needs an App Store app); a full IJS score calculator (four apps do it well); competition results (Skater-Stats leads with 201 ratings; link to it); class registration and payment (booking platforms do it); a public feed of videos with typed comments (left out on purpose); paid workout courses; blade condition from a photo; comparing yourself with an Olympian as the main view (comparing with yourself, filmed the same way, is the honest view).
 
 ### Clubs and safety
 
@@ -609,6 +582,10 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 ## Set aside
 
+- Random edge and turn drills (Edge Exercises): thin next to a plan a coach fills, and it puts the phone in the skater's hand between drills (2026-11-20).
+- Finding the beats in program music automatically (Skate Plan): unreliable on free-tempo music, and marking elements by hand is already decided (2026-11-20).
+- A competition replay with official scores drawn on the video (IceReel does it well): only the official call as a known answer for Jump Lab was kept (2026-11-20).
+- Also from the study, not worth adding: Apple Watch and Lock Screen logging, a full score calculator, competition results, class payments, a public video feed, paid workout courses, blade condition from a photo, and comparing yourself with an Olympian as the main view (2026-11-20).
 - Accounts for young children, parents' accounts, and the rules written for them (a parent's yes for sharing): the owner expects mostly adults, with a few skaters of 14 to 17 (2026-11-16).
 - Messages between friends: not needed for now, because friends already text each other (the owner, 2026-11-16).
 - Drawing freehand into the ice of a pond: it would need checking for bad words and drawings, perhaps with computer vision. The owner chose to keep it simple with stickers (2026-11-16).

@@ -383,3 +383,12 @@ Nothing: it is reading and writing about public App Store pages. No app was inst
 - The owner said the camera scoring was IceReel. Its App Store description says it puts the element, GOE, and running score on a parent's competition video, read from the official judges' protocol after the parent tags each element. It does not measure from the camera.
 - The owner asked for `MARKET.md` to be removed as not needed. It was deleted (it stays in the Git history). The twelve ideas under "What sets Skate Lodge apart" in `ROADMAP.md` now carry a one-line summary each instead of a pointer to it, and the scoring approach is kept as a short paragraph.
 - The owner asked what to add from what was learned. `ROADMAP.md` has a new Suggested section, "Learned from the 44 apps": about twenty things other apps do that our plan lacks, grouped by where they would go, each naming the apps that do it, plus two ideas from IceReel and a short list of what is not worth adding. None is decided.
+
+### What to take from the other apps (same day)
+
+The owner left it to the agent to decide which of the additions to take, refine, or ignore, including ignoring all of them. Three reviewers judged each of 17 candidates from a different angle (the owner as a skater, a strict editor who prefers fewer tools, and safety and honesty), and the agent went with where at least two agreed.
+
+- 15 were folded into tools already decided, and none became a new tool. They are under Decided in `ROADMAP.md`, "Refinements learned from other apps".
+- 2 were ignored (random drills, automatic beat finding), and the IceReel-style replay was cut down to its honest part: the official call as a known answer. These, and the earlier "not worth adding" list, are under Set aside.
+- The Suggested section "Learned from the 44 apps" was removed, since everything in it is now decided or set aside.
+- Two safety details came from the reviewers: a spreadsheet export must make formula cells safe, and nothing logged before signing up earns rewards, because the server could not check it.
