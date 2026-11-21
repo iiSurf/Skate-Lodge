@@ -411,3 +411,7 @@ Not verified: whether Spotify's Web Playback SDK or Apple's MusicKit actually pl
 ### Music: the skater's own file only (same day)
 
 The owner said yes: the music room plays only the skater's own file, kept on the phone, with no Apple Music or Spotify. Moved from Suggested to Decided in `ROADMAP.md` ("Music"), the streaming services went under Set aside with the reason, and `SECURITY.md` section 7 gained a rule that the music file never leaves the phone.
+
+### Jump Lab may show the real skater (same day)
+
+The owner said Jump Lab does not need to show the skater only as a skeleton or wireframe; the skater can be visible. Recorded under Decided in `ROADMAP.md` (Jump Lab): replays, the side-by-side with a card, and saved milestone pictures can show the real skater. The agent read this as being about what is shown on the skater's own phone. Whether the video may leave the phone (to a coach, or onto our server) would change `SECURITY.md` section 7, so it is an open question, not assumed.
