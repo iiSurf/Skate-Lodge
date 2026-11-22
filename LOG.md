@@ -548,3 +548,15 @@ Not verified: the cache header on a real answer, and whether the rinks' calendar
 - That one Doppler config can refer to a secret in another, so the GitHub config does not need its own copy of the job's secret.
 - Whether two-step sign-in is available on Doppler's free plan (the pricing page lists "MFA", but the helper could not tell which plans include it).
 - That GitHub's scheduled workflows can start late and are switched off after 60 days without activity in a public repository.
+
+## 2026-11-22 (Sunday, night): the GitHub Student Pack
+
+The owner asked whether any of the Student Pack's offers would help, or whether offers that end (often after a year) would cause trouble later. A helper read the pack's offer list, Supabase's email page and Resend's prices today. The pack page is long; some terms (1Password for 2 years, Doppler while a student, Sentry, Datadog, .TECH) come from a summary of the part the helper could not read word for word.
+
+- Vercel, Supabase and Resend are not in the pack. Their free plans are the ones the app runs on.
+- The pack has no email sender. SendGrid and Mailgun were not found.
+- Found in passing: Supabase's built-in email sender only sends to the project's team members, at 2 messages an hour. Its docs say it is "not meant for production use" and that email and password sign-in needs a custom sender. Resend's free plan is 3,000 emails a month, 100 a day, and "free-forever".
+- Suggested (`ROADMAP.md`): use pack offers only for building and testing tools, never for what the running app depends on. Use Resend as the email sender before anyone but the owner signs up. A new open question asks: a domain plus Resend, or a separate Gmail account?
+- `BUILD.md`: the email sender is in the account list and phase 6's gate. Phase 3 notes that the owner's own account and the made-up accounts need no real sender.
+
+Not verified (from memory): that Resend needs a domain of our own to send to other people; that most pack terms start when claimed; domain prices.

@@ -23,7 +23,9 @@ How it was made: three planners drafted phased plans from different angles (the 
 3. Create accounts as each phase needs them, not all at once (the agent's advice, 2026-11-22). Turn on two-step sign-in on each as it is made. You put every key into Doppler yourself, so the agent never sees a service key, and Doppler copies it to the services.
    - **Now, for phase 1:** Doppler (the student offer through GitHub Education), Vercel (Hobby, signed in with GitHub), and Supabase with two projects (testing and real; the free plan allows two). Plus GitHub's security settings and a `testing` environment for the repository.
    - **After Kent Valley and Bremerton say yes:** a Google Cloud project with an API key restricted to the Calendar API.
-   - **Later, only if a phase needs one:** an AI provider (phase 6, if you want AI at all) and a domain.
+   - **Before anyone but you signs up:** an email sender for sign-in emails, and probably a domain (see Open questions in `ROADMAP.md`).
+   - **Later, only if a phase needs one:** an AI provider (phase 6, if you want AI at all).
+   - **From the GitHub Student Pack:** only tools for building and testing, never something the running app depends on (Suggested in `ROADMAP.md`). Doppler is the exception, because its free plan covers the project.
 4. Turn on secret scanning, push protection, Dependabot alerts and private vulnerability reporting for the repository.
 5. A written yes that your own clips and your own account may be used to test (an exception to `SECURITY.md` section 14, which says test data is made up). They stay on the Mac, never in Git or CI.
 6. Name the jumps in the clips you filmed from the stands (phase 0). New clips from the boards wait until you can film them.
@@ -101,6 +103,7 @@ How it was made: three planners drafted phased plans from different angles (the 
 - A plain avatar that is not a photo (a coloured disc with your first letter), shown to you as a drawing first. The character replaces it later with no change to the data.
 - The passport: a drawing for your approval first, then the stamp animation and tilt (motion asked only after a tap), with reduced-motion off states.
 - The bell with an inbox, installable to the Home Screen, download everything, delete my account, and a plain privacy page.
+- Sign-in emails: Supabase's own sender reaches only the project's team members, 2 an hour. That covers your own account; the made-up accounts are made by script and need no email. A real sender comes before anyone else is invited (phase 6's gate).
 - **Your call:** whether the log fills itself in from the session you picked ("the log that is already written" is only Suggested). Default: the plain MySkate log.
 
 ## Phase 4: clubs, the coach, friends, jump cards (Wed 12-02 to Fri 12-04)
@@ -137,7 +140,7 @@ How it was made: three planners drafted phased plans from different angles (the 
 - The skate bench in full (sharpenings and who did them, hollow, heat-moulding, fit notes, hours and the reminder), aches and rest (with "show your coach" when the same one keeps coming up), warm-up, the punch card, the season sheet.
 - The page reader built and tested on made-up pages shaped like the real ones. It reads no live site until that site's terms are read.
 - **Your calls:** plan my week without AI, ahead of the bench and punch card (the Decided "build these three first" order), or keep this order? Do you want the AI explanation in Jump Lab at all, and how is AI paid for? Default: no AI before 12-13.
-- **The gate:** a real restore tried, the bad-day plan written, alerts for spikes, logs cleared after 30 days, and the privacy page checked by someone you name. Only then do the coach and club people you know get invites. If it doesn't hold by 12-13, the trial waits and the card says so.
+- **The gate:** a real restore tried, the bad-day plan written, alerts for spikes, logs cleared after 30 days, the privacy page checked by someone you name, and a real sender for sign-in emails. Only then do the coach and club people you know get invites. If it doesn't hold by 12-13, the trial waits and the card says so.
 - The reflection in your words, and the card with the live link, before 11:59pm Sunday 12-13.
 
 If earlier phases run late, phase 6 gives way in this order: the page reader, the skate bench extras, the music room. The map, behind its switch, stays.
