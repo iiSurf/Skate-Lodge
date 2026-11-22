@@ -566,3 +566,17 @@ Not verified (from memory): that Resend needs a domain of our own to send to oth
 - The owner made the accounts: GitHub's security settings are on, Doppler has the student Team plan and a project `skate-lodge` connected to GitHub, and Supabase has two projects, `skate-lodge-testing` and `skate-lodge`. Vercel is next. The owner's Vercel account has a v0 student offer (a year, with credits). v0 is Vercel's AI app builder, which this project does not use. Hosting stays on the Hobby plan, which has no end date.
 - `SECURITY.md` section 8: only Doppler's free-plan features are used (at most 5 syncs; no config inheritance, rotation or trusted IPs), so the end of the student plan changes nothing. The planned syncs are 3: Vercel Preview, Vercel Production and GitHub.
 - Vercel's import screen could not choose `app/` as the root directory. Vercel reads the default branch, and `app/` is only on `phase-1` so far. The only `package.json` on `main` is the Jump Lab test's, so Vercel offered `spikes/jump-lab`.
+
+## 2026-11-22 (Sunday, night): first deploy
+
+- With the owner's yes, `main` caught up with `phase-1` (a plain fast-forward to 7c4fbc4). Both CI jobs passed on `main`. The database checks still skip until the testing project's keys reach GitHub through Doppler.
+- The owner imported the repository into Vercel (Hobby, root directory `app`, framework "Other", no settings). It is live at https://skate-lodge.vercel.app.
+
+Checked on the live site:
+
+- Every header from `vercel.json` is sent, on pages and on the API: the content security policy, HSTS, permissions policy, referrer policy, nosniff, frame denial and the opener policy. `http` redirects to `https` (308).
+- Only `public/` is served. The server code, the rink data, the tools, the migrations, `vercel.json`, `package.json` and the README all answer 404.
+- `/api/week` answers 200 with 12 rinks and no sessions (no database yet, so it falls back to the empty file store). A date in the past answers 400. `/api/refresh` answers 401 with no secret and with a wrong one. An unknown function answers 404.
+- At iPhone width (390 wide): no sideways scrolling, no console errors, and the rink colors show, so the security policy blocks nothing the page needs.
+
+Not done yet: when the database is connected, the live site should refuse the local file store, so that a missing setting shows "not available" instead of a quietly empty page. Not checked on a real iPhone yet.

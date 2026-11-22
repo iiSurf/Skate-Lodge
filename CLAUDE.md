@@ -11,7 +11,7 @@ The owner said "start building" on 2026-11-22. Build in the order of `BUILD.md`,
 - The app is in `app/`: a static site with no build step (`index.html`, `css/`, `js/`), Vercel server functions in `app/api/`, server-only code in `app/server/`, database changes as SQL in `app/supabase/migrations/`, and tests in `app/tests/` (run `npm test` in `app/`).
 - Run it locally with `node app/tools/dev.mjs`, which serves the site and the functions on 127.0.0.1. Without Supabase settings it keeps data in a local file under `app/.data/` (ignored by Git). With the testing project's settings: `doppler run --config dev -- node tools/dev.mjs` from `app/`.
 - Secrets live in Doppler, never in a file. There are no `.env` files, not even ignored ones, and no example settings file. The code reads settings by name from the environment only.
-- Work on a branch per phase (`phase-1`, ...), merged to `main` when the phase is done and checked.
+- Work on a branch per phase (`phase-1`, ...), merged to `main` when the phase is done and checked. `main` deploys to https://skate-lodge.vercel.app (Vercel, root directory `app`).
 
 ## Where things are
 

@@ -4,6 +4,8 @@ A platform for figure skaters, their coaches, and their clubs. Its skaters are m
 
 **Status: building, phase 1 of `BUILD.md`.** The app is in [`app/`](app/): a rink schedule page that anyone can open without an account, built from MySkate's schedule code, with the security groundwork under it. It is not online yet.
 
+Live at https://skate-lodge.vercel.app (Vercel's Hobby plan, deployed from `main`). It shows no sessions yet: each rink's calendar is switched on only after that rink says yes.
+
 To run it on your own computer (Node 22): `cd app`, then `node tools/demo.mjs` to fill it with made-up sessions, then `node tools/dev.mjs`, and open http://127.0.0.1:8787. `npm test` runs the tests. Nothing needs a key for that. Keys and secrets live in Doppler, never in a file in this repository: with access to the project's Doppler, `doppler run --config dev -- node tools/dev.mjs` runs it against the testing database.
 
 ## The idea
