@@ -82,7 +82,7 @@ function sessionCard(s, ctx) {
       <span class="rink"><i class="dot" data-rk="${rink.color || ""}"></i>${rink.name}</span>
       ${showTitle ? html`<span class="title">${s.title}</span>` : ""}
       ${s.parts && s.parts.length > 1 ? html`<span class="slots">${s.parts.length} slots of ${Math.round(toMin(s.parts[0].end) - toMin(s.parts[0].start))} minutes, back to back</span>` : ""}
-      <span class="from ${stale ? "is-stale" : ""}">From ${src ? src.label : "the rink's calendar"}${check.lastOk ? html`, checked ${ago(check.lastOk)}` : ""}${stale ? ". It may be out of date." : ""}</span>
+      <span class="from ${stale ? "is-stale" : ""}">From ${rink.schedule_page ? html`<a href="${rink.schedule_page}" target="_blank" rel="noopener noreferrer">${src ? src.label : "the rink's calendar"}</a>` : src ? src.label : "the rink's calendar"}${check.lastOk ? html`, checked ${ago(check.lastOk)}` : ""}${stale ? ". It may be out of date." : ""}</span>
       ${over ? html`<span class="from">Finished for today</span>` : ""}
     </div>
     <button class="star" type="button" data-act="pick" data-key="${key}" aria-pressed="${pick}" aria-label="${pick ? "Remove from My picks" : "Add to My picks"}: ${what}">${STAR}</button>

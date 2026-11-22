@@ -96,7 +96,9 @@ create policy "anyone reads sessions" on public.sessions for select to anon, aut
 create policy "anyone reads checks" on public.source_checks for select to anon, authenticated using (true);
 -- kill_switches and job_runs: no rules for anon or authenticated, so nobody but the service key can see or change them.
 
--- Replaces one source's sessions from a day on, in one transaction, so a failed run never leaves the schedule empty.
+-- Replaces one source's sessions, in one transaction, so a failed run never leaves the schedule empty. Every older row of the
+-- source goes, past ones too: Google's API terms (section 5e) allow no database of a calendar's content beyond what its owner
+-- permits, so nothing is kept once it has ended.
 create function public.replace_source_sessions(p_source text, p_from date, p_rows jsonb)
 returns integer
 language plpgsql
@@ -109,7 +111,7 @@ begin
   if jsonb_typeof(p_rows) <> 'array' or jsonb_array_length(p_rows) > 5000 then
     raise exception 'rows must be an array of at most 5000';
   end if;
-  delete from public.sessions where source_id = p_source and date >= p_from;
+  delete from public.sessions where source_id = p_source;
   insert into public.sessions (source_id, rink_id, date, start_time, end_time, kind, title)
   select p_source, r.rink_id, r.date, r.start_time, r.end_time, r.kind, r.title
   from jsonb_to_recordset(p_rows) as r(rink_id text, date date, start_time time, end_time time, kind text, title text)
@@ -120,6 +122,27 @@ end;
 $$;
 revoke execute on function public.replace_source_sessions(text, date, jsonb) from public, anon, authenticated;
 grant execute on function public.replace_source_sessions(text, date, jsonb) to service_role;
+
+-- Forgets everything that came from one source and switches it off: for a rink that withdraws its permission, or if we stop
+-- using an API (Google's API terms, section 8b).
+create function public.forget_source(p_source text)
+returns integer
+language plpgsql
+security invoker
+set search_path = ''
+as $$
+declare
+  n integer;
+begin
+  update public.schedule_sources set approved = false, terms_checked = null where id = p_source;
+  delete from public.sessions where source_id = p_source;
+  get diagnostics n = row_count;
+  delete from public.source_checks where source_id = p_source;
+  return n;
+end;
+$$;
+revoke execute on function public.forget_source(text) from public, anon, authenticated;
+grant execute on function public.forget_source(text) to service_role;
 
 -- For the CI check: every table in public that has its rules switched off. It must always return nothing.
 create function public.tables_without_rules()

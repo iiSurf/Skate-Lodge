@@ -500,3 +500,23 @@ The owner chose Google's official Calendar API for Kent's and Bremerton's public
 - 7 new tests (59 pass, 4 database tests skip until the testing project exists), including that the key never appears in an address and that Google's errors never include it.
 
 Not done yet: the three sources stay switched off (no terms date) until Google's API terms are read (a helper is reading them now) and the owner has made the key. Nothing has called Google's API.
+
+### Google's API terms read (same day)
+
+A helper read the Google APIs Terms of Service (last modified 2021-11-09, https://developers.google.com/terms), the Calendar API's quota and sync guides, and Google Cloud's API key guides. What they say for us:
+
+- Reading a rink's public calendar with an API key is documented and allowed, and a few calls a day is far inside the quotas (10,000 a minute per project) and free.
+- Section 5e forbids building a database of what the API returns, keeping it longer than its cache header allows, changing it, or showing it publicly, "unless expressly permitted by the content owner". The content owner of a rink's calendar is the rink. Making a calendar public and embedding it on its site is not clearly express permission. So each rink's written yes is now required before its calendar is switched on (Decided in `ROADMAP.md`, as a requirement of the terms the owner's choice brings).
+- Section 8b: if we stop using the API, delete what we stored. Section 4b: keep keys secret and out of open-source code.
+- Google's docs recommend sending the key in the X-Goog-Api-Key header (already done) and restricting it to the Calendar API. IP restrictions are not practical on Vercel's free plan, so the key's protection is the API restriction, a low quota, and keeping it only in Vercel's settings.
+- Vercel's free plan runs a scheduled job at most once a day, so Supabase's scheduler will call the job a few times a day, at varied minutes and never at midnight, as Google's guide asks.
+
+What changed in the code:
+
+- Each run now deletes every older session of a source, past ones too, so nothing is kept once it has ended (`replace_source_sessions`, and the local store).
+- `forget_source` (database) and `tools/forget-source.mjs`: remove everything from one source and switch it off, for a rink that withdraws or if we stop using the API.
+- The Calendar API reader records Google's cache header, so the first real call shows what it allows.
+- Each session's "From ..." line links to the rink's own schedule page, and the footer says times come from each rink and that Skate Lodge is not run by any rink.
+- 60 tests pass (4 database tests skip until the testing project exists). The link was checked on a 390-wide screen.
+
+Not verified: the cache header on a real answer, and whether the rinks' calendars share session titles or only busy times. Both are seen on the first real call.

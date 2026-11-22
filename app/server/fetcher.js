@@ -84,7 +84,7 @@ export async function safeFetch(rawUrl, opts = {}) {
         throw new Error("The file is too big.");
       }
       const text = await readLimited(res.body, o.maxBytes);
-      return { url: url.href, status: 200, contentType: type, text };
+      return { url: url.href, status: 200, contentType: type, cacheControl: String(res.headers["cache-control"] || ""), text };
     }
   } catch (err) {
     if (controller.signal.aborted) throw new Error("The fetch took too long.");

@@ -75,12 +75,14 @@ export async function readGoogleCalendar(source, { key, today, zone, now = new D
   const timeMax = new Date(now.getTime() + (DAYS_AHEAD + 1) * 86400000).toISOString();
   const items = [];
   let pageToken = "";
+  let cacheControl = "";
   for (let page = 0; page < maxPages; page++) {
     const res = await fetch(eventsUrl(source.calendarId, { timeMin, timeMax, zone, pageToken }), {
       accept: ["application/json"],
       headers: { "x-goog-api-key": key },
       maxBytes: 4 * 1024 * 1024,
     });
+    cacheControl = cacheControl || res.cacheControl || "";
     let body;
     try {
       body = JSON.parse(res.text);
@@ -91,5 +93,8 @@ export async function readGoogleCalendar(source, { key, today, zone, now = new D
     pageToken = typeof body.nextPageToken === "string" ? body.nextPageToken : "";
     if (!pageToken) break;
   }
-  return eventsToRows(items, source, { today, zone });
+  const out = eventsToRows(items, source, { today, zone });
+  /* Google's terms tie how long its answers may be kept to this header, so the job records it (see LOG.md). */
+  out.counts.cacheControl = cacheControl.slice(0, 120);
+  return out;
 }

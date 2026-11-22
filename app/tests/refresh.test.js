@@ -79,3 +79,16 @@ test("the job's endpoint refuses a call without the secret and runs nothing", as
   await handler({ method: "POST", url: "/api/refresh", headers: {} }, res);
   assert.equal(res.statusCode, 401);
 });
+
+test("nothing from a source is kept once it has ended, and a source can be forgotten", async () => {
+  const { store, done } = tempStore([src()]);
+  await store.replaceSessions("kent-public", "2026-11-20", [{ sourceId: "kent-public", rinkId: "kent", date: "2026-11-20", start: "10:00", end: "11:00", kind: "public", title: "" }]);
+  await runRefresh({ store, fetch: async () => ({ text: ICS }), now: NOW });
+  const all = (await store.week("2026-11-16", "2026-11-29")).sessions;
+  assert.deepEqual(all.map((s) => s.date), ["2026-11-24"], "the ended session from the 20th is gone");
+  assert.equal(await store.forgetSource("kent-public"), 1);
+  const after = await store.week("2026-11-16", "2026-11-29");
+  assert.equal(after.sessions.length, 0);
+  assert.equal(after.checks["kent-public"], undefined);
+  done();
+});

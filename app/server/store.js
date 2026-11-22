@@ -48,10 +48,19 @@ export function fileStore(fileUrl) {
       d.runs[name] = when;
       save(d);
     },
+    /* Every older row of the source goes, past ones too: nothing is kept once it has ended. */
     async replaceSessions(sourceId, fromDate, rows) {
       const d = load();
-      d.sessions = d.sessions.filter((s) => !(s.sourceId === sourceId && s.date >= fromDate)).concat(rows);
+      d.sessions = d.sessions.filter((s) => s.sourceId !== sourceId).concat(rows.filter((r) => r.date >= fromDate));
       save(d);
+    },
+    async forgetSource(sourceId) {
+      const d = load();
+      const before = d.sessions.length;
+      d.sessions = d.sessions.filter((s) => s.sourceId !== sourceId);
+      delete d.checks[sourceId];
+      save(d);
+      return before - d.sessions.length;
     },
     async recordCheck(sourceId, check) {
       const d = load();
@@ -114,6 +123,9 @@ export function supabaseStore(env) {
         method: "POST",
         body: { p_source: sourceId, p_from: fromDate, p_rows: rows.map((r) => ({ rink_id: r.rinkId, date: r.date, start_time: r.start, end_time: r.end, kind: r.kind, title: r.title })) },
       });
+    },
+    async forgetSource(sourceId) {
+      return write("/rpc/forget_source", { method: "POST", body: { p_source: sourceId } });
     },
     async recordCheck(sourceId, c) {
       await write("/source_checks", {
