@@ -560,3 +560,9 @@ The owner asked whether any of the Student Pack's offers would help, or whether 
 - `BUILD.md`: the email sender is in the account list and phase 6's gate. Phase 3 notes that the owner's own account and the made-up accounts need no real sender.
 
 Not verified (from memory): that Resend needs a domain of our own to send to other people; that most pack terms start when claimed; domain prices.
+
+## 2026-11-22 (Sunday, night): accounts made
+
+- The owner made the accounts: GitHub's security settings are on, Doppler has the student Team plan and a project `skate-lodge` connected to GitHub, and Supabase has two projects, `skate-lodge-testing` and `skate-lodge`. Vercel is next. The owner's Vercel account has a v0 student offer (a year, with credits). v0 is Vercel's AI app builder, which this project does not use. Hosting stays on the Hobby plan, which has no end date.
+- `SECURITY.md` section 8: only Doppler's free-plan features are used (at most 5 syncs; no config inheritance, rotation or trusted IPs), so the end of the student plan changes nothing. The planned syncs are 3: Vercel Preview, Vercel Production and GitHub.
+- Vercel's import screen could not choose `app/` as the root directory. Vercel reads the default branch, and `app/` is only on `phase-1` so far. The only `package.json` on `main` is the Jump Lab test's, so Vercel offered `spikes/jump-lab`.
