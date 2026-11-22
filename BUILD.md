@@ -1,6 +1,6 @@
 # Skate Lodge build plan
 
-**Status: proposed by the agent on 2026-11-22. Nothing is built.** It becomes the plan when the owner says "start building". Until then it sits beside `ROADMAP.md`, which stays the source of truth for what we build; this file is the order we build it in.
+**Status: the plan.** Proposed by the agent on 2026-11-22; the owner said "start building" the same day, so building has started with phase 1. `ROADMAP.md` stays the source of truth for what we build; this file is the order we build it in. The stack defaults below were taken, since the owner did not change them.
 
 How it was made: three planners drafted phased plans from different angles (the show and tell first, foundations and risk first, a skater's week first). A judge merged the best of them, and two checkers looked for gaps against every Decided item and against `SECURITY.md`. They found 41 problems; every fix is applied here.
 

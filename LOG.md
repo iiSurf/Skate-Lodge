@@ -440,3 +440,22 @@ Nothing yet: it is a plan. Each phase in it names its own security work.
 ### Not verified
 
 Vercel's free-plan limits on scheduled jobs, Supabase's free-plan features for passwords and backups, whether an iPhone can receive pushes from a Home Screen site, and how fast body tracking runs on an iPhone. Each is tested early in the plan.
+
+## 2026-11-22 (Sunday, later): building starts, phase 1
+
+### The owner's word
+
+"Start building." `BUILD.md` is now the plan, with its stack defaults (the owner did not change them). `CLAUDE.md` now says "building" and where the app lives. Work is on the branch `phase-1`.
+
+### Plan for phase 1
+
+The front door: rink schedules for anyone with no account, Kent and Bremerton read from their own public calendars, and the security groundwork (headers, tables that start from "nobody", access tests, the safe fetcher). What can be built before the owner creates the Supabase and Vercel projects is built and tested locally first; the parts that need those accounts are written and wait for them.
+
+### What could a stranger do with this?
+
+- Use our server to fetch addresses it should not reach, or huge files: the fetcher takes only https, refuses private and local network addresses (checked on the address actually connected to, not just the name), follows at most three redirects each checked again, and stops at a time and size limit. Only approved calendar addresses are ever fetched.
+- Call the scheduled job again and again to run up use or hammer a rink's calendar: the job refuses any caller without a secret kept only in the services' settings, compared in constant time, and has an off switch.
+- Feed a hostile calendar (script in titles, endless repeat rules, a giant file): the reader drops past events before counting, has limits on events and run time, and titles reach the page only through the `html` tag that escapes them.
+- Write into the schedule: every table starts from "nobody can write"; only the server's job writes, with a key that never reaches the page. Anyone may read rinks and sessions, which are public anyway.
+- Learn something about a person: nothing in phase 1 holds a person. My picks stay on the phone. Directions and add-to-calendar read no position and send nothing.
+- Abuse the page itself: a content security policy allows scripts only from our site and nothing inline, connections only to our site, and no framing.

@@ -438,7 +438,7 @@ The scoring approach behind ideas 2, 3, and 8: keep "measured" (what the camera 
 
 ### Order of work
 
-Replaced on 2026-11-22 by the phased plan in `BUILD.md` (proposed; it becomes the plan when the owner says "start building"). The old order put accounts and the rink list in the week of 11-16, and none of it was built.
+Replaced on 2026-11-22 by the phased plan in `BUILD.md`. The owner said "start building" the same day, which made it the plan, with its stack defaults: Vercel, MySkate's plain JavaScript, two Supabase projects, email and Google sign-in, rink mode for the working screens, and local first. The old order put accounts and the rink list in the week of 11-16, and none of it was built.
 
 ## Open questions
 

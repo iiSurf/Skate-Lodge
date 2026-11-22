@@ -4,9 +4,13 @@ A platform for figure skaters, their coaches, and their clubs. Its skaters are m
 
 This is Artifact 5 ("The Moonshot") for TCSS 490. Solo. Final show and tell is Monday 2026-12-07. Due Sunday 2026-12-13, 11:59pm. The Canvas submission is the Portfolio link, not this repo. The Portfolio card is the Artifact 5 entry in `cards.js` in github.com/iiSurf/Portfolio.
 
-## Status: planning only
+## Status: building
 
-Nothing is built yet. Do not start building a feature until the owner says so. Until then the work is planning: features, tools, and good UX practice. Looks (the village, the pond, colors) are a question for later, so do not spend a session on them unless asked.
+The owner said "start building" on 2026-11-22. Build in the order of `BUILD.md`, one phase at a time, each ending deployed and checked. Looks (the village, the pond, colors) still need an approved drawing before they are built.
+
+- The app is in `app/`: a static site with no build step (`index.html`, `css/`, `js/`), Vercel server functions in `app/api/`, server-only code in `app/server/`, database changes as SQL in `app/supabase/migrations/`, and tests in `app/tests/` (run `npm test` in `app/`).
+- Run it locally with `node app/tools/dev.mjs`, which serves the site and the functions on 127.0.0.1. Without Supabase settings it keeps data in a local file under `app/.data/` (ignored by Git).
+- Work on a branch per phase (`phase-1`, ...), merged to `main` when the phase is done and checked.
 
 ## Where things are
 
