@@ -2,19 +2,25 @@
    are given (in CI, from a protected GitHub environment); otherwise they are skipped and say so. Never point these at the real
    project.
 
-   Phase 1 checks: the public key can read the public tables and can write nothing anywhere; the job's tables are invisible;
-   the database functions cannot be called with the public key; and no table has its rules switched off. */
+   Phase 1 checks: the publishable key can read the public tables and can write nothing anywhere; the job's tables are
+   invisible; the database functions cannot be called with the publishable key; and no table has its rules switched off.
+   Keys go in the apikey header only (Supabase's new keys). */
 
 import test from "node:test";
 import assert from "node:assert/strict";
 
 const URL_ = process.env.TEST_SUPABASE_URL;
-const ANON = process.env.TEST_SUPABASE_ANON_KEY;
-const SERVICE = process.env.TEST_SUPABASE_SERVICE_KEY;
+const ANON = process.env.TEST_SUPABASE_PUBLISHABLE_KEY;
+const SERVICE = process.env.TEST_SUPABASE_SECRET_KEY;
 const skip = !(URL_ && ANON && SERVICE) && "the testing project's settings are not given";
 
 const rest = (path, key, init = {}) =>
-  fetch(URL_.replace(/\/$/, "") + "/rest/v1" + path, { ...init, headers: { apikey: key, authorization: `Bearer ${key}`, "content-type": "application/json", ...(init.headers || {}) } });
+  fetch(URL_.replace(/\/$/, "") + "/rest/v1" + path, { ...init, headers: { apikey: key, "content-type": "application/json", ...(init.headers || {}) } });
+
+test("the testing project's keys are the new kind, each in its right place", { skip }, () => {
+  assert.ok(ANON.startsWith("sb_publishable_"), "TEST_SUPABASE_PUBLISHABLE_KEY should start with sb_publishable_");
+  assert.ok(SERVICE.startsWith("sb_secret_"), "TEST_SUPABASE_SECRET_KEY should start with sb_secret_");
+});
 
 test("a stranger can read rinks and sessions", { skip }, async () => {
   for (const t of ["rinks", "sessions", "source_checks"]) assert.equal((await rest(`/${t}?select=*&limit=1`, ANON)).status, 200, t);

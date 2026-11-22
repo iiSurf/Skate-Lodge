@@ -1,9 +1,12 @@
 /* Where schedules are kept. Two kinds, with the same functions:
 
-   - Supabase, when SUPABASE_URL is set. Reads use the public key, which the database's own rules limit to reading rinks,
-     approved sources, sessions and checks. Writes use the service key, which only the scheduled job holds; it never reaches
-     the page or a log. Replacing a source's sessions is one database function, so a failed run never leaves a gap.
-   - A local file (app/.data/store.json, ignored by Git) when it is not, so the site runs on a laptop with no accounts.
+   - Supabase, when SUPABASE_URL is set. Reads use the publishable key (sb_publishable_...), which runs as "anon", so the
+     database's own rules limit it to reading rinks, approved sources, sessions and checks. Writes use the secret key
+     (sb_secret_...), which only the server holds; it never reaches the page or a log. Replacing a source's sessions is one
+     database function, so a failed run never leaves a gap. Supabase's older anon and service_role keys are being retired by
+     the end of 2026, so only the new kind is accepted, and each key is checked to be the right kind for its job.
+   - A local file (app/.data/store.json, ignored by Git) when it is not, so the site runs on a laptop with no accounts. Never
+     on Vercel: there a missing setting must show "not available", not a quietly empty schedule.
 
    Seeded from data/rinks.json. */
 
@@ -13,7 +16,17 @@ const SEED = JSON.parse(readFileSync(new URL("../data/rinks.json", import.meta.u
 
 export function createStore(env = process.env) {
   if (env.SUPABASE_URL) return supabaseStore(env);
+  /* VERCEL and VERCEL_ENV are set by Vercel on its servers (from memory; checked on the next deploy). */
+  if (env.VERCEL || env.VERCEL_ENV) throw new Error("No database settings on this server.");
   return fileStore(new URL("../.data/store.json", import.meta.url));
+}
+
+/* Each key must be the new kind, and the right one for its job: a secret key in the publishable slot would put the key that
+   skips every rule into the code path meant for reading only. */
+export function checkKey(key, kind) {
+  if (!key) throw new Error(`The Supabase ${kind} key is missing from the server's settings.`);
+  if (!String(key).startsWith(`sb_${kind}_`)) throw new Error(`The Supabase ${kind} key is not a ${kind} key (it should start with sb_${kind}_).`);
+  return key;
 }
 
 /* ---------- The local file ---------- */
@@ -84,25 +97,25 @@ export function fileStore(fileUrl) {
 export function supabaseStore(env) {
   const base = env.SUPABASE_URL.replace(/\/$/, "") + "/rest/v1";
   const call = async (path, { key, method = "GET", body, prefer } = {}) => {
-    if (!key) throw new Error("A Supabase key is missing from the server's settings.");
+    /* The new keys go in the apikey header only, never as "Authorization: Bearer" (Supabase's docs). */
     const res = await fetch(base + path, {
       method,
-      headers: { apikey: key, authorization: `Bearer ${key}`, "content-type": "application/json", ...(prefer ? { prefer } : {}) },
+      headers: { apikey: key, "content-type": "application/json", ...(prefer ? { prefer } : {}) },
       body: body === undefined ? undefined : JSON.stringify(body),
     });
     /* Never echo the response body: it can carry database details. */
     if (!res.ok) throw new Error(`The database answered ${res.status} for ${method} ${path.split("?")[0]}.`);
     return res.status === 204 ? null : res.json();
   };
-  const read = (path) => call(path, { key: env.SUPABASE_ANON_KEY });
-  const write = (path, opts) => call(path, { key: env.SUPABASE_SERVICE_KEY, ...opts });
+  const read = (path) => call(path, { key: checkKey(env.SUPABASE_PUBLISHABLE_KEY, "publishable") });
+  const write = (path, opts) => call(path, { key: checkKey(env.SUPABASE_SECRET_KEY, "secret"), ...opts });
   return {
     kind: "supabase",
     async rinks() {
       return read("/rinks?select=id,org_id,name,city,address,website,schedule_page,time_zone,color,note&order=name");
     },
     async sources() {
-      /* The job's own view: approved sources, read with the service key so terms_checked is included. */
+      /* The job's own view: approved sources, read with the secret key so terms_checked is included. */
       return (await write("/schedule_sources?select=id,rink_id,kind,via,calendar_id,url,label,approved,terms_checked&approved=is.true")).map((s) => ({
         id: s.id, rinkId: s.rink_id, kind: s.kind, via: s.via, calendarId: s.calendar_id, url: s.url, label: s.label, approved: s.approved, termsChecked: s.terms_checked,
       }));

@@ -580,3 +580,21 @@ Checked on the live site:
 - At iPhone width (390 wide): no sideways scrolling, no console errors, and the rink colors show, so the security policy blocks nothing the page needs.
 
 Not done yet: when the database is connected, the live site should refuse the local file store, so that a missing setting shows "not available" instead of a quietly empty page. Not checked on a real iPhone yet.
+
+## 2026-11-22 (Sunday, night): Supabase's new keys
+
+Before the owner copied any keys, a helper read Supabase's pages on API keys. They say:
+- The older anon and service_role keys are "deprecated by the end of 2026", when this project is due.
+- The new publishable (`sb_publishable_`) and secret (`sb_secret_`) keys go "on the `apikey` header, not on `Authorization: Bearer`".
+- A publishable key runs as anon, and a secret key runs as service_role and skips every rule.
+- Supabase refuses a secret key sent from a browser (it matches on the User-Agent).
+
+What changed:
+
+- `server/store.js` sends the key in the `apikey` header only. It reads `SUPABASE_PUBLISHABLE_KEY` and `SUPABASE_SECRET_KEY` (formerly `..._ANON_KEY` and `..._SERVICE_KEY`) and refuses a key of the wrong kind in either place. A secret key put where the publishable one goes is refused before anything is sent.
+- On Vercel, a missing database setting is now an error ("Schedules are not available right now"), never the local file store. Until now the live site fell back to an empty file store.
+- CI and the access tests use `TEST_SUPABASE_PUBLISHABLE_KEY` and `TEST_SUPABASE_SECRET_KEY`. A new access test checks that both are the new kind.
+- `SECURITY.md`: the key rules use the new names, and Doppler has four environments (dev, stg, prd, ci), the free plan's limit.
+- 6 new tests in `tests/store.test.js`. 70 tests: 65 pass, and 5 database tests skip until the testing project's keys are given.
+
+Not verified: that Vercel sets `VERCEL` or `VERCEL_ENV` inside functions (from memory). It shows on the first deploy of this code: with no settings, `/api/week` should answer 503. Whether new Supabase projects still get the old keys at all is not stated in the docs, and it does not matter now.

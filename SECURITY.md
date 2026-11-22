@@ -54,7 +54,7 @@ The threats, worst first:
 ## 3. Who can see and change what
 
 - [ ] Every database table has its access rules switched on, starting from "nobody can read or write this" and adding only what a feature needs. A table without rules does not ship.
-- [ ] Supabase's public key is meant to be seen. Its service key, which skips all the rules, lives only on the server and is never in the page, the repository, or a chat.
+- [ ] Supabase's publishable key (`sb_publishable_`) is meant to be seen. Its secret key (`sb_secret_`), which skips all the rules, lives only on the server and is never in the page, the repository, or a chat. Only the new kind of key is used (the older anon and service_role keys are being retired by the end of 2026), always in the `apikey` header, and the server refuses a key of the wrong kind in either place.
 - [ ] The page asks; the server decides. Experience points, tokens, stamps, approvals, and roles are worked out by the server and the database. A number sent by the page is never taken as true.
 - [ ] A coach sees only their own skaters, a club admin only their own club. A skater's private things (notes, costs, settings) are kept apart from anything shared.
 - [ ] Tests for the rules, run on every change: a stranger, another skater, a clubmate, and a coach from another club each try to read and change each table, and each must be refused.
@@ -107,7 +107,7 @@ Reading a rink's calendar address, and the page reader, both mean our server vis
 
 - [ ] Every secret lives in Doppler (the owner's choice, 2026-11-22), and nowhere else by hand. Never in the repository, the page, a screenshot, or a chat, and never in a settings file: there are no `.env` files, not even ignored ones. On this computer the app gets its settings with `doppler run --config dev`, and the local server refuses to start beside a stray `.env` file or with the production config.
 - [ ] Doppler copies secrets to the services by its own sync: its staging config to Vercel's Preview settings, its production config to Vercel's Production settings, and a small config of its own to GitHub. A synced config goes over whole, so each service gets a config holding only what it needs. GitHub never gets the production config: only the testing project's keys (for the access tests) and the scheduled job's secret and address.
-- [ ] Doppler has three environments: dev (this computer, the testing project), stg (the staging address, the testing project) and prd (the real address, the real project). The real project's service key exists only in prd.
+- [ ] Doppler has four environments, the free plan's limit: dev (this computer, the testing project), stg (Vercel's previews, the testing project), prd (the live address, the real project) and ci (GitHub's `testing` environment: only the testing project's keys, named `TEST_...` so the access tests can never be pointed at the real project by a name mix-up). The real project's secret key exists only in prd.
 - [ ] Only features of Doppler's free Developer plan are used, though the owner has the student Team plan: at most 5 syncs, and no config inheritance, automatic rotation or trusted IPs. Then nothing breaks or needs moving when the student plan ends.
 - [ ] GitHub's secret scanning and push protection are turned on for this repository.
 - [ ] Any key that ever shows up in a commit, a log, or a picture is replaced that day.

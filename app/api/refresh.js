@@ -1,5 +1,5 @@
-/* POST or GET /api/refresh: run the schedule job. Only a caller with the job's secret gets in (the scheduler: Supabase pg_cron
-   or Vercel cron, both sending "Authorization: Bearer <secret>"). Everyone else gets 401 and nothing runs. */
+/* POST or GET /api/refresh: run the schedule job. Only a caller with the job's secret gets in (the scheduler: a scheduled
+   GitHub Actions workflow, sending "Authorization: Bearer <secret>"). Everyone else gets 401 and nothing runs. */
 
 import { createStore } from "../server/store.js";
 import { runRefresh } from "../server/refresh.js";
