@@ -1,0 +1,11 @@
+{
+  "name": "Skate Lodge",
+  "short_name": "Skate Lodge",
+  "description": "Rink schedules and more for figure skaters.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#f5f8fb",
+  "theme_color": "#0e2347",
+  "icons": [{ "src": "/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }]
+}

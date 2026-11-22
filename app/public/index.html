@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Skate Lodge: rink schedules</title>
+  <meta name="description" content="Public skating, freestyle and more at rinks around Puget Sound, on one page.">
+  <meta name="theme-color" content="#0e2347">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/week.js"></script>
+</head>
+<body>
+  <header class="band">
+    <div class="band-in">
+      <div class="brand"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v9h14v-9"/><path d="M10 19v-5h4v5"/></svg>Skate Lodge</div>
+      <h1>Rink schedules</h1>
+      <p>Public skating, freestyle and more at rinks around Puget Sound, on one page.</p>
+      <nav class="weeknav" aria-label="Which week">
+        <div class="seg" role="group" aria-label="Week">
+          <button type="button" data-week="0" aria-pressed="true">This week</button>
+          <button type="button" data-week="1" aria-pressed="false">Next week</button>
+        </div>
+        <span class="range" id="range"></span>
+      </nav>
+    </div>
+  </header>
+  <main id="main" aria-live="polite">
+    <p class="note">Loading this week's sessions…</p>
+  </main>
+  <footer>
+    <p>Schedules change. Check the rink's own page before you go. Your picks are kept on this device only.</p>
+  </footer>
+</body>
+</html>

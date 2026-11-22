@@ -46,6 +46,8 @@ How it was made: three planners drafted phased plans from different angles (the 
 
 ## Phase 1: the front door, rink schedules for anyone (Mon 11-23 to Wed 11-25)
 
+**Progress, 2026-11-22:** the parts that need no accounts are built and tested on the branch `phase-1` (see `LOG.md`). Waiting on the owner: the Supabase and Vercel projects and keys, and a route for reading Google Calendars (Open questions in `ROADMAP.md`), because Google's robots file disallows automated reading of calendar.google.com.
+
 **Goal:** anyone with the link, on an iPhone, with no account, sees this week's sessions at the surveyed rinks on one page. Kent and Bremerton are read from their own calendars. Every session says where it came from and when it was last checked, with add-to-calendar and directions buttons. Underneath, the security groundwork is already in place.
 
 - The app folder, laid out like MySkate, deployed to both addresses.

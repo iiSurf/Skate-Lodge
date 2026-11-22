@@ -1,0 +1,181 @@
+{
+  "note": "The rinks from the rink survey (ROADMAP.md, 2026-11-15), entered by hand. Addresses are the rinks' public street addresses. A source is only fetched when approved is true AND termsChecked holds the date its site's terms were read. Addresses were checked on 2026-11-22 from each rink's own site, except Sprinker (the county site refuses automated readers; taken from search copies of county pages) and Lynnwood (from Community Transit's page).",
+  "rinks": [
+    {
+      "id": "kent",
+      "org_id": null,
+      "name": "Kent Valley Ice Centre",
+      "city": "Kent",
+      "address": "6015 S 240th St, Kent, WA 98032",
+      "website": "https://kentvalleyicecentre.net",
+      "schedule_page": "https://kentvalleyicecentre.net/public-ice-skating/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#5fd8e6",
+      "note": ""
+    },
+    {
+      "id": "bremerton",
+      "org_id": null,
+      "name": "Bremerton Ice Center",
+      "city": "Bremerton",
+      "address": "1950 Homer Jones Dr, Bremerton, WA 98310",
+      "website": "https://bremertonicecenter.com",
+      "schedule_page": "https://bremertonicecenter.com/calendar/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ffd98a",
+      "note": ""
+    },
+    {
+      "id": "kraken",
+      "org_id": null,
+      "name": "Kraken Community Iceplex",
+      "city": "Seattle",
+      "address": "10601 5th Ave NE, Seattle, WA 98125",
+      "website": "https://www.krakencommunityiceplex.com",
+      "schedule_page": "https://www.krakencommunityiceplex.com/public-drop-in-calendar/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ffb98a",
+      "note": ""
+    },
+    {
+      "id": "snoking-renton",
+      "org_id": "snoking",
+      "name": "Sno-King Ice Arena Renton",
+      "city": "Renton",
+      "address": "12620 164th Ave SE, Renton, WA 98059",
+      "website": "https://www.snokingicearenas.com",
+      "schedule_page": "https://www.snokingicearenas.com/drop-in-sessions-calendar/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#b9a6ff",
+      "note": ""
+    },
+    {
+      "id": "snoking-snoqualmie",
+      "org_id": "snoking",
+      "name": "Sno-King Ice Arena Snoqualmie",
+      "city": "Snoqualmie",
+      "address": "35323 SE Douglas St, Snoqualmie, WA 98065",
+      "website": "https://www.snokingicearenas.com",
+      "schedule_page": "https://www.snokingicearenas.com/drop-in-sessions-calendar/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#b9a6ff",
+      "note": ""
+    },
+    {
+      "id": "snoking-kirkland",
+      "org_id": "snoking",
+      "name": "Sno-King Ice Arena Kirkland",
+      "city": "Kirkland",
+      "address": "14326 124th Ave NE, Kirkland, WA 98034",
+      "website": "https://www.snokingicearenas.com",
+      "schedule_page": "https://www.snokingicearenas.com/drop-in-sessions-calendar/",
+      "time_zone": "America/Los_Angeles",
+      "color": "#b9a6ff",
+      "note": ""
+    },
+    {
+      "id": "tacoma-twin",
+      "org_id": null,
+      "name": "Tacoma Twin Rinks",
+      "city": "Tacoma",
+      "address": "2645 S 80th St, Tacoma, WA 98409",
+      "website": "https://psicesports.com",
+      "schedule_page": "https://tacomatwinrinks.leagueapps.com/bookings",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ff9f9f",
+      "note": ""
+    },
+    {
+      "id": "sprinker",
+      "org_id": null,
+      "name": "Sprinker Recreation Center",
+      "city": "Parkland",
+      "address": "521 Military Road S, Tacoma, WA 98444",
+      "website": "https://www.piercecountywa.gov",
+      "schedule_page": "https://www.piercecountywa.gov/m/calendar?cat=173",
+      "time_zone": "America/Los_Angeles",
+      "color": "#9ee6b0",
+      "note": ""
+    },
+    {
+      "id": "bellevue",
+      "org_id": null,
+      "name": "Bellevue Ice Rink",
+      "city": "Bellevue",
+      "address": "10201 NE 4th St, Bellevue, WA 98004",
+      "website": "https://www.bellevueicerink.com",
+      "schedule_page": "https://www.bellevueicerink.com/hours",
+      "time_zone": "America/Los_Angeles",
+      "color": "#5fd8e6",
+      "note": "Seasonal, in Bellevue Downtown Park"
+    },
+    {
+      "id": "lynnwood",
+      "org_id": "rectimes-lic",
+      "name": "Lynnwood Ice Center",
+      "city": "Lynnwood",
+      "address": "19803 68th Ave W, Lynnwood, WA 98036",
+      "website": "https://www.lynnwoodicecenter.com",
+      "schedule_page": "https://app.rectimes.com/ova",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ffd98a",
+      "note": ""
+    },
+    {
+      "id": "olympicview",
+      "org_id": "rectimes-lic",
+      "name": "Olympicview Arena",
+      "city": "Mountlake Terrace",
+      "address": "22202 70th Ave W, Mountlake Terrace, WA 98043",
+      "website": "https://www.olympicviewarena.com",
+      "schedule_page": "https://app.rectimes.com/ova",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ffd98a",
+      "note": ""
+    },
+    {
+      "id": "everett",
+      "org_id": null,
+      "name": "Everett Community Ice Rink",
+      "city": "Everett",
+      "address": "2000 Hewitt Ave, Everett, WA 98201",
+      "website": "https://www.angelofthewindsarena.com/everett-community-ice-rink",
+      "schedule_page": "https://schedule.bondsports.co/schedule/everett-community-ice-rink?layout=list",
+      "time_zone": "America/Los_Angeles",
+      "color": "#ffb98a",
+      "note": ""
+    }
+  ],
+  "sources": [
+    {
+      "id": "kent-public",
+      "rinkId": "kent",
+      "kind": "public",
+      "label": "Kent Valley's public skating calendar",
+      "url": "https://calendar.google.com/calendar/ical/juvuejlh2bvf020bhbe4m2h2og%40group.calendar.google.com/public/basic.ics",
+      "approved": true,
+      "termsChecked": null,
+      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+    },
+    {
+      "id": "kent-freestyle",
+      "rinkId": "kent",
+      "kind": "freestyle",
+      "label": "Kent Valley's freestyle calendar",
+      "url": "https://calendar.google.com/calendar/ical/46olt2gkbpsi5sht4l6fcot9bk%40group.calendar.google.com/public/basic.ics",
+      "approved": true,
+      "termsChecked": null,
+      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+    },
+    {
+      "id": "bremerton-all",
+      "rinkId": "bremerton",
+      "kind": "mixed",
+      "label": "Bremerton's calendar",
+      "url": "https://calendar.google.com/calendar/ical/5436t72far42osn97g24b3fr2k%40group.calendar.google.com/public/basic.ics",
+      "approved": true,
+      "termsChecked": null,
+      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+    }
+  ]
+}

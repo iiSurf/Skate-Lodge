@@ -1,0 +1,11 @@
+{
+  "name": "skate-lodge",
+  "private": true,
+  "type": "module",
+  "description": "Skate Lodge. Plain HTML, CSS and JavaScript with no build step; this file lets Node run the tests and the local server.",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "dev": "node tools/dev.mjs"
+  }
+}

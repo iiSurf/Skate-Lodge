@@ -459,3 +459,32 @@ The front door: rink schedules for anyone with no account, Kent and Bremerton re
 - Write into the schedule: every table starts from "nobody can write"; only the server's job writes, with a key that never reaches the page. Anyone may read rinks and sessions, which are public anyway.
 - Learn something about a person: nothing in phase 1 holds a person. My picks stay on the phone. Directions and add-to-calendar read no position and send nothing.
 - Abuse the page itself: a content security policy allows scripts only from our site and nothing inline, connections only to our site, and no framing.
+
+### Phase 1, first part: built and tested on this computer (same day)
+
+What was built, on the branch `phase-1`, in `app/`:
+
+- `public/js/ice.js`: MySkate's schedule logic, copied. The calendar reader was changed so that events that have already ended never count toward its limit (the reason it read nothing from Kent and Bremerton in the Jump Lab-era survey), with a larger limit, a time limit, and a time zone to fall back on. MySkate's own 29 tests for it were brought over and pass.
+- `public/js/schedule.js`: turns a calendar into dated sessions for the next five weeks, hides what is not public in a calendar that mixes everything (practices, rentals, games, maintenance), works out "today" on the rink's clock, and joins back-to-back freestyle slots into one block.
+- `server/net.js` and `server/fetcher.js`: the safe fetcher. https only, private and local addresses refused (also the address a name really connects to), at most three redirects each checked again, a time and size limit, calendar or plain text only.
+- `server/refresh.js`, `api/refresh.js`: the scheduled job. It fetches only sources that are approved and whose site terms were read, runs at most every ten minutes, has an off switch, keeps the last good sessions when a fetch fails, and refuses any caller without its secret (compared in constant time; no secret set means nobody gets in).
+- `server/store.js`, `api/week.js`: the week for anyone, from Supabase when it is set up, or from a local file (`.data/`, ignored by Git) when it is not.
+- `supabase/migrations/`: the tables, every one with its rules on and starting from nobody, public reading only for rinks, approved sources, sessions and checks, one function that replaces a source's sessions in a single step, and a function for the CI check that lists any table without rules. Not run yet: the projects do not exist.
+- `tests/access.test.js`: the access tests (a stranger can read the schedule and write nothing). They run in CI against the testing project once it exists, and skip until then.
+- `.github/workflows/ci.yml`: tests on every push, actions pinned to exact commits, read-only, and the access tests only on pushes to this repository with the testing project's secrets from a protected environment.
+- `vercel.json`: the security headers (content security policy, HTTPS only, camera and location for our site only, no microphone, no framing). `tools/dev.mjs` serves the site locally with the same headers.
+- `public/index.html` and `public/js/week.js`: the week page. This week or next, filters by type and rink, My picks kept on the device, overlap warnings, add to calendar, directions (no position read), where each session came from and when it was checked, and the rinks we do not read yet with links to their own pages.
+- `public/probe.html`: what a phone can do (a clip's real frame rate, keeping stored files, motion and location after a tap, Home Screen, alerts, whether speech recognition exists without starting it). Sends nothing.
+- `data/rinks.json`: the twelve rinks with their street addresses, and the three calendar sources.
+
+Verified: 52 tests pass (4 access tests skip until the testing project exists). On the local server: the headers arrive as written; the job answers 401 without its secret; a bad week is refused; a path that tries to leave the site folder gets 404. With made-up sessions (`tools/demo.mjs`, a banner says they are made up), the page was looked at on 390 and 1280 wide screens, has no sideways scrolling at 320 wide, and the week page and probe show no console errors under the content security policy.
+
+Not verified: nothing is deployed, so the Vercel settings (the output folder, the functions, the headers in production) are untested. The Supabase SQL has never been run. Nothing was tried on a real iPhone. No real calendar was fetched by the job.
+
+### Reading the terms (same day)
+
+A helper read the terms for the three calendars before the job is pointed at them, as `CLAUDE.md` requires. The rinks' sites have no terms pages and their robots files allow reading. But the events are served by Google, and calendar.google.com/robots.txt disallows every path except the home page; Google's terms of service (effective 2026-07-30) count automated access that ignores such instructions as misuse. So the three sources stay unchecked in `data/rinks.json`, the job will not fetch them, and the route is an open question for the owner in `ROADMAP.md`. The agent recommends Google's official Calendar API with our own key.
+
+The agent should have read Google's robots file before the rink survey on 2026-11-15 and 11-16, when it downloaded each of the three calendars once by hand. That has not been repeated.
+
+Also from the helper: Pierce County's site refuses automated readers (so Sprinker stays a link), and Lynnwood's schedule comes from a booking system, which the page reader never touches. The rinks' street addresses were checked from their own sites, except Sprinker and Lynnwood (from other sources, noted in `data/rinks.json`).

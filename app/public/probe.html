@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Skate Lodge: what this phone can do</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" href="/icon.svg" type="image/svg+xml">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="stylesheet" href="/css/fonts.css">
+  <link rel="stylesheet" href="/css/app.css">
+  <script type="module" src="/js/probe.js"></script>
+</head>
+<body>
+  <header class="band"><div class="band-in"><div class="brand">Skate Lodge</div><h1>What this phone can do</h1><p>A check for building Skate Lodge. Nothing on this page is sent anywhere: every result stays on this screen.</p></div></header>
+  <main class="probe">
+    <section class="card row">
+      <h2>The browser</h2>
+      <p class="result" id="ua"></p>
+      <p class="result" id="standalone"></p>
+    </section>
+    <section class="card row">
+      <h2>A clip's real frame rate</h2>
+      <p class="note">Choose a video from Photos. It is played here, on the phone, to time its frames. It is not uploaded.</p>
+      <label class="btn btn--plain" for="clip">Choose a video</label>
+      <input class="sr" id="clip" type="file" accept="video/*">
+      <video id="video" muted playsinline hidden></video>
+      <p class="result" id="fps"></p>
+    </section>
+    <section class="card row">
+      <h2>Keeping files on the phone</h2>
+      <button class="btn btn--plain" type="button" id="persist">Ask to keep stored files</button>
+      <p class="result" id="persist-r"></p>
+    </section>
+    <section class="card row">
+      <h2>Motion (for the passport's tilt)</h2>
+      <button class="btn btn--plain" type="button" id="motion">Ask for motion</button>
+      <p class="result" id="motion-r"></p>
+    </section>
+    <section class="card row">
+      <h2>Location (for checking in at a rink)</h2>
+      <p class="note">Only whether it works and how exact it is are shown. The position itself is not shown or kept.</p>
+      <button class="btn btn--plain" type="button" id="geo">Ask for location</button>
+      <p class="result" id="geo-r"></p>
+    </section>
+    <section class="card row">
+      <h2>Alerts and voice</h2>
+      <p class="result" id="push"></p>
+      <p class="result" id="speech"></p>
+    </section>
+  </main>
+</body>
+</html>
