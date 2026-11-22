@@ -41,6 +41,7 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.
 - The page reader only opens a rink's schedule page the way a visitor's browser does. It never asks a booking system's data service directly, and never uses a key, even one left in plain view on a rink's page. Read a site's terms of use before pointing the reader at it.
+- Public Google Calendars are read only through Google's Calendar API, with our own API key, restricted to that API and kept in the server's settings (never the page, the repository, a URL, or a log). Never through calendar.google.com, whose robots file disallows it.
 - What skaters share with each other is choices, stickers, or pictures of things. Typed messages between skaters, and pictures or video of people, are not in the plan. The one exception: a skater may send a Jump Lab clip to their own linked coach, under the rules in `SECURITY.md` section 7. Seeing which clubmates are on a session is something each skater turns on for themselves. A swap shelf listing waits for a club admin.
 - Shared rink schedules are made of choices, not typed text, and an update only goes live once someone else agrees or a coach or club admin makes it. Nothing a skater sends is trusted by the page alone: the server checks it.
 
