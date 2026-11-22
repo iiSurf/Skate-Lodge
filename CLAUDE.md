@@ -9,7 +9,8 @@ This is Artifact 5 ("The Moonshot") for TCSS 490. Solo. Final show and tell is M
 The owner said "start building" on 2026-11-22. Build in the order of `BUILD.md`, one phase at a time, each ending deployed and checked. Looks (the village, the pond, colors) still need an approved drawing before they are built.
 
 - The app is in `app/`: a static site with no build step (`index.html`, `css/`, `js/`), Vercel server functions in `app/api/`, server-only code in `app/server/`, database changes as SQL in `app/supabase/migrations/`, and tests in `app/tests/` (run `npm test` in `app/`).
-- Run it locally with `node app/tools/dev.mjs`, which serves the site and the functions on 127.0.0.1. Without Supabase settings it keeps data in a local file under `app/.data/` (ignored by Git).
+- Run it locally with `node app/tools/dev.mjs`, which serves the site and the functions on 127.0.0.1. Without Supabase settings it keeps data in a local file under `app/.data/` (ignored by Git). With the testing project's settings: `doppler run --config dev -- node tools/dev.mjs` from `app/`.
+- Secrets live in Doppler, never in a file. There are no `.env` files, not even ignored ones, and no example settings file. The code reads settings by name from the environment only.
 - Work on a branch per phase (`phase-1`, ...), merged to `main` when the phase is done and checked.
 
 ## Where things are
@@ -41,7 +42,8 @@ The full list is in `ROADMAP.md`. These few are the ones most likely to be broke
 - The screens used at the rink stay clean and easy to read. The cozy village belongs everywhere else.
 - No phone use while skating. The game happens before and after.
 - The page reader only opens a rink's schedule page the way a visitor's browser does. It never asks a booking system's data service directly, and never uses a key, even one left in plain view on a rink's page. Read a site's terms of use before pointing the reader at it.
-- Public Google Calendars are read only through Google's Calendar API, with our own API key, restricted to that API and kept in the server's settings (never the page, the repository, a URL, or a log). Never through calendar.google.com, whose robots file disallows it.
+- Every secret lives in Doppler and reaches Vercel and GitHub by Doppler's own sync. No `.env` files.
+- Public Google Calendars are read only through Google's Calendar API, with our own API key, restricted to that API and kept in Doppler and the server's settings (never the page, the repository, a URL, or a log). Never through calendar.google.com, whose robots file disallows it.
 - What skaters share with each other is choices, stickers, or pictures of things. Typed messages between skaters, and pictures or video of people, are not in the plan. The one exception: a skater may send a Jump Lab clip to their own linked coach, under the rules in `SECURITY.md` section 7. Seeing which clubmates are on a session is something each skater turns on for themselves. A swap shelf listing waits for a club admin.
 - Shared rink schedules are made of choices, not typed text, and an update only goes live once someone else agrees or a coach or club admin makes it. Nothing a skater sends is trusted by the page alone: the server checks it.
 

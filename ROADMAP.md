@@ -47,6 +47,7 @@ It serves three audiences: the skater, the coach, and the club.
 - [ ] Mostly adults. The owner first said the youngest skater is 18, then that a skater of 14, 15, 16, or 17 may sometimes use it, and that this is fine (2026-11-16). No younger children are expected. Earlier parts of this plan were written with young children in mind, and those parts were reworked the same day.
 - [ ] Go big. The size of an idea is not a reason to hold it back: this project calls for it, and building goes fast with the agent (the owner, 2026-11-15). Plan the hard parts of an idea; do not shrink it.
 - [ ] A database with a schema: Supabase (hosted Postgres).
+- [ ] Secrets live in Doppler, not in `.env` files (the owner, 2026-11-22: a `.env` file can be forgotten in the ignore list and expose a key by accident). The owner uses Doppler's student offer, which gives its Team plan through GitHub Education. When that ends, the project moves to Doppler's free Developer plan (free for up to 3 people; 10 projects, 4 environments, 5 syncs, read on Doppler's pricing page on 2026-11-22), which is enough for this project. The code only reads settings by name, so nothing in it depends on Doppler.
 - [ ] Coaches and clubs the owner knows will be asked to try it.
 
 ### The name and the world
@@ -606,13 +607,15 @@ The owner asked for names with "skate" in them and a theme attached. In the U.S.
 
 - Week of 2026-11-16, on the Artifact 5 checkpoint: "In ROADMAP.md you kept what you decided apart from what Claude only suggested. Next week, put the Jump Lab results from your own clips on the card."
 - What that asks for, by the next checkpoint (end of the week of 2026-11-23):
-  - [ ] Film three to five of the owner's own jumps: 60 frames a second, HDR off, the phone still on the boards, side-on, the skater filling at least a quarter of the picture's height, a jump the owner can name (so the right number of turns is known).
-  - [ ] Run them through the Jump Lab test, and check each against its known answer, as was done for the Commons clips.
-  - [ ] Put the results on the Artifact 5 card in the Portfolio (`cards.js`), in the owner's own words: what was measured, what was right, and what was not. Only results from the owner's own clips, not the Commons or event clips.
+  - [ ] ~~Film three to five of the owner's own jumps from the boards.~~ Not possible for now (the owner, 2026-11-22): the only clips are the four the owner filmed from the stands at an event. Those are used instead (`BUILD.md` phase 0).
+  - [ ] The owner names the jump in each stands clip, and when each jump happens in the program, so the right answers are known.
+  - [ ] Run the four clips through the Jump Lab test, and check each against its known answer, as was done for the Commons clips.
+  - [ ] Put the results on the Artifact 5 card in the Portfolio (`cards.js`), in the owner's own words: what was measured, what was right, and what was not. Results from the clips the owner filmed only, not the Commons clips. Numbers only: the clips show other skaters, so no picture, name or event.
   - [ ] Log it here.
 
 ## What the owner is bringing
 
-- Three to five clips of their own jumps: side-on, at 60 frames a second, some with the phone propped and some with someone following. This is now due: the professor asked for the Jump Lab results from the owner's own clips to be on the Portfolio card next week (see the checkpoint below).
+- The names of the jumps in the four clips filmed from the stands, and when each jump happens in the program clip (for the professor's card, by 2026-11-25).
+- Later, when possible: clips of the owner's own jumps from the boards, side-on, at 60 frames a second, with the phone still. Not possible for now (the owner, 2026-11-22). Until then air time stays untested and the jump cards have no animation.
 - One coach's answer to: what would you want to see about a student between lessons?
 - If the chance comes up: ask one rink that uses DaySmart (the Kraken rink or Sno-King) whether it has a calendar address it would share.

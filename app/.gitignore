@@ -1,9 +1,8 @@
 # The local store used when no Supabase settings are given: it can hold fetched schedules, never commit it.
 .data/
-# Real settings live only in the services' own settings pages.
+# No settings files: secrets live in Doppler. These stay ignored in case one is ever made by mistake (dev.mjs refuses to run with one).
 .env
 .env.*
-!.env.example
 node_modules/
 .vercel/
 .tmp-*/

@@ -20,10 +20,13 @@ How it was made: three planners drafted phased plans from different angles (the 
    - Database and sign-in: Supabase, as two projects, one for testing and one for real.
    - Sign-in: email and password plus Google. Apple waits for the $99-a-year developer account.
    - The rink mode look for the working screens, and local first (the phone works without signal and syncs later). Both are only Suggested so far, and phase 1 is built on them.
-3. Create the two Supabase projects and the Vercel project. Turn on two-step sign-in for GitHub, Supabase, Vercel and email. Put the keys into each service's settings yourself, so the agent never sees the service keys.
+3. Create accounts as each phase needs them, not all at once (the agent's advice, 2026-11-22). Turn on two-step sign-in on each as it is made. You put every key into Doppler yourself, so the agent never sees a service key, and Doppler copies it to the services.
+   - **Now, for phase 1:** Doppler (the student offer through GitHub Education), Vercel (Hobby, signed in with GitHub), and Supabase with two projects (testing and real; the free plan allows two). Plus GitHub's security settings and a `testing` environment for the repository.
+   - **After Kent Valley and Bremerton say yes:** a Google Cloud project with an API key restricted to the Calendar API.
+   - **Later, only if a phase needs one:** an AI provider (phase 6, if you want AI at all) and a domain.
 4. Turn on secret scanning, push protection, Dependabot alerts and private vulnerability reporting for the repository.
 5. A written yes that your own clips and your own account may be used to test (an exception to `SECURITY.md` section 14, which says test data is made up). They stay on the Mac, never in Git or CI.
-6. Film your jumps (phase 0).
+6. Name the jumps in the clips you filmed from the stands (phase 0). New clips from the boards wait until you can film them.
 
 ## How the two Supabase projects are used
 
@@ -33,20 +36,27 @@ How it was made: three planners drafted phased plans from different angles (the 
 
 ## Phase 0: the professor's card (Mon 11-23 to Sun 11-29, alongside phases 1 and 2)
 
-**Goal:** the Artifact 5 card shows, in your words, what Jump Lab measured on 3 to 5 of your own named jumps, what it got right against the known answer, and what it got wrong.
+**Changed 2026-11-22:** you can't film from the ice or along the boards for now. The only clips you have are the four you filmed from the stands at an event (`clips/IMG_8434`, `IMG_8437`, `IMG_8440`, `IMG_8441`: two single jumps, an 18-second clip and a 4-minute program, all 60 frames a second, following the skater). So the card is built on those. They are your own clips in the sense the professor asked for, because you filmed them, but they show other skaters, and the card says so plainly.
 
-- No app code. Your clips go through the Jump Lab test (`spikes/jump-lab`), with your named jump as the known answer.
-- Two fixes to the counting, run beside the old way: throw out impossible speeds, and find the takeoff and landing from the blade and free leg instead of "feet together, legs long".
-- For each clip: its frame rate, your share of the picture, still or followed, turns against the known answer, and air time (as a range, propped clips only).
+**Goal:** the Artifact 5 card shows, in your words, what Jump Lab measured on the clips you filmed, what it got right against the known answer, and what it got wrong.
+
+- No app code. The four clips go through the Jump Lab test (`spikes/jump-lab`) again, with your answers as the known answer:
+  - For each single jump: which jump it was (a toe loop, a double Axel...), so the right number of turns is known.
+  - For the program: roughly when each jump happens and what it was. Then the search's 17 alarms can be scored properly: how many real jumps it found, how many it missed, how many alarms were false.
+- Two fixes to the counting, run beside the old way on these clips and on the nine Commons clips: throw out impossible speeds, and find the takeoff and landing from the blade and free leg instead of "feet together, legs long".
+- For each clip: its frame rate, the skater's share of the picture, turns against the known answer. No air time: that needs a still phone, and none of these clips has one. The card says it is not measured yet.
+- Numbers only on the card. No picture, no name, no event: the clips show other skaters, and they stay on the Mac, never in Git or CI.
 - A "Fourth round" table in `ROADMAP.md`, the professor's boxes ticked, a log entry, and the card updated with wording you approve.
 
-**From you:** film by Wednesday 11-25 (60 frames a second, HDR off, phone still on the boards, side-on, you filling at least a quarter of the picture, jumps you can name). If you can land them, include one clean waltz jump, toe loop and Salchow: they become the jump cards' animations in phase 4.
+**From you:** the jump names and the program's jump times above, by Wednesday 11-25. If you don't know a jump, say so, and that clip is scored as "unknown" (the body tracking and the skeleton are still reported).
 
-**If the clips don't exist in time:** the card still goes up by 11-29 and says honestly that your own clips are not tested yet, and when they will be.
+**Later, when you can:** clips of your own jumps, filmed with the phone still on the boards, side-on, at 60 frames a second, HDR off. They are the only way to test air time, and the jump cards in phase 4 are drawn from them. Until then those parts say "not measured yet" and "animation not drawn yet".
+
+**If the answers don't come in time:** the card still goes up by 11-29 with what is already known (the body found in 99% of frames, the skeleton on the skater in mid-air, 7 real jumps among 17 alarms in the program) and says honestly that the turn counts are not checked against known answers yet.
 
 ## Phase 1: the front door, rink schedules for anyone (Mon 11-23 to Wed 11-25)
 
-**Progress, 2026-11-22:** the parts that need no accounts are built and tested on the branch `phase-1` (see `LOG.md`). Waiting on the owner: the Supabase and Vercel projects and keys; a Google Cloud API key restricted to the Calendar API (the route the owner chose); and a written yes from Kent Valley and from Bremerton, which Google's API terms require before their sessions are stored and shown. Scheduling note: Vercel's free plan runs a scheduled job at most once a day, so Supabase's scheduler calls the job a few times a day instead, at varied minutes, never at midnight.
+**Progress, 2026-11-22:** the parts that need no accounts are built and tested on the branch `phase-1` (see `LOG.md`). Waiting on the owner: the Supabase and Vercel projects and keys; a Google Cloud API key restricted to the Calendar API (the route the owner chose); and a written yes from Kent Valley and from Bremerton, which Google's API terms require before their sessions are stored and shown. Scheduling note: Vercel's free plan runs a scheduled job at most once a day, so something else must call the job a few times a day, at varied minutes, never at midnight. Changed 2026-11-22, with secrets in Doppler: a scheduled GitHub Actions workflow calls it, because Doppler can sync the job's secret to GitHub, while Supabase's scheduler would need the secret copied by hand into Supabase's vault. GitHub's scheduled runs can start late at busy times, which does not matter a few times a day.
 
 **Goal:** anyone with the link, on an iPhone, with no account, sees this week's sessions at the surveyed rinks on one page. Kent and Bremerton are read from their own calendars. Every session says where it came from and when it was last checked, with add-to-calendar and directions buttons. Underneath, the security groundwork is already in place.
 
@@ -71,12 +81,12 @@ How it was made: three planners drafted phased plans from different angles (the 
 - Body tracking served from our site with a hash check. Clips and skeletons stored on the phone, with a request that the browser keep them.
 - Clip checks: real frame rate (under 60 refused or marked rough, with the pop-up), the skater at least a quarter of the picture, still or followed, steady points.
 - Tap yourself in the first frame. Slow replay, step frame by frame, skeleton on or off over the real skater.
-- Air time as a range on propped clips only. The turn count as a range, labelled "likely, being tested". Height, landing checks, axis and corrections show "not measured yet". Jump Lab never calls "under-rotated" on its own.
+- Air time as a range on propped clips only (none tested yet: see phase 0). The turn count as a range, labelled "likely, being tested". Height, landing checks, axis and corrections show "not measured yet". Jump Lab never calls "under-rotated" on its own.
 - The jump label, the six outcomes, the skill's history, your best as a ghost, and a milestone card saved as a picture (no rink, time or username unless turned on; a reminder about people in the background).
 - The practice log as in MySkate, no account: tonight's plan with targets, skill lists as data with a federation field, the safe spreadsheet export.
 - The phase 0 answers run as a test of the app's counting code, locally only (it skips itself when the clips are missing). Only numbers, never clips or points, are ever committed, and only with your yes.
 
-**Done when:** one of your own clips replays on your iPhone with the skeleton on you in mid-air; a 30-frame clip gets the pop-up; the network panel shows no video sent anywhere; a changed tracking file is refused; a milestone card saves to Photos; tracking speed on the iPhone is measured and logged.
+**Done when:** one of the clips you filmed from the stands replays on your iPhone with the skeleton on the skater in mid-air (on your phone only; the show uses a Commons clip, because the stands clips show other skaters); a 30-frame clip gets the pop-up; the network panel shows no video sent anywhere; a changed tracking file is refused; a milestone card saves to Photos; tracking speed on the iPhone is measured and logged.
 
 ## Phase 3: accounts, sync, check-in, the passport, the kiss and cry (Sun 11-29 to Wed 12-02)
 

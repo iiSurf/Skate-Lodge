@@ -1,10 +1,12 @@
 // The local server: serves public/ with the same security headers as vercel.json, and runs the functions in api/.
 // It listens on this computer only (127.0.0.1). Without Supabase settings the functions use the local store in .data/.
-// Settings can be put in app/.env (ignored by Git); use the TESTING project's values there, never the real one's.
-//   node tools/dev.mjs            http://127.0.0.1:8787
-//   node tools/dev.mjs 9000       another port
+// Settings (keys, secrets) come only from Doppler, never from a file: `doppler run --config dev -- node tools/dev.mjs`.
+// The dev config holds the TESTING project's values, never the real one's, and this server refuses the production config.
+//   node tools/dev.mjs                                   no settings: made-up data from the local store
+//   doppler run --config dev -- node tools/dev.mjs       the testing project, http://127.0.0.1:8787
+//   node tools/dev.mjs 9000                              another port
 import { createServer } from "node:http";
-import { readFileSync, existsSync, statSync, createReadStream } from "node:fs";
+import { readFileSync, readdirSync, existsSync, statSync, createReadStream } from "node:fs";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { join, normalize, extname, dirname } from "node:path";
 
@@ -12,12 +14,17 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const pub = join(root, "public");
 const port = Number(process.argv[2] || 8787);
 
-const envFile = join(root, ".env");
-if (existsSync(envFile)) {
-  for (const line of readFileSync(envFile, "utf8").split("\n")) {
-    const m = /^\s*([A-Z0-9_]+)\s*=\s*(.*)\s*$/.exec(line);
-    if (m && !line.trim().startsWith("#")) process.env[m[1]] ??= m[2];
-  }
+/* No settings files (the owner's rule, 2026-11-22): secrets come from Doppler. A stray .env file is refused rather than read,
+   so a key never sits in a file next to the code. The production config is refused too: this server is for testing.
+   DOPPLER_CONFIG and DOPPLER_ENVIRONMENT are the names Doppler gives its own settings (from memory; checked on first run). */
+const stray = readdirSync(root).filter((f) => /^\.env/.test(f));
+if (stray.length) {
+  console.error(`Remove ${stray.join(", ")} from app/: settings come from Doppler (doppler run --config dev -- node tools/dev.mjs).`);
+  process.exit(1);
+}
+if (/^prd/.test(process.env.DOPPLER_CONFIG || "") || process.env.DOPPLER_ENVIRONMENT === "prd") {
+  console.error("This is the production config. The local server only runs with the dev config (the testing project).");
+  process.exit(1);
 }
 
 const vercel = JSON.parse(readFileSync(join(root, "vercel.json"), "utf8"));

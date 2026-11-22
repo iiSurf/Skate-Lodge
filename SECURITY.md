@@ -105,12 +105,14 @@ Reading a rink's calendar address, and the page reader, both mean our server vis
 
 ## 8. Keys and secrets
 
-- [ ] Secrets live only in the settings of the services that run the app. Never in the repository, the page, a screenshot, or a chat. `.env` files stay out of Git, and an example file with made-up values shows what is needed.
+- [ ] Every secret lives in Doppler (the owner's choice, 2026-11-22), and nowhere else by hand. Never in the repository, the page, a screenshot, or a chat, and never in a settings file: there are no `.env` files, not even ignored ones. On this computer the app gets its settings with `doppler run --config dev`, and the local server refuses to start beside a stray `.env` file or with the production config.
+- [ ] Doppler copies secrets to the services by its own sync: its staging config to Vercel's Preview settings, its production config to Vercel's Production settings, and a small config of its own to GitHub. A synced config goes over whole, so each service gets a config holding only what it needs. GitHub never gets the production config: only the testing project's keys (for the access tests) and the scheduled job's secret and address.
+- [ ] Doppler has three environments: dev (this computer, the testing project), stg (the staging address, the testing project) and prd (the real address, the real project). The real project's service key exists only in prd.
 - [ ] GitHub's secret scanning and push protection are turned on for this repository.
 - [ ] Any key that ever shows up in a commit, a log, or a picture is replaced that day.
 - [ ] Separate projects and keys for testing and for the real thing. Each key can do only its own job.
-- [ ] Two-step sign-in is on for the owner's GitHub, Supabase, Vercel, Google Cloud, AI provider, and email accounts. Whoever holds those holds everything.
-- [ ] The Google API key (for reading public Google Calendars, decided 2026-11-22) is restricted in Google Cloud to the Calendar API only, lives only in Vercel's settings as GOOGLE_API_KEY, is sent in a header (never in an address), and is never logged. Its project has a quota low enough that a stolen key could not run up anything. A separate key for testing.
+- [ ] Two-step sign-in is on for the owner's Doppler, GitHub, Supabase, Vercel, Google Cloud, AI provider, and email accounts. Whoever holds those holds everything, Doppler most of all.
+- [ ] The Google API key (for reading public Google Calendars, decided 2026-11-22) is restricted in Google Cloud to the Calendar API only, lives only in Doppler's stg and prd configs as GOOGLE_API_KEY (and from there in Vercel's settings), is sent in a header (never in an address), and is never logged. Its project has a quota low enough that a stolen key could not run up anything. A separate key for testing.
 
 ## 9. The browser's own protections
 

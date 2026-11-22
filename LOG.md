@@ -520,3 +520,31 @@ What changed in the code:
 - 60 tests pass (4 database tests skip until the testing project exists). The link was checked on a 390-wide screen.
 
 Not verified: the cache header on a real answer, and whether the rinks' calendars share session titles or only busy times. Both are seen on the first real call.
+
+## 2026-11-22 (Sunday, evening): secrets move to Doppler, and the professor's card uses the stands clips
+
+### The owner's word
+
+- "I will not use .env file to store secrets ... we will use doppler." Asked later about the cost once the student offer ends.
+- "I am unable to provide any more jump clips, especially ones where the camera is on the ice or along the boards with me. All I have are videos recorded from outside of the ice surface in the stands for now."
+- Asked whether to create the Vercel and Supabase accounts now or after building, and for an email asking the rinks for permission.
+
+### What changed
+
+- Doppler holds every secret (`ROADMAP.md` Decided, `SECURITY.md` section 8, `CLAUDE.md`, `README.md`). `app/.env.example` is gone, and `tools/dev.mjs` no longer reads a `.env` file. It now refuses to start beside one, and refuses Doppler's production config. Run it with `doppler run --config dev -- node tools/dev.mjs`. The `.env` lines stay in `.gitignore` as a second guard.
+- A helper read Doppler's pages today. The student offer gives the Team plan (listed at $21 a person a month) through GitHub Education, with no end date or rules stated. The free Developer plan is free for up to 3 people, with 10 projects, 4 environments and 5 syncs. Doppler syncs to Vercel (one sync per Vercel environment), to GitHub Actions secrets (and to environment secrets for public repositories), and to Supabase's function secrets, but not to Supabase's vault.
+- Because of that last point, the scheduled job will be called by a GitHub Actions schedule, not Supabase's scheduler (`BUILD.md` phase 1). GitHub gets its own small Doppler config: the testing project's keys and the job's secret and address, never the production config.
+- `BUILD.md`: accounts are made as each phase needs them. Now: Doppler, Vercel, Supabase (both projects), and GitHub's settings. After the rinks say yes: Google Cloud.
+- Phase 0 and the professor's checklist now use the four clips the owner filmed from the stands, with the owner naming each jump as the known answer. Air time stays untested (no still-phone clips), and the jump cards stay undrawn until the owner can film from the boards. The card shows numbers only, because the clips show other skaters.
+
+### Verified
+
+- `npm test` passes as before.
+- The local server starts and serves the page with no settings. It exits with a clear message when a `.env` file sits in `app/` and when `DOPPLER_CONFIG` is `prd`, and it starts with `dev`.
+
+### Not verified (from memory)
+
+- That `doppler run` passes `DOPPLER_CONFIG` and `DOPPLER_ENVIRONMENT` to the program. The helper found them named in Doppler's docs but no page saying `doppler run` adds them. Check on the first real run. If they are missing, the production refusal does nothing, and only the dev config should ever be used on this computer.
+- That one Doppler config can refer to a secret in another, so the GitHub config does not need its own copy of the job's secret.
+- Whether two-step sign-in is available on Doppler's free plan (the pricing page lists "MFA", but the helper could not tell which plans include it).
+- That GitHub's scheduled workflows can start late and are switched off after 60 days without activity in a public repository.
