@@ -68,6 +68,7 @@ It serves three audiences: the skater, the coach, and the club.
 
 - [ ] Accounts with a username (the part other people see), an email, and a password.
 - [ ] Apple sign-in is wanted (see Open questions: Apple charges for it).
+- [ ] Google sign-in beside email and password (in the adopted `SECURITY.md` section 2, 2026-11-16).
 - [ ] Data is stored on the server wherever it is needed.
 
 ### Jump Lab
@@ -286,7 +287,6 @@ The owner said yes on 2026-11-20, after the agent checked Apple Music's and Spot
 
 ### Foundations
 
-- Google sign-in beside email and password. It is free; Apple is not.
 - Host on Vercel: the site, plus one small server function that keeps the AI key secret.
 - Start from MySkate's plain JavaScript code. Do not rewrite it into a framework.
 - Local first: the phone keeps working with no signal at the rink and syncs when it can.
@@ -438,13 +438,7 @@ The scoring approach behind ideas 2, 3, and 8: keep "measured" (what the camera 
 
 ### Order of work
 
-1. The weekend of Nov 14 to 15: the plan, the new repository, and the rink survey. (Done. The one-day test of Jump Lab is waiting for the owner's clips.)
-2. Nov 16 to 22: accounts and sync; the shared list of rinks, with Kent's and Bremerton's calendars read automatically and the week page from MySkate on top, open to anyone without an account; session reports and the kiss and cry when a session is saved; and Jump Lab's sure tier, with your best as a ghost.
-3. Nov 23 to 29: clubs and the coach view, with cue cards and who is on the ice; friends by username, with requests, block, and report; shared updates with approval, and the alert when a picked session moves; Jump Lab's likely tier, sending the skeleton to a coach, and milestone cards; and the jump cards.
-4. Nov 30 to Dec 6: the sixteen tools under More tools, starting with say it, don't type it, plan my week, and the coach board; the rink map with statuses; the page reader; the AI explanation in Jump Lab and your patterns; the pond with buddy visits and the dress studio; the off-ice studio; the swap shelf; watch your program; quests and the Fresh Ice token; a trial with one real coach; and polish for the demo.
-5. Dec 7 to 13: show it, fix what the trial found, write the reflection.
-
-Design the XP and hatch rules early, because they touch every tool. The art can come later.
+Replaced on 2026-11-22 by the phased plan in `BUILD.md` (proposed; it becomes the plan when the owner says "start building"). The old order put accounts and the rink list in the week of 11-16, and none of it was built.
 
 ## Open questions
 
@@ -453,7 +447,6 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Rink schedules: six of the rink sites looked at keep their schedule in a booking system with no calendar address, though each shows it on an open page (see the rink survey below). The page reader is in, and rinks are not told when it only reads their open page. Still open: the sites' terms of use have not been read, and that should happen before the reader runs against a real rink. Which rink do we ask first for a calendar address? The owner knows coaches and clubs who could ask.
 - Shared updates: who may propose one (the suggestion is skaters with that rink's stamp), and is the helper's username shown to everyone?
 - Is the rest of the safety list under Suggested approved, or only the proposal-and-approval part?
-- Which app showed the computer-vision scoring you saw? None of the seven links you sent describes camera scoring in its text. If it covered jumps only, OOFSkate or RinkUp fit best. If a judge-like score was the point, Skate Score fits. IceReel, one of your own links, lays official judges' scores over a phone video; the scores come from the protocol, not the camera, but it may be the one you remember. Scribe's link went to a custom product page we could not see.
 - Do you want four steps to gold (tried, landed in frost silver, steady, coach-passed in gold) in place of gold on the first landing?
 - For cue cards, keep the coach's own words with a length limit, an admin-visible history, and report and block, or limit cues to the list only? And are you happy for homework and coach corrections to be picks from lists?
 - Should the coach see only the lines a skater turns on, off by default, shown the next day or as weekly totals (weekly totals by default under 18), never rink, start time or session?
@@ -464,11 +457,9 @@ Design the XP and hatch rules early, because they touch every tool. The art can 
 - Can you ask the coach you know two things: what they want to see before a lesson, and whether they would put their lessons on rink sessions, sent as requests their students accept, so lessons move when the ice moves?
 - Should the 'How sure are we' page be public, starting with raw counts from your own 3 to 5 propped clips and no rate until there are dozens of known answers, with per-rink and per-mark figures shown only to signed-in users?
 - May adult skaters give single attempts (skeleton only, kept in a locked table in the real Supabase project, checked by a server job that returns totals only, never in the repo or CI) to grow the known answers, in return for XP and a thank-you sticker?
-- Should a visitor be able to try Jump Lab and the log on the phone before signing up, moved into an account later?
 - Would the clubs and rinks you know want an 'ice wanted' page and a free rink desk account, and how should a rink prove it speaks for the rink?
 - Should a rink desk's fixes and same-day notices wait for a coach or club admin of that rink to approve them, as planned, or go live at once? Going live at once would change the Decided rule that a shared update needs someone else's yes.
 - Apple sign-in needs Apple's paid developer account (about $99 a year), even on a website. Pay for it, or launch with email and Google?
-- Private messages: the owner is unsure, and worries about bullying. The suggestion is none.
 - Chat encryption: the kind only the people in a chat can read would stop admins from moderating. Which matters more?
 - Who checks the privacy policy?
 - How is the hosted AI coach paid for?

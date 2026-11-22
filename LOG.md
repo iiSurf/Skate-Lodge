@@ -419,3 +419,24 @@ The owner said Jump Lab does not need to show the skater only as a skeleton or w
 ### A coach can get the video (same day)
 
 Asked whether a skater may send the video itself to their coach, the owner said yes. `ROADMAP.md`: "Send the skeleton, not the video" became "Send a jump to your coach", with the real video. `SECURITY.md` section 7 was rewritten for it: only to a coach linked through a club invite with two-step sign-in, chosen clip by clip, private storage with links that expire, deleted after 30 days or on unlinking, never to the AI or training, a reminder about others in the background, and clip access added to the access tests. `CLAUDE.md` names it as the one exception to "no video of people". The agent chose the 30-day limit and the other details; the owner can change any of them.
+
+## 2026-11-22 (Sunday): the build plan
+
+### Plan
+
+The owner asked whether there is enough of a plan to start building, and for a plan to build in phases or all at once. Nothing is to be built yet. (A note: LOG.md called 2026-11-20 a Friday, which is right; 2026-11-22 is a Sunday.)
+
+### What was done
+
+- A multi-agent study, run once on 11-20 (cut off when the session ended) and again on 11-22 against the current roadmap: a readiness check, three phased drafts (show and tell first, foundations first, a skater's week first), a judge that merged them, and two checkers against every Decided item and `SECURITY.md`. The checkers found 41 problems.
+- `BUILD.md` (new): the merged plan with every fix applied. Phases 0 to 6 from 11-23 to 12-13, what only the owner can do before phase 1, how the two Supabase projects are used, what each phase builds and when it is done, the owner's calls with defaults, what waits until after 12-13, and what is shown on 12-07. Marked as proposed.
+- The fixes that matter most: sign-up closed on both projects, so Google cannot create an account without an invite; a separate staging address on the testing project for the show and the tests; block, report and the review page built before friends; "who is on the ice" as counts only until approved sharing exists; the trial waits until the privacy page is checked; Kent's and Bremerton's terms read before the calendar job runs; the job's endpoint protected by a secret kept out of the repo; a sync allowlist so no clip or music file can be uploaded by mistake; made-up pages, not saved copies of rink sites, to test the page reader; the owner's own clips and account used for testing only with a written yes.
+- `ROADMAP.md`: the old order of work replaced by a pointer to `BUILD.md`; three open questions that were already answered removed; Google sign-in moved to Decided to match the adopted `SECURITY.md`. `README.md` lists `BUILD.md`.
+
+### What a stranger could do with this
+
+Nothing yet: it is a plan. Each phase in it names its own security work.
+
+### Not verified
+
+Vercel's free-plan limits on scheduled jobs, Supabase's free-plan features for passwords and backups, whether an iPhone can receive pushes from a Home Screen site, and how fast body tracking runs on an iPhone. Each is tested early in the plan.
