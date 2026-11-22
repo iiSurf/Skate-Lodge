@@ -26,12 +26,16 @@ create table public.schedule_sources (
   id text primary key check (id ~ '^[a-z0-9-]{2,40}$'),
   rink_id text not null references public.rinks on delete cascade,
   kind text not null check (kind in ('freestyle', 'public', 'stick', 'learn', 'adult', 'other', 'mixed')),
+  -- How it is read: a calendar file at url, or a public Google Calendar through Google's Calendar API (never its public address).
+  via text not null default 'ics' check (via in ('ics', 'google')),
+  calendar_id text check (calendar_id ~ '^[a-z0-9._%+-]{1,120}@[a-z0-9.-]+\.[a-z]{2,}$'),
   url text not null check (url ~ '^https://[^\s]{4,500}$'),
   label text check (char_length(label) <= 120),
   approved boolean not null default false,
   -- The day this source's site terms were read (CLAUDE.md). The job fetches nothing until it is set.
   terms_checked date,
-  terms_note text check (char_length(terms_note) <= 500)
+  terms_note text check (char_length(terms_note) <= 500),
+  check (via <> 'google' or calendar_id is not null)
 );
 
 create table public.sessions (

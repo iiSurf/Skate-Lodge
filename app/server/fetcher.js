@@ -59,7 +59,8 @@ export async function safeFetch(rawUrl, opts = {}) {
     let url = checkUrl(rawUrl);
     for (let hop = 0; ; hop++) {
       const res = await transport(url.href, {
-        headers: { "user-agent": o.userAgent, accept: o.accept.join(", "), "accept-encoding": "identity" },
+        /* Extra headers (an API key) go in headers, never in the address, so they cannot end up in a log. */
+        headers: { ...(o.headers || {}), "user-agent": o.userAgent, accept: o.accept.join(", "), "accept-encoding": "identity" },
         signal: controller.signal,
       });
       if (res.status >= 300 && res.status < 400 && res.headers.location) {

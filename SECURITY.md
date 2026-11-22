@@ -109,7 +109,8 @@ Reading a rink's calendar address, and the page reader, both mean our server vis
 - [ ] GitHub's secret scanning and push protection are turned on for this repository.
 - [ ] Any key that ever shows up in a commit, a log, or a picture is replaced that day.
 - [ ] Separate projects and keys for testing and for the real thing. Each key can do only its own job.
-- [ ] Two-step sign-in is on for the owner's GitHub, Supabase, Vercel, AI provider, and email accounts. Whoever holds those holds everything.
+- [ ] Two-step sign-in is on for the owner's GitHub, Supabase, Vercel, Google Cloud, AI provider, and email accounts. Whoever holds those holds everything.
+- [ ] The Google API key (for reading public Google Calendars, decided 2026-11-22) is restricted in Google Cloud to the Calendar API only, lives only in Vercel's settings as GOOGLE_API_KEY, is sent in a header (never in an address), and is never logged. Its project has a quota low enough that a stolen key could not run up anything. A separate key for testing.
 
 ## 9. The browser's own protections
 

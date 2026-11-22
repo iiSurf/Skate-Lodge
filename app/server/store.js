@@ -94,8 +94,8 @@ export function supabaseStore(env) {
     },
     async sources() {
       /* The job's own view: approved sources, read with the service key so terms_checked is included. */
-      return (await write("/schedule_sources?select=id,rink_id,kind,url,label,approved,terms_checked&approved=is.true")).map((s) => ({
-        id: s.id, rinkId: s.rink_id, kind: s.kind, url: s.url, label: s.label, approved: s.approved, termsChecked: s.terms_checked,
+      return (await write("/schedule_sources?select=id,rink_id,kind,via,calendar_id,url,label,approved,terms_checked&approved=is.true")).map((s) => ({
+        id: s.id, rinkId: s.rink_id, kind: s.kind, via: s.via, calendarId: s.calendar_id, url: s.url, label: s.label, approved: s.approved, termsChecked: s.terms_checked,
       }));
     },
     async switchOn(name) {

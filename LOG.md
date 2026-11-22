@@ -488,3 +488,15 @@ A helper read the terms for the three calendars before the job is pointed at the
 The agent should have read Google's robots file before the rink survey on 2026-11-15 and 11-16, when it downloaded each of the three calendars once by hand. That has not been repeated.
 
 Also from the helper: Pierce County's site refuses automated readers (so Sprinker stays a link), and Lynnwood's schedule comes from a booking system, which the page reader never touches. The rinks' street addresses were checked from their own sites, except Sprinker and Lynnwood (from other sources, noted in `data/rinks.json`).
+
+### Reading Google Calendars through Google's Calendar API (same day)
+
+The owner chose Google's official Calendar API for Kent's and Bremerton's public Google Calendars. Recorded under Decided in `ROADMAP.md` and in `CLAUDE.md`.
+
+- `app/server/google.js` (new): asks the Calendar API for the next five weeks of single sessions on a calendar (Google expands the repeats), with our own key sent in the X-Goog-Api-Key header so it never appears in an address or a log, through the safe fetcher, accepting JSON only, at most four pages. Turns the events into sessions on the rink's clock, leaving out all-day, overnight, cancelled and out-of-window events, and keeping only public sessions from a mixed calendar.
+- The job (`server/refresh.js`) reads a source with `via: "google"` this way, and records "No Google API key in the server's settings" without fetching anything when the key is missing.
+- `data/rinks.json`, the seed and the database: the three sources now say `via: "google"` with their calendar IDs. A new check in the table makes a Google source carry a calendar ID.
+- `SECURITY.md` section 8: the key's rules (restricted to the Calendar API, Vercel's settings only, a header not an address, never logged, a low quota, a separate testing key), and Google Cloud added to the accounts that need two-step sign-in.
+- 7 new tests (59 pass, 4 database tests skip until the testing project exists), including that the key never appears in an address and that Google's errors never include it.
+
+Not done yet: the three sources stay switched off (no terms date) until Google's API terms are read (a helper is reading them now) and the owner has made the key. Nothing has called Google's API.

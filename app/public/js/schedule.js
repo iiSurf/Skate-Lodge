@@ -48,7 +48,12 @@ export function readCalendar(text, source, { today, maxEvents = 5000, deadline =
       rows.push({ sourceId: source.id, rinkId: source.rinkId, date: o.date, start: o.start, end: o.end, kind, title });
     }
   }
-  /* The same session written twice in a calendar shows once. */
+  const unique = finishRows(rows);
+  return { rows: unique, counts: { events: parsed.total, kept: unique.length, hidden, ended: parsed.ended, skipped: parsed.skipped, overflow: parsed.overflow || 0 } };
+}
+
+/* The same session written twice in a calendar shows once, and sessions come in time order. */
+export function finishRows(rows) {
   const seen = new Set();
   const unique = rows.filter((r) => {
     const k = [r.date, r.start, r.end, r.kind, r.title].join("|");
@@ -56,8 +61,7 @@ export function readCalendar(text, source, { today, maxEvents = 5000, deadline =
     seen.add(k);
     return true;
   });
-  unique.sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start));
-  return { rows: unique, counts: { events: parsed.total, kept: unique.length, hidden, ended: parsed.ended, skipped: parsed.skipped, overflow: parsed.overflow || 0 } };
+  return unique.sort((a, b) => a.date.localeCompare(b.date) || a.start.localeCompare(b.start));
 }
 
 /* Freestyle at Sno-King and the Kraken rink is sold in 30-minute slots, so one morning can be six cards in a row. Sessions at the

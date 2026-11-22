@@ -152,30 +152,36 @@
       "rinkId": "kent",
       "kind": "public",
       "label": "Kent Valley's public skating calendar",
-      "url": "https://calendar.google.com/calendar/ical/juvuejlh2bvf020bhbe4m2h2og%40group.calendar.google.com/public/basic.ics",
+      "url": "https://www.googleapis.com/calendar/v3/calendars/juvuejlh2bvf020bhbe4m2h2og%40group.calendar.google.com/events",
       "approved": true,
       "termsChecked": null,
-      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+      "termsNote": "Read through Google's Calendar API (the owner's choice, 2026-11-22), not the public calendar address, which Google's robots file disallows. Switched on once Google's API terms are read and a key exists.",
+      "via": "google",
+      "calendarId": "juvuejlh2bvf020bhbe4m2h2og@group.calendar.google.com"
     },
     {
       "id": "kent-freestyle",
       "rinkId": "kent",
       "kind": "freestyle",
       "label": "Kent Valley's freestyle calendar",
-      "url": "https://calendar.google.com/calendar/ical/46olt2gkbpsi5sht4l6fcot9bk%40group.calendar.google.com/public/basic.ics",
+      "url": "https://www.googleapis.com/calendar/v3/calendars/46olt2gkbpsi5sht4l6fcot9bk%40group.calendar.google.com/events",
       "approved": true,
       "termsChecked": null,
-      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+      "termsNote": "Read through Google's Calendar API (the owner's choice, 2026-11-22), not the public calendar address, which Google's robots file disallows. Switched on once Google's API terms are read and a key exists.",
+      "via": "google",
+      "calendarId": "46olt2gkbpsi5sht4l6fcot9bk@group.calendar.google.com"
     },
     {
       "id": "bremerton-all",
       "rinkId": "bremerton",
       "kind": "mixed",
       "label": "Bremerton's calendar",
-      "url": "https://calendar.google.com/calendar/ical/5436t72far42osn97g24b3fr2k%40group.calendar.google.com/public/basic.ics",
+      "url": "https://www.googleapis.com/calendar/v3/calendars/5436t72far42osn97g24b3fr2k%40group.calendar.google.com/events",
       "approved": true,
       "termsChecked": null,
-      "termsNote": "Read 2026-11-22: the rink's site has no terms page and its robots file allows reading. But the events come from Google, and calendar.google.com/robots.txt disallows every path but the home page, which Google's terms tie to automated access. Not fetched until the owner chooses a route."
+      "termsNote": "Read through Google's Calendar API (the owner's choice, 2026-11-22), not the public calendar address, which Google's robots file disallows. Switched on once Google's API terms are read and a key exists.",
+      "via": "google",
+      "calendarId": "5436t72far42osn97g24b3fr2k@group.calendar.google.com"
     }
   ]
 }
