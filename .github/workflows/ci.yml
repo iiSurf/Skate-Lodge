@@ -23,7 +23,8 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "22"
-      - run: npm test
+      # The same tests as npm test. The second reporter turns each failure into a note GitHub shows without signing in.
+      - run: node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./tools/github-reporter.mjs --test-reporter-destination=stdout "tests/*.test.js"
   access:
     if: github.event_name == 'push'
     needs: test
@@ -44,4 +45,4 @@ jobs:
           TEST_SUPABASE_URL: ${{ secrets.TEST_SUPABASE_URL }}
           TEST_SUPABASE_PUBLISHABLE_KEY: ${{ secrets.TEST_SUPABASE_PUBLISHABLE_KEY }}
           TEST_SUPABASE_SECRET_KEY: ${{ secrets.TEST_SUPABASE_SECRET_KEY }}
-        run: node --test tests/access.test.js
+        run: node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=./tools/github-reporter.mjs --test-reporter-destination=stdout tests/access.test.js
