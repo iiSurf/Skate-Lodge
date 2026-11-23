@@ -612,3 +612,26 @@ What changed:
 - The seed was regenerated and is unchanged. A one-off script checked all 2 orgs, 12 rinks and 3 sources against the new rules by hand: all pass. 70 tests: 65 pass, 5 skip.
 
 Not verified: that the rest of the SQL runs. It was read line by line, but there is no Postgres on this Mac, so the owner's next run in the testing project is the first real test. Also not checked: whether Supabase's SQL Editor undoes the whole run when one statement fails (from memory, it does), so the owner looks at the Table Editor before running again. The 255 limit is from memory, and it matches the error.
+
+## 2026-11-22 (Sunday, late night): Doppler filled and synced; the first run of the database tests
+
+What the owner set up (no value was ever shown to the agent):
+
+- Doppler, four configs. `dev`, `stg` and `ci` hold the testing project's address and keys (`ci` under `TEST_` names); `prd` holds the real project's. `stg` and `prd` each have their own `JOB_SECRET`, made with `openssl rand -base64 32`.
+- Syncs: `stg` to Vercel Preview (all preview branches) and `prd` to Vercel Production, both inside one Vercel integration that can reach only the `skate-lodge` project, with the "Secret" variable type (values can't be read back in Vercel) and import preferring Doppler. `ci` to the GitHub environment `testing`, with Doppler's GitHub app limited to this repository.
+
+Corrections to what the agent said from memory:
+
+- Doppler does not show `DOPPLER_PROJECT`, `DOPPLER_CONFIG` or `DOPPLER_ENVIRONMENT` in a config; the configs start empty. Whether `doppler run` adds them (which `tools/dev.mjs` relies on to refuse `prd`) is still unchecked.
+- Doppler's "Action Required: keep your secrets aligned" notice is about names that exist in only some configs. Here that is on purpose, and it is ignored.
+- Adding a second Vercel sync through Add Sync → Vercel starts a new install that defaults to all projects. The second sync was added inside the existing integration instead. Doppler's own pages (read 2026-11-22) don't describe that route.
+- The Supabase screen for the project address was described from memory, and the value copied from it seems to carry a path (see below).
+
+The database tests ran for the first time (they no longer skip), and failed:
+
+- Every database check answered 404. GitHub shows a run's log only to people signed in, so `tools/github-reporter.mjs` now turns each failing test into a note on the run that anyone can read. It hides anything shaped like a key and only prints status codes and short text. CI uses it next to the usual reporter.
+- Two new access tests: the address has the right shape (checked without printing it), and the tables are there with the 12 rinks.
+- Result: the key types are right. The address has something after `.supabase.co`, and the database answered `PGRST125 Invalid path specified in request URL`. The likely cause is `/rest/v1/` copied with the address. The owner removes it in all four configs; the real project's address was most likely copied the same way.
+- 72 tests on this Mac: 65 pass, 7 skip (the database tests).
+
+Not verified yet: that the tables and the 12 rinks are in the testing project (the new test says so once the address is fixed); anything in the real project.
