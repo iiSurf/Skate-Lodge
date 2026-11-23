@@ -637,3 +637,13 @@ The database tests ran for the first time (they no longer skip), and failed:
 Not verified yet: that the tables and the 12 rinks are in the testing project (the new test says so once the address is fixed); anything in the real project.
 
 Later the same night: the owner removed the extra path from the address in all four Doppler configs. On the next push (6387dd7), all 7 database tests passed against the testing project: the keys are the new kind, the address has the right shape, the 12 rinks are there, a stranger can read rinks, sessions and checks but write nothing, the job's tables and the database functions are out of reach, and every table has its rules on. The SQL is now known to run in a real Supabase project. The real project is not tested (on purpose: no test points at it); it is checked when the live site starts using it.
+
+Then, with the owner's yes ("Yes, update main"), `main` caught up with `phase-1` (a plain fast-forward from 7c4fbc4 to 2df8b9b), and Vercel deployed it to production with the `prd` settings. Checked on the live site:
+
+- `/api/week` answers 200 with 12 rinks, 3 approved sources, no sessions and `demo: false`. The rinks come in order of name, which is how the database query sorts them (the local file would start with Kent), so the live site reads from Supabase. This also shows the SQL ran in the real project and its address in `prd` is right.
+- The page at iPhone width (390): the week shows "No schedules have been read yet" and the 12 rinks under "More rinks". No sideways scrolling, no console errors.
+- No key, no `JOB_SECRET` and no database address appear in the page, its scripts and styles, or the API's answer.
+- Unchanged: every security header on pages and the API; private files (server code, rink data, migrations, tools, `package.json`, `vercel.json`, `.env`) answer 404; a past week answers 400; `/api/refresh` answers 401 with no secret and with a wrong one; an unknown API answers 404; `http` redirects (308).
+- CI passed on `main` (run 15).
+
+Not verified: that Vercel sets `VERCEL` or `VERCEL_ENV` inside functions (the guard that refuses the local file on Vercel); it only shows if a setting goes missing. That the real project and the testing project are not mixed up in Vercel can't be seen from outside, because both hold the same 12 rinks; Doppler's `prd` sync to Production is the only route for the real keys. Polling GitHub's API without signing in used up its 60 requests an hour, so later checks read GitHub's public pages instead.
