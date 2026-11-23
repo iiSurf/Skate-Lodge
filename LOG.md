@@ -635,3 +635,5 @@ The database tests ran for the first time (they no longer skip), and failed:
 - 72 tests on this Mac: 65 pass, 7 skip (the database tests).
 
 Not verified yet: that the tables and the 12 rinks are in the testing project (the new test says so once the address is fixed); anything in the real project.
+
+Later the same night: the owner removed the extra path from the address in all four Doppler configs. On the next push (6387dd7), all 7 database tests passed against the testing project: the keys are the new kind, the address has the right shape, the 12 rinks are there, a stranger can read rinks, sessions and checks but write nothing, the job's tables and the database functions are out of reach, and every table has its rules on. The SQL is now known to run in a real Supabase project. The real project is not tested (on purpose: no test points at it); it is checked when the live site starts using it.
