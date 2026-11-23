@@ -37,7 +37,7 @@ export default async function* github(source) {
     const error = data.details?.error;
     const cause = error?.cause ?? error;
     let message = hide(String(cause?.message ?? cause ?? "failed").split("\n")[0]);
-    if (cause && typeof cause === "object" && "actual" in cause) message += ` (got ${show(cause.actual)}, expected ${show(cause.expected)})`;
+    if (cause && typeof cause === "object" && "actual" in cause && cause.operator !== "fail") message += ` (got ${show(cause.actual)}, expected ${show(cause.expected)})`;
     const file = data.file ? data.file.split("/").pop() + ": " : "";
     yield `::error title=${title(file + data.name)}::${text(message)}\n`;
   }

@@ -22,6 +22,31 @@ test("the testing project's keys are the new kind, each in its right place", { s
   assert.ok(SERVICE.startsWith("sb_secret_"), "TEST_SUPABASE_SECRET_KEY should start with sb_secret_");
 });
 
+/* Describes what is wrong with the project address without printing it (the run's notes are public). */
+function addressProblem(url) {
+  if (!url.startsWith("https://")) return "it should start with https://";
+  if (/supabase\.com/.test(url)) return "it is a dashboard address (supabase.com), not the project address (.supabase.co)";
+  if (!/^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(url)) return "it should be https://<project code>.supabase.co with nothing after .co";
+  return null;
+}
+
+test("the testing project's address has the right shape", { skip }, () => {
+  assert.equal(addressProblem(URL_), null, "TEST_SUPABASE_URL");
+});
+
+test("the tables are there (the SQL was run in the testing project)", { skip }, async () => {
+  const r = await rest("/rinks?select=id", ANON);
+  let body;
+  try {
+    body = JSON.parse(await r.text());
+  } catch {
+    assert.fail(`reading rinks answered ${r.status}, and not from the database (${r.headers.get("content-type") || "no type"})`);
+  }
+  const said = Array.isArray(body) ? "" : `${body.code || ""} ${body.message || ""}`.trim();
+  assert.equal(r.status, 200, `reading rinks answered ${r.status}: ${said}`);
+  assert.equal(body.length, 12, "the 12 rinks from 0002_seed_rinks.sql");
+});
+
 test("a stranger can read rinks and sessions", { skip }, async () => {
   for (const t of ["rinks", "sessions", "source_checks"]) assert.equal((await rest(`/${t}?select=*&limit=1`, ANON)).status, 200, t);
 });
