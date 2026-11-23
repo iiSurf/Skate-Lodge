@@ -8,14 +8,15 @@ create table public.orgs (
   name text not null check (char_length(name) between 1 and 80)
 );
 
+-- Lengths are checked with char_length, not inside a pattern: Postgres refuses a repeat count over 255 in a pattern ({4,300}).
 create table public.rinks (
   id text primary key check (id ~ '^[a-z0-9-]{2,40}$'),
   org_id text references public.orgs on delete set null,
   name text not null check (char_length(name) between 1 and 80),
   city text check (char_length(city) <= 60),
   address text check (char_length(address) <= 160),
-  website text check (website ~ '^https://[^\s]{4,300}$'),
-  schedule_page text check (schedule_page ~ '^https://[^\s]{4,300}$'),
+  website text check (char_length(website) <= 300 and website ~ '^https://\S{4,}$'),
+  schedule_page text check (char_length(schedule_page) <= 300 and schedule_page ~ '^https://\S{4,}$'),
   time_zone text not null default 'America/Los_Angeles' check (char_length(time_zone) <= 40),
   color text check (color ~ '^#[0-9a-f]{6}$'),
   note text check (char_length(note) <= 120),
@@ -29,7 +30,7 @@ create table public.schedule_sources (
   -- How it is read: a calendar file at url, or a public Google Calendar through Google's Calendar API (never its public address).
   via text not null default 'ics' check (via in ('ics', 'google')),
   calendar_id text check (calendar_id ~ '^[a-z0-9._%+-]{1,120}@[a-z0-9.-]+\.[a-z]{2,}$'),
-  url text not null check (url ~ '^https://[^\s]{4,500}$'),
+  url text not null check (char_length(url) <= 500 and url ~ '^https://\S{4,}$'),
   label text check (char_length(label) <= 120),
   approved boolean not null default false,
   -- The day this source's site terms were read (CLAUDE.md). The job fetches nothing until it is set.

@@ -598,3 +598,17 @@ What changed:
 - 6 new tests in `tests/store.test.js`. 70 tests: 65 pass, and 5 database tests skip until the testing project's keys are given.
 
 Not verified: that Vercel sets `VERCEL` or `VERCEL_ENV` inside functions (from memory). It shows on the first deploy of this code: with no settings, `/api/week` should answer 503. Whether new Supabase projects still get the old keys at all is not stated in the docs, and it does not matter now.
+
+## 2026-11-22 (Sunday, night): the first run of the SQL failed
+
+The owner pasted `0001_rink_schedules.sql` and `0002_seed_rinks.sql` into the testing project's SQL Editor. Supabase first warned that the query "includes destructive operations". That warning is expected: it is set off by the `delete from` lines inside two functions (they run only when the job calls them), the `revoke` lines (which lock the tables before reading is given back), and `on delete cascade`. Nothing in a new project is removed.
+
+The run then stopped with `invalid regular expression: invalid repetition count(s)`. Postgres allows a repeat count of at most 255 inside a pattern, and three URL checks asked for `{4,300}` and `{4,500}`. This was never caught because the SQL had not been run in a real Postgres before.
+
+What changed:
+
+- `website`, `schedule_page` and `url` check their length with `char_length` (300, 300 and 500, as before) and their form with `'^https://\S{4,}$'`. A comment above the rinks table says why.
+- Every other repeat count in the file is 120 or less.
+- The seed was regenerated and is unchanged. A one-off script checked all 2 orgs, 12 rinks and 3 sources against the new rules by hand: all pass. 70 tests: 65 pass, 5 skip.
+
+Not verified: that the rest of the SQL runs. It was read line by line, but there is no Postgres on this Mac, so the owner's next run in the testing project is the first real test. Also not checked: whether Supabase's SQL Editor undoes the whole run when one statement fails (from memory, it does), so the owner looks at the Table Editor before running again. The 255 limit is from memory, and it matches the error.
